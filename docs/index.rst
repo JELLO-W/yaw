@@ -2,7 +2,7 @@
 YAW Documentation
 =====================================
 
-.. image:: https://github.com/JELLO-W/yaw/blob/master/examples/yaw.png
+.. image:: https://raw.githubusercontent.com/JELLO-W/yaw/main/examples/yaw.png
   :width: 400
   :alt: YAW logo
 

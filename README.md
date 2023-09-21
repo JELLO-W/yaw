@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/JELLO-W/yaw/blob/master/examples/yaw.png">
+  <img width="460" height="300" src="https://raw.githubusercontent.com/JELLO-W/yaw/main/examples/yaw.png">
 </p>
 
 
