@@ -2,9 +2,9 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>yaw_ros2_interfaces</name>
-  <version>0.4.10</version>
+  <version>0.4.18</version>
   <description>YAW ROS2 interfaces</description>
-  <maintainer email="anon@jello-w.com">Anon</maintainer>
+  <maintainer email="yaw@jello-w.nolink">JELLO-W</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

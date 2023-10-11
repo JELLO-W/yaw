@@ -1,9 +1,9 @@
-# iCub Setup and Instructions
+# YARP + iCub Setup and Instructions
 To run the iCub simulator, the YARP framework as well as the iCub simulator need to be installed. Before cloning YARP and iCub, checkout the [compatible versions](http://wiki.icub.org/wiki/Software_Versioning_Table).
 For this guide, we install YARP v3.3.2 and iCub (icub-main) v1.16.0. 
 
 ## Installing YARP
-Several intructional tutorials are available for installing YARP and its python bindings.
+Several instructional tutorials are available for installing YARP and its python bindings.
 The installation process described here works on Ubuntu 20.04 and Python 3.8.
 Download the YARP source and install following the [official installation documentation](https://www.yarp.it/install_yarp_linux.html) (do not use the precompiled binaries).
 Set the environment variable ```YARP_ROOT``` to the YARP source location:
@@ -45,7 +45,7 @@ should be set to the following (assuming you are in the build directory):
 
 Install from the source by following the [official installation documentation](http://wiki.icub.org/wiki/Linux:Installation_from_sources).
 
-# Running the Interface (in Simulation)
+## Running the Interface (in Simulation)
 
 1. Start the YARP server from the console 
     
@@ -105,7 +105,7 @@ be executed after starting the `iCub_SIM`:
    yarp connect /icubSim/face/emotions/out /icubSim/face/raw/in
     ```
    
-# Running YARP on multiple machines
+## Running YARP on multiple machines
 1. Run the YARP server on the host machine:
     
     ```yarpserver --ip <YOUR NETWORK IP> --socket 10000```

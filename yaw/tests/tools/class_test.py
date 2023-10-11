@@ -1,5 +1,7 @@
-import numpy as np
+import logging
 import time
+import numpy as np
+
 
 from yaw.connect.wrapper import MiddlewareCommunicator, DEFAULT_COMMUNICATOR
 

@@ -1,35 +1,34 @@
 
 <p align="center">
-  <img width="460" height="300" src="https://raw.githubusercontent.com/JELLO-W/yaw/main/examples/yaw.png">
+  <img width="460" height="300" src="https://raw.githubusercontent.com/JELLO-W/yaw/master/resources/yaw.png">
 </p>
 
 
 <hl/>
 
-YAW is a middleware communication wrapper for transmitting data across nodes, without the need to
-alter the operation pipeline of your python scripts. YAW introduces
+
+YAW is a middleware communication wrapper for transmitting data across nodes, without 
+altering the operation pipeline of your Python scripts. YAW introduces
 a number of helper functions to make middleware integration possible without the need to learn an entire framework, just to parallelize your processes on 
 multiple machines. 
-YAW supports [YARP](https://www.yarp.it/yarp_swig.html), [ROS](http://wiki.ros.org/rospy), [ROS 2](https://docs.ros2.org/foxy/api/rclpy/index.html), and [ZeroMQ](http://zeromq.org/).
+YAW supports [YARP](https://www.yarp.it/yarp_swig.html), [ROS](http://wiki.ros.org/rospy), [ROS2](https://docs.ros2.org/foxy/api/rclpy/index.html), and [ZeroMQ](http://zeromq.org/).
 
-To YAW a class, simply add the decorators describing the publisher and listener parameters. YAW imposes an object-oriented
-requirement on your coding style: All YAW-compatible functions need to be defined within a class. 
-
+To integrate YAW with your scripts, simply add the decorators describing the transmitting and listening method parameters.
 
 # Getting Started
 
-Before using YAW, Either YARP, ROS/2, or ZeroMQ must be installed. 
+Before using YAW, YARP, ROS, or ZeroMQ must be installed.
 
-Follow the [YARP installation guide](https://github.com/JELLO-W/yaw/blob/main/yaw_extensions/yarp/README.md#installing-yarp).
+* Follow the [YARP installation guide](https://github.com/JELLO-W/yaw/tree/master/yaw_extensions/yarp/README.md).<!-- [YARP installation guide](docs/yarp_install_lnk.md). -->
 Note that the iCub package is not needed for YAW to work and does not have to be installed if you do not intend on using the iCub robot.
 
-For installing ROS, follow the [ROS installation guide](http://wiki.ros.org/noetic/Installation/Ubuntu). 
+* For installing ROS, follow the [ROS installation guide](http://wiki.ros.org/noetic/Installation/Ubuntu). 
 We recommend installing ROS on Conda using the [RoboStack](https://github.com/RoboStack/ros-noetic) environment.
 
-For installing ROS 2, follow the [ROS 2 installation guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). 
-We recommend installing ROS 2 on Conda using the [RoboStack](https://github.com/RoboStack/ros-humble) environment.
+* For installing ROS2, follow the [ROS2 installation guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). 
+We recommend installing ROS2 on Conda using the [RoboStack](https://github.com/RoboStack/ros-humble) environment.
 
-ZeroMQ can be installed using pip: `pip install pyzmq`. 
+* ZeroMQ can be installed using pip: `pip install pyzmq`. 
 The xpub-xsub pattern followed in our ZeroMQ implementation requires a proxy broker. A broker is spawned by default as a daemon process.
 To avoid automatic spawning, pass the argument `start_proxy_broker=False` to the method register decorator. 
 A standalone broker can be found [here](https://github.com/JELLO-W/yaw/tree/master/yaw/standalone/zeromq_proxy_broker.py)
@@ -44,7 +43,7 @@ A standalone broker can be found [here](https://github.com/JELLO-W/yaw/tree/mast
 
 * YARP >= v3.3.2 
 * ROS Noetic Ninjemys
-* ROS 2 Humble Hawksbill **|** Galactic Geochelone **|** Foxy Fitzroy 
+* ROS2 Humble Hawksbill **|** Galactic Geochelone **|** Foxy Fitzroy 
 * PyZMQ 16.0, 17.1 and 19.0
 
 
@@ -56,7 +55,7 @@ Clone YAW:
 git clone https://github.com/JELLO-W/yaw.git
 ```
 
-To install Warpify using **pip**:
+To install YAW using **pip**:
 
 ```
 pip install .
@@ -89,7 +88,7 @@ e.g., with YARP
 <sub>
 
 ```python
-# Just your usual python class
+# Just your usual Python class
 
 
 class HelloWorld(object):
@@ -125,8 +124,8 @@ from yaw.connect.wrapper import MiddlewareCommunicator
 
 class HelloWorld(MiddlewareCommunicator):
     @MiddlewareCommunicator.register("NativeObject", "yarp",
-                                     "HelloWorld",
-                                     "/hello/my_message",
+                                     "HelloWorld", 
+                                     "/hello/my_message", 
                                      carrier="", should_wait=True)
     def send_message(self):
         msg = input("Type your message: ")
@@ -150,7 +149,7 @@ while True:
 </tr>
 </table>
 
-Run `yarpserver` from the command line. Now execute the python script above (with YAW) twice setting `LISTEN = False` and `LISTEN = True`. You can now type with the publisher's command line and preview the message within the listener's
+Run `yarpserver` from the command line. Now execute the Python script above (with YAW) twice setting `LISTEN = False` and `LISTEN = True`. You can now type with the publisher's command line and preview the message within the listener's
 
 
 * **Request-Reply** (req-rep): A requester sends a request to a responder, which responds to the request in a synchronous manner.
@@ -166,7 +165,7 @@ e.g., with ROS
 <sub>
 
 ```python
-# Just your usual python class
+# Just your usual Python class
 
 
 class HelloWorld(object):
@@ -204,12 +203,12 @@ from yaw.connect.wrapper import MiddlewareCommunicator
 
 class HelloWorld(MiddlewareCommunicator):
     @MiddlewareCommunicator.register("NativeObject", "ros",
-                                     "HelloWorld",
-                                     "/hello/my_message",
+                                     "HelloWorld", 
+                                     "/hello/my_message", 
                                      carrier="", should_wait=True)
     def send_message(self, a, b):
         msg = input("Type your message: ")
-        obj = {"message": msg,
+        obj = {"message": msg, 
                "a": a, "b": b, "sum": a + b}
         return obj,
 
@@ -221,7 +220,7 @@ mode = "request" if LISTEN else "reply"
 hello_world.activate_communication(hello_world.send_message, mode=mode)
 
 while True:
-    my_message, = hello_world.send_message(a=1 if LISTEN else None,
+    my_message, = hello_world.send_message(a=1 if LISTEN else None, 
                                            b=2 if LISTEN else None)
     print(my_message)
 ```
@@ -234,23 +233,24 @@ while True:
 
 
 
-Run `roscore` from the command line. Now execute the python script above (with YAW) twice setting `LISTEN = False` and `LISTEN = True`. You can now type within the server's command line and preview the message within the client's. 
+Run `roscore` from the command line. Now execute the Python script above (with YAW) twice setting `LISTEN = False` and `LISTEN = True`. You can now type within the server's command line and preview the message within the client's. 
 Note that the server's command line will not show the message until the client's command line has been used to send a request. The arguments are passed from the client to the server and the server's response is passed back to the client.
 
-For more examples of usage, refer to the [user guide](docs/usage.md) and [API documentation](docs/source/modules.rst). Run scripts in the [examples directory](https://github.com/JELLO-W/yaw/tree/master/examples) for trying out YAW. 
+For more examples of usage, refer to the [user guide](docs/usage.md). Run scripts in the [examples directory](https://github.com/JELLO-W/yaw/tree/master/examples) for trying out YAW. 
 
 # Supported Formats
 
 ## Middleware
 * [x] **YARP**
 * [x] **ROS**
-* [x] **ROS 2**
-* [x] **ZeroMQ**
+* [x] **ROS2**
+* [x] **ZeroMQ** (beta feature: `should_wait` trigger introduced with event monitoring)
 
 
 ## Serializers
 * [x] **JSON**
 * [ ] **msgpack**
+* [ ] **protobuf**
 
 ## Data Structures
 
@@ -262,12 +262,15 @@ Supported Objects by the `NativeObject` type include:
 * [x] [**JAX Tensor**](https://jax.readthedocs.io/en/latest/)
 * [x] [**MXNet Tensor**](https://mxnet.apache.org/versions/1.9.1/api/python.html)
 * [x] [**Paddlepaddle Tensor**](https://www.paddlepaddle.org.cn/documentation/docs/en/guides/index_en.html)
-* [x] [**Pandas Dataframe|Series**](https://pandas.pydata.org/docs/)
+* [x] [**Pandas DataFrame|Series**](https://pandas.pydata.org/docs/)
 * [x] [**Pillow Image**](https://pillow.readthedocs.io/en/stable/reference/Image.html)
+* [x] [**PyArrow Array**](https://arrow.apache.org/docs/python/index.html)
+* [x] [**Xarray DataArray|Dataset**](http://xarray.pydata.org/en/stable/)
+* [x] [**Dask Array|DataFrame**](https://www.dask.org/get-started)
+* [x] [**Zarr Array|Group**](https://zarr.readthedocs.io/en/stable/)
+* [x] [**Pint Quantity**](https://pint.readthedocs.io/en/stable/)
+* [ ] [**Pandas 2.0 DataFrame|Series**](https://pandas.pydata.org/docs/)
 * [ ] [**Gmpy 2 MPZ**](https://gmpy2.readthedocs.io/en/latest/) 
-* [ ] [**Pandas 2.0 Dataframe|Series**](https://pandas.pydata.org/docs/)
-* [x] [**PyArrow**](https://arrow.apache.org/docs/python/index.html)
-* [ ] [**Dask**](https://www.dask.org/get-started)
 
 ## Image
 
