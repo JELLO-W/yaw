@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.listeners package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw.listeners package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/yaw.listeners.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw-listeners-package">
+<h1>yaw.listeners package<a class="headerlink" href="#yaw-listeners-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.listeners.ros">
+<span id="yaw-listeners-ros-module"></span><h2>yaw.listeners.ros module<a class="headerlink" href="#module-yaw.listeners.ros" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.listeners.ros2">
+<span id="yaw-listeners-ros2-module"></span><h2>yaw.listeners.ros2 module<a class="headerlink" href="#module-yaw.listeners.ros2" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2Listener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2Listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ros2_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2Listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2Listener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener" title="yaw.connect.listeners.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">Listener</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2Listener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ros2_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2Listener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2Listener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>ros2_kwargs</strong> – dict: Additional kwargs for the ROS2 middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2Listener.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2Listener.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2Listener.close" title="Link to this definition"></a></dt>
+<dd><p>Close the subscriber.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2NativeObjectListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2NativeObjectListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2NativeObjectListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2NativeObjectListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.ros2.ROS2Listener" title="yaw.listeners.ros2.ROS2Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROS2Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2NativeObjectListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2NativeObjectListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2NativeObjectListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The NativeObject listener using the ROS2 String message assuming the data is serialized as a JSON string.
+Deserializes the data (including plugins) using the decoder and parses it to a native object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>deserializer_kwargs</strong> – dict: Additional kwargs for the deserializer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2NativeObjectListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2NativeObjectListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2NativeObjectListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the subscriber.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2NativeObjectListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2NativeObjectListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2NativeObjectListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any: The received message as a native python object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2ImageListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2ImageListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2ImageListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2ImageListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.ros2.ROS2Listener" title="yaw.listeners.ros2.ROS2Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROS2Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2ImageListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2ImageListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2ImageListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The Image listener using the ROS2 Image message parsed to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>width</strong> – int: Width of the image. Default is -1 (use the width of the received image)</p></li>
+<li><p><strong>height</strong> – int: Height of the image. Default is -1 (use the height of the received image)</p></li>
+<li><p><strong>rgb</strong> – bool: True if the image is RGB, False if it is grayscale. Default is True</p></li>
+<li><p><strong>fp</strong> – bool: True if the image is floating point, False if it is integer. Default is False</p></li>
+<li><p><strong>jpg</strong> – bool: True if the image should be decompressed from JPG. Default is False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2ImageListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2ImageListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2ImageListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the subscriber</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2ImageListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2ImageListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2ImageListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray: The received message as a numpy array formatted as a cv2 image np.ndarray[img_height, img_width, channels]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2AudioChunkListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2AudioChunkListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2AudioChunkListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2AudioChunkListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.ros2.ROS2Listener" title="yaw.listeners.ros2.ROS2Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROS2Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2AudioChunkListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2AudioChunkListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2AudioChunkListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The AudioChunk listener using the ROS2 Audio message parsed to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>channels</strong> – int: Number of channels in the audio. Default is 1</p></li>
+<li><p><strong>rate</strong> – int: Sampling rate of the audio. Default is 44100</p></li>
+<li><p><strong>chunk</strong> – int: Number of samples in the audio chunk. Default is -1 (use the chunk size of the received audio)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2AudioChunkListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2AudioChunkListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2AudioChunkListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the subscriber.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2AudioChunkListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2AudioChunkListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2AudioChunkListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[np.ndarray, int]: The received message as a numpy array formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2PropertiesListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2PropertiesListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2PropertiesListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2PropertiesListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.ros2.ROS2Listener" title="yaw.listeners.ros2.ROS2Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROS2Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.ros2.ROS2PropertiesListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/ros2.html#ROS2PropertiesListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.ros2.ROS2PropertiesListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>ros2_kwargs</strong> – dict: Additional kwargs for the ROS2 middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.listeners.yarp">
+<span id="yaw-listeners-yarp-module"></span><h2>yaw.listeners.yarp module<a class="headerlink" href="#module-yaw.listeners.yarp" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yarp_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener" title="yaw.connect.listeners.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yarp_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the publisher</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the output topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>persistent</strong> – bool: Whether the subscriber port should remain connected after closure. Default is True</p></li>
+<li><p><strong>yarp_kwargs</strong> – dict: Additional kwargs for  the Yarp middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpListener.await_connection">
+<span class="sig-name descname"><span class="pre">await_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpListener.await_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpListener.await_connection" title="Link to this definition"></a></dt>
+<dd><p>Wait for the publisher to connect to the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>repeats</strong> – int: Number of times to check for the parameter. None for infinite. Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpListener.read_port">
+<span class="sig-name descname"><span class="pre">read_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpListener.read_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpListener.read_port" title="Link to this definition"></a></dt>
+<dd><p>Read the port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>port</strong> – yarp.Port: Port to read from</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>yarp.Value: Value read from the port</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpListener.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpListener.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpListener.close" title="Link to this definition"></a></dt>
+<dd><p>Close the subscriber</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpNativeObjectListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpNativeObjectListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpNativeObjectListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpNativeObjectListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.yarp.YarpListener" title="yaw.listeners.yarp.YarpListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">YarpListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpNativeObjectListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpNativeObjectListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpNativeObjectListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The NativeObject listener using the BufferedPortBottle string construct assuming the data is serialized as a JSON string.
+Deserializes the data (including plugins) using the decoder and parses it to a Python object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>persistent</strong> – bool: Whether the subscriber port should remain connected after closure. Default is True</p></li>
+<li><p><strong>deserializer_kwargs</strong> – dict: Additional kwargs for the deserializer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpNativeObjectListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpNativeObjectListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpNativeObjectListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the connection to the publisher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: Number of repeats to await connection. None for infinite. Default is None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpNativeObjectListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpNativeObjectListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpNativeObjectListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any: The received message as a native python object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpImageListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpImageListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpImageListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpImageListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.yarp.YarpListener" title="yaw.listeners.yarp.YarpListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">YarpListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpImageListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpImageListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpImageListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The Image listener using the BufferedPortImage construct parsed to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>persistent</strong> – bool: Whether the subscriber port should remain connected after closure. Default is True</p></li>
+<li><p><strong>width</strong> – int: Width of the image. Default is -1 (use the width of the received image)</p></li>
+<li><p><strong>height</strong> – int: Height of the image. Default is -1 (use the height of the received image)</p></li>
+<li><p><strong>rgb</strong> – bool: True if the image is RGB, False if it is grayscale. Default is True</p></li>
+<li><p><strong>fp</strong> – bool: True if the image is floating point, False if it is integer. Default is False</p></li>
+<li><p><strong>jpg</strong> – bool: True if the image should be decompressed from JPG. Default is False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpImageListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpImageListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpImageListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the connection to the publisher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: Number of repeats to await connection. None for infinite. Default is None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpImageListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpImageListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpImageListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray: The received message as a numpy array formatted as a cv2 image np.ndarray[img_height, img_width, channels]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpAudioChunkListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpAudioChunkListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpAudioChunkListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpAudioChunkListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.yarp.YarpListener" title="yaw.listeners.yarp.YarpListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">YarpListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpAudioChunkListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'tcp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'udp'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mcast'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpAudioChunkListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpAudioChunkListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The AudioChunk listener using the Sound construct parsed as a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>persistent</strong> – bool: Whether the subscriber port should remain connected after closure. Default is True</p></li>
+<li><p><strong>channels</strong> – int: Number of channels in the audio. Default is 1</p></li>
+<li><p><strong>rate</strong> – int: Sampling rate of the audio. Default is 44100</p></li>
+<li><p><strong>chunk</strong> – int: Number of samples in the audio chunk. Default is -1 (use the chunk size of the received audio)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpAudioChunkListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpAudioChunkListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpAudioChunkListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the connection to the publisher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: Number of repeats to await connection. None for infinite. Default is None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpAudioChunkListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpAudioChunkListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpAudioChunkListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[np.ndarray, int]: The received message as a numpy array formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpPropertiesListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpPropertiesListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpPropertiesListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpPropertiesListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.yarp.YarpListener" title="yaw.listeners.yarp.YarpListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">YarpListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.yarp.YarpPropertiesListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/yarp.html#YarpPropertiesListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.yarp.YarpPropertiesListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the publisher</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the output topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>persistent</strong> – bool: Whether the subscriber port should remain connected after closure. Default is True</p></li>
+<li><p><strong>yarp_kwargs</strong> – dict: Additional kwargs for  the Yarp middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.listeners.zeromq">
+<span id="yaw-listeners-zeromq-module"></span><h2>yaw.listeners.zeromq module<a class="headerlink" href="#module-yaw.listeners.zeromq" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_pub_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5555</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pubsub_monitor_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ZEROMQ/CONNECTIONS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pubsub_monitor_listener_spawn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'process'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeromq_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener" title="yaw.connect.listeners.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_pub_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5555</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pubsub_monitor_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ZEROMQ/CONNECTIONS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pubsub_monitor_listener_spawn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'process'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeromq_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>socket_ip</strong> – str: IP address of the socket. Default is ‘127.0.0.1</p></li>
+<li><p><strong>socket_pub_port</strong> – int: Port of the socket for publishing.
+Note that the subscriber listens directly to this port which is proxied .
+Default is 5555</p></li>
+<li><p><strong>pubsub_monitor_topic</strong> – str: Topic to monitor the connections. Default is ‘ZEROMQ/CONNECTIONS’</p></li>
+<li><p><strong>pubsub_monitor_listener_spawn</strong> – str: Whether to spawn the PUB/SUB monitor listener as a process or thread. Default is ‘process’</p></li>
+<li><p><strong>zeromq_kwargs</strong> – dict: Additional kwargs for the ZeroMQ middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQListener.await_connection">
+<span class="sig-name descname"><span class="pre">await_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQListener.await_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQListener.await_connection" title="Link to this definition"></a></dt>
+<dd><p>Wait for the connection to be established.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>socket</strong> – zmq.Socket: Socket to await connection to</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic</p></li>
+<li><p><strong>repeats</strong> – int: Number of repeats to await connection. None for infinite. Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQListener.read_socket">
+<span class="sig-name descname"><span class="pre">read_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQListener.read_socket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQListener.read_socket" title="Link to this definition"></a></dt>
+<dd><p>Read the socket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>socket</strong> – zmq.Socket: Socket to read from</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes: Data read from the socket</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>yarp.Value: Value read from the port</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQListener.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQListener.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQListener.close" title="Link to this definition"></a></dt>
+<dd><p>Close the subscriber.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQNativeObjectListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQNativeObjectListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQNativeObjectListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQNativeObjectListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.zeromq.ZeroMQListener" title="yaw.listeners.zeromq.ZeroMQListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroMQListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQNativeObjectListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserializer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQNativeObjectListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQNativeObjectListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The NativeObject listener using the ZeroMQ message construct assuming the data is serialized as a JSON string.
+Deserializes the data (including plugins) using the decoder and parses it to a native object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>deserializer_kwargs</strong> – dict: Additional kwargs for the deserializer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQNativeObjectListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQNativeObjectListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQNativeObjectListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the connection to the publisher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: Number of repeats to await connection. None for infinite. Default is None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: True if connection established, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQNativeObjectListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQNativeObjectListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQNativeObjectListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any: The received message as a native python object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQImageListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQImageListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQImageListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQImageListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.zeromq.ZeroMQNativeObjectListener" title="yaw.listeners.zeromq.ZeroMQNativeObjectListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroMQNativeObjectListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQImageListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQImageListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQImageListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The Image listener using the ZeroMQ message construct parsed to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol (e.g. ‘tcp’). Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>width</strong> – int: Width of the image. Default is -1 (use the width of the received image)</p></li>
+<li><p><strong>height</strong> – int: Height of the image. Default is -1 (use the height of the received image)</p></li>
+<li><p><strong>rgb</strong> – bool: True if the image is RGB, False if it is grayscale. Default is True</p></li>
+<li><p><strong>fp</strong> – bool: True if the image is floating point, False if it is integer. Default is False</p></li>
+<li><p><strong>jpg</strong> – bool: True if the image should be decompressed from JPG. Default is False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQImageListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQImageListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQImageListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray: The received message as a numpy array formatted as a cv2 image np.ndarray[img_height, img_width, channels]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQAudioChunkListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQAudioChunkListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQAudioChunkListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQAudioChunkListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.zeromq.ZeroMQImageListener" title="yaw.listeners.zeromq.ZeroMQImageListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroMQImageListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQAudioChunkListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQAudioChunkListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQAudioChunkListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>The AudioChunk listener using the ZeroMQ message construct parsed to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>queue_size</strong> – int: Size of the queue for the subscriber. Default is 5</p></li>
+<li><p><strong>channels</strong> – int: Number of channels in the audio. Default is 1</p></li>
+<li><p><strong>rate</strong> – int: Sampling rate of the audio. Default is 44100</p></li>
+<li><p><strong>chunk</strong> – int: Number of samples in the audio chunk. Default is -1 (use the chunk size of the received audio)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQAudioChunkListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQAudioChunkListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQAudioChunkListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[np.ndarray, int]: The received message as a numpy array formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQPropertiesListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQPropertiesListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQPropertiesListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQPropertiesListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yaw.listeners.zeromq.ZeroMQListener" title="yaw.listeners.zeromq.ZeroMQListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroMQListener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.zeromq.ZeroMQPropertiesListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners/zeromq.html#ZeroMQPropertiesListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.zeromq.ZeroMQPropertiesListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the subscriber.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: Name of the subscriber</p></li>
+<li><p><strong>in_topic</strong> – str: Name of the input topic preceded by ‘/’ (e.g. ‘/topic’)</p></li>
+<li><p><strong>carrier</strong> – str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is ‘tcp’</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</p></li>
+<li><p><strong>socket_ip</strong> – str: IP address of the socket. Default is ‘127.0.0.1</p></li>
+<li><p><strong>socket_pub_port</strong> – int: Port of the socket for publishing.
+Note that the subscriber listens directly to this port which is proxied .
+Default is 5555</p></li>
+<li><p><strong>pubsub_monitor_topic</strong> – str: Topic to monitor the connections. Default is ‘ZEROMQ/CONNECTIONS’</p></li>
+<li><p><strong>pubsub_monitor_listener_spawn</strong> – str: Whether to spawn the PUB/SUB monitor listener as a process or thread. Default is ‘process’</p></li>
+<li><p><strong>zeromq_kwargs</strong> – dict: Additional kwargs for the ZeroMQ middleware</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional kwargs for the subscriber</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.listeners">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yaw.listeners" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.listeners.FallbackListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.listeners.</span></span><span class="sig-name descname"><span class="pre">FallbackListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_middleware_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners.html#FallbackListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.FallbackListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener" title="yaw.connect.listeners.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">Listener</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.FallbackListener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_middleware_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners.html#FallbackListener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.FallbackListener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Listener.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: The name of the listener</p></li>
+<li><p><strong>in_topic</strong> – str: The topic to listen to</p></li>
+<li><p><strong>carrier</strong> – str: The middleware carrier to use</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether to wait for the listener to be established or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.FallbackListener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners.html#FallbackListener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.FallbackListener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the listener.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.FallbackListener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners.html#FallbackListener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.FallbackListener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for incoming data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.listeners.FallbackListener.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/listeners.html#FallbackListener.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.listeners.FallbackListener.close" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

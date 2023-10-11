@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.servers.yarp &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+          <li class="breadcrumb-item"><a href="../servers.html">yaw.servers</a></li>
+      <li class="breadcrumb-item active">yaw.servers.yarp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.servers.yarp</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">yarp</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.servers</span> <span class="kn">import</span> <span class="n">Server</span><span class="p">,</span> <span class="n">Servers</span>
+<span class="kn">from</span> <span class="nn">yaw.middlewares.yarp</span> <span class="kn">import</span> <span class="n">YarpMiddleware</span>
+<span class="kn">from</span> <span class="nn">yaw.encoders</span> <span class="kn">import</span> <span class="n">JsonEncoder</span><span class="p">,</span> <span class="n">JsonDecodeHook</span>
+
+
+<div class="viewcode-block" id="YarpServer">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpServer">[docs]</a>
+<span class="k">class</span> <span class="nc">YarpServer</span><span class="p">(</span><span class="n">Server</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpServer.__init__">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpServer.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+                 <span class="n">out_topic_connect</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">yarp_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the server.</span>
+
+<span class="sd">        :param name: str: Name of the server</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param out_topic_connect: str: Name of the output topic connection alias &#39;/&#39; (e.g. &#39;/topic:out&#39;) to connect to.</span>
+<span class="sd">                                        None appends &#39;:out&#39; to the out_topic. Default is None</span>
+<span class="sd">        :param yarp_kwargs: dict: Additional kwargs for  the Yarp middleware</span>
+<span class="sd">        :param kwargs: dict: Additional kwargs for the server</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">out_topic_connect</span><span class="o">=</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">YarpMiddleware</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="o">**</span><span class="n">yarp_kwargs</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ContactStyle</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">persistent</span> <span class="o">=</span> <span class="n">persistent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">carrier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">persistent</span> <span class="o">=</span> <span class="n">persistent</span></div>
+
+
+<div class="viewcode-block" id="YarpServer.close">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpServer.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_port&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="YarpNativeObjectServer">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer">[docs]</a>
+<span class="nd">@Servers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpNativeObjectServer</span><span class="p">(</span><span class="n">YarpServer</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpNativeObjectServer.__init__">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+                 <span class="n">out_topic_connect</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">serializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">deserializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specific server handling native Python objects, serializing them to JSON strings for transmission.</span>
+
+<span class="sd">        :param name: str: Name of the server</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param out_topic_connect: str: Name of the output topic connection alias &#39;/&#39; (e.g. &#39;/topic:out&#39;) to connect to.</span>
+<span class="sd">                                        None appends &#39;:out&#39; to the out_topic. Default is None</span>
+<span class="sd">        :param persistent: bool: Whether the server port should remain connected after closure. Default is True</span>
+<span class="sd">        :param serializer_kwargs: dict: Additional kwargs for the serializer</span>
+<span class="sd">        :param deserializer_kwargs: dict: Additional kwargs for the deserializer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">out_topic_connect</span><span class="o">=</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span> <span class="o">=</span> <span class="n">JsonEncoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span> <span class="o">=</span> <span class="n">serializer_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_decoder_hook</span> <span class="o">=</span> <span class="n">JsonDecodeHook</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">object_hook</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deserializer_kwargs</span> <span class="o">=</span> <span class="n">deserializer_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="YarpNativeObjectServer.establish">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the connection to the server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">RpcServer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">persistent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">persistent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">established</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="YarpNativeObjectServer.await_request">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.await_request">[docs]</a>
+    <span class="k">def</span> <span class="nf">await_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Await and deserialize the client&#39;s request, returning the extracted arguments and keyword arguments.</span>
+<span class="sd">        The method blocks until a message is received, then attempts to deserialize it using the configured JSON decoder</span>
+<span class="sd">        hook, returning the extracted arguments and keyword arguments.</span>
+
+<span class="sd">        :return: Tuple[list, dict]: A tuple containing two items:</span>
+<span class="sd">                 - A list of arguments extracted from the received message</span>
+<span class="sd">                 - A dictionary of keyword arguments extracted from the received message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">obj_msg</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Bottle</span><span class="p">()</span>
+            <span class="n">obj_msg</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">request</span><span class="p">:</span>
+                <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">obj_msg</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="p">[</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">obj_msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">asString</span><span class="p">(),</span> <span class="n">object_hook</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_decoder_hook</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_deserializer_kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;[YARP] Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[],</span> <span class="p">{}</span></div>
+
+
+<div class="viewcode-block" id="YarpNativeObjectServer.reply">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.reply">[docs]</a>
+    <span class="k">def</span> <span class="nf">reply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialize the provided Python object to a JSON string and send it as a reply to the client.</span>
+<span class="sd">        The method uses the configured JSON encoder for serialization before sending the resultant string to the client.</span>
+
+<span class="sd">        :param obj: Any: The Python object to be serialized and sent</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">obj_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span><span class="p">,</span>
+                             <span class="n">serializer_kwrags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span><span class="p">)</span>
+        <span class="n">obj_msg</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Bottle</span><span class="p">()</span>
+        <span class="n">obj_msg</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">obj_msg</span><span class="o">.</span><span class="n">addString</span><span class="p">(</span><span class="n">obj_str</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">persistent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="n">obj_msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">replyAndDrop</span><span class="p">(</span><span class="n">obj_msg</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="YarpImageServer">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpImageServer">[docs]</a>
+<span class="nd">@Servers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpImageServer</span><span class="p">(</span><span class="n">YarpNativeObjectServer</span><span class="p">):</span>
+<div class="viewcode-block" id="YarpImageServer.__init__">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpImageServer.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+                 <span class="n">out_topic_connect</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">deserializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specific server handling image data as numpy arrays, serializing them to JSON strings for transmission.</span>
+
+<span class="sd">        :param name: str: Name of the server</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param out_topic_connect: str: Name of the output topic connection alias &#39;/&#39; (e.g. &#39;/topic:out&#39;) to connect to.</span>
+<span class="sd">                                        None appends &#39;:out&#39; to the out_topic. Default is None</span>
+<span class="sd">        :param persistent: bool: Whether the server port should remain connected after closure. Default is True</span>
+<span class="sd">        :param width: int: Width of the image. Default is -1 (use the width of the received image)</span>
+<span class="sd">        :param height: int: Height of the image. Default is -1 (use the height of the received image)</span>
+<span class="sd">        :param rgb: bool: True if the image is RGB, False if it is grayscale. Default is True</span>
+<span class="sd">        :param fp: bool: True if the image is floating point, False if it is integer. Default is False</span>
+<span class="sd">        :param deserializer_kwargs: dict: Additional kwargs for the deserializer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;jpg&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;[YARP] YARP currently does not support JPG encoding in REQ/REP. Using raw image.&quot;</span><span class="p">)</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;jpg&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">out_topic_connect</span><span class="o">=</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="n">deserializer_kwargs</span><span class="o">=</span><span class="n">deserializer_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="YarpImageServer.reply">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpImageServer.reply">[docs]</a>
+    <span class="k">def</span> <span class="nf">reply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialize the provided image data and send it as a reply to the client.</span>
+
+<span class="sd">        :param img: np.ndarray: Image to send formatted as a cv2 image - np.ndarray[img_height, img_width, channels]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> \
+                <span class="ow">not</span> <span class="p">((</span><span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="ow">and</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect image shape for publisher&quot;</span><span class="p">)</span>
+        <span class="c1"># img = np.require(img, dtype=self._type, requirements=&#39;C&#39;)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="n">img</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="YarpAudioChunkServer">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer">[docs]</a>
+<span class="nd">@Servers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;AudioChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpAudioChunkServer</span><span class="p">(</span><span class="n">YarpNativeObjectServer</span><span class="p">):</span>
+<div class="viewcode-block" id="YarpAudioChunkServer.__init__">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+                 <span class="n">out_topic_connect</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">chunk</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">deserializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specific server handling audio data as numpy arrays, serializing them to JSON strings for transmission.</span>
+
+<span class="sd">        :param name: str: Name of the server</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param out_topic_connect: str: Name of the output topic connection alias &#39;/&#39; (e.g. &#39;/topic:out&#39;) to connect to.</span>
+<span class="sd">                                        None appends &#39;:out&#39; to the out_topic. Default is None</span>
+<span class="sd">        :param persistent: bool: Whether the server port should remain connected after closure. Default is True</span>
+<span class="sd">        :param channels: int: Number of channels in the audio. Default is 1</span>
+<span class="sd">        :param rate: int: Sampling rate of the audio. Default is 44100</span>
+<span class="sd">        :param chunk: int: Number of samples in the audio chunk. Default is -1 (use the chunk size of the received audio)</span>
+<span class="sd">        :param deserializer_kwargs: dict: Additional kwargs for the deserializer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">out_topic_connect</span><span class="o">=</span><span class="n">out_topic_connect</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="n">deserializer_kwargs</span><span class="o">=</span><span class="n">deserializer_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span></div>
+
+
+<div class="viewcode-block" id="YarpAudioChunkServer.reply">
+<a class="viewcode-back" href="../../../source/yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer.reply">[docs]</a>
+    <span class="k">def</span> <span class="nf">reply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aud</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialize the provided audio data and send it as a reply to the client.</span>
+
+<span class="sd">        :param aud: Tuple[np.ndarray, int]: Audio chunk to publish formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">aud</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">aud</span>
+        <span class="k">if</span> <span class="n">aud</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">!=</span> <span class="n">rate</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect audio rate for server reply&quot;</span><span class="p">)</span>
+        <span class="n">chunk</span><span class="p">,</span> <span class="n">channels</span> <span class="o">=</span> <span class="n">aud</span><span class="o">.</span><span class="n">shape</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aud</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="n">aud</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">!=</span> <span class="n">chunk</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">!=</span> <span class="n">channels</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect audio shape for publisher&quot;</span><span class="p">)</span>
+        <span class="n">aud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">aud</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">requirements</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reply</span><span class="p">((</span><span class="n">chunk</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">aud</span><span class="p">))</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

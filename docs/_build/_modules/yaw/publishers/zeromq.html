@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.publishers.zeromq &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+          <li class="breadcrumb-item"><a href="../publishers.html">yaw.publishers</a></li>
+      <li class="breadcrumb-item active">yaw.publishers.zeromq</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.publishers.zeromq</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">zmq</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.publishers</span> <span class="kn">import</span> <span class="n">Publisher</span><span class="p">,</span> <span class="n">Publishers</span><span class="p">,</span> <span class="n">PublisherWatchDog</span>
+<span class="kn">from</span> <span class="nn">yaw.middlewares.zeromq</span> <span class="kn">import</span> <span class="n">ZeroMQMiddlewarePubSub</span>
+<span class="kn">from</span> <span class="nn">yaw.encoders</span> <span class="kn">import</span> <span class="n">JsonEncoder</span>
+
+
+<span class="n">SOCKET_IP</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_SOCKET_IP&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">)</span>
+<span class="n">SOCKET_PUB_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_SOCKET_PUB_PORT&quot;</span><span class="p">,</span> <span class="mi">5555</span><span class="p">))</span>
+<span class="n">SOCKET_SUB_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_SOCKET_SUB_PORT&quot;</span><span class="p">,</span> <span class="mi">5556</span><span class="p">))</span>
+<span class="n">PARAM_PUB_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PARAM_PUB_PORT&quot;</span><span class="p">,</span> <span class="mi">5655</span><span class="p">))</span>
+<span class="n">PARAM_SUB_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PARAM_SUB_PORT&quot;</span><span class="p">,</span> <span class="mi">5656</span><span class="p">))</span>
+<span class="n">PARAM_REQREP_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PARAM_REQREP_PORT&quot;</span><span class="p">,</span> <span class="mi">5659</span><span class="p">))</span>
+<span class="n">PARAM_POLL_INTERVAL</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PARAM_POLL_INTERVAL&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">START_PROXY_BROKER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_START_PROXY_BROKER&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;False&quot;</span>
+<span class="n">PROXY_BROKER_SPAWN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PROXY_BROKER_SPAWN&quot;</span><span class="p">,</span> <span class="s2">&quot;process&quot;</span><span class="p">)</span>
+<span class="n">ZEROMQ_PUBSUB_MONITOR_TOPIC</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PUBSUB_MONITOR_TOPIC&quot;</span><span class="p">,</span> <span class="s2">&quot;ZEROMQ/CONNECTIONS&quot;</span><span class="p">)</span>
+<span class="n">ZEROMQ_PUBSUB_MONITOR_LISTENER_SPAWN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_ZEROMQ_PUBSUB_MONITOR_LISTENER_SPAWN&quot;</span><span class="p">,</span> <span class="s2">&quot;process&quot;</span><span class="p">)</span>
+<span class="n">WATCHDOG_POLL_REPEAT</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="ZeroMQPublisher">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher">[docs]</a>
+<span class="k">class</span> <span class="nc">ZeroMQPublisher</span><span class="p">(</span><span class="n">Publisher</span><span class="p">):</span>
+<div class="viewcode-block" id="ZeroMQPublisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">socket_ip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">SOCKET_IP</span><span class="p">,</span> <span class="n">socket_pub_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">SOCKET_PUB_PORT</span><span class="p">,</span> <span class="n">socket_sub_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">SOCKET_SUB_PORT</span><span class="p">,</span>
+                 <span class="n">start_proxy_broker</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">START_PROXY_BROKER</span><span class="p">,</span> <span class="n">proxy_broker_spawn</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">PROXY_BROKER_SPAWN</span><span class="p">,</span>
+                 <span class="n">pubsub_monitor_topic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ZEROMQ_PUBSUB_MONITOR_TOPIC</span><span class="p">,</span>
+                 <span class="n">pubsub_monitor_listener_spawn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">ZEROMQ_PUBSUB_MONITOR_LISTENER_SPAWN</span><span class="p">,</span>
+                 <span class="n">zeromq_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the publisher and start the proxy broker if necessary.</span>
+
+<span class="sd">        :param name: str: Name of the publisher</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether to wait for at least one listener before unblocking the script. Default is True</span>
+<span class="sd">        :param socket_ip: str: IP address of the socket. Default is &#39;127.0.0.1&#39;</span>
+<span class="sd">        :param socket_pub_port: int: Port of the socket for publishing. Default is 5555</span>
+<span class="sd">        :param socket_sub_port: int: Port of the socket for subscribing. Default is 5556</span>
+<span class="sd">        :param start_proxy_broker: bool: Whether to start a proxy broker. Default is True</span>
+<span class="sd">        :param proxy_broker_spawn: str: Whether to spawn the proxy broker as a process or thread. Default is &#39;process&#39;</span>
+<span class="sd">        :param pubsub_monitor_topic: str: Topic to monitor the connections. Default is &#39;ZEROMQ/CONNECTIONS&#39;</span>
+<span class="sd">        :param pubsub_monitor_listener_spawn: str: Whether to spawn the PUB/SUB monitor listener as a process or thread. Default is &#39;process&#39;</span>
+<span class="sd">        :param zeromq_kwargs: dict: Additional kwargs for the ZeroMQ Pub/Sub middleware</span>
+<span class="sd">        :param kwargs: Additional kwargs for the publisher</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">carrier</span> <span class="ow">or</span> <span class="n">carrier</span> <span class="o">!=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;[ZeroMQ] ZeroMQ does not support other carriers than TCP for PUB/SUB pattern. Using TCP.&quot;</span><span class="p">)</span>
+            <span class="n">carrier</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_pub_address</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">carrier</span><span class="si">}</span><span class="s2">://</span><span class="si">{</span><span class="n">socket_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">socket_pub_port</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_sub_address</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">carrier</span><span class="si">}</span><span class="s2">://</span><span class="si">{</span><span class="n">socket_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">socket_sub_port</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">ZeroMQMiddlewarePubSub</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">socket_pub_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_pub_address</span><span class="p">,</span>
+                                        <span class="n">socket_sub_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_sub_address</span><span class="p">,</span>
+                                        <span class="n">start_proxy_broker</span><span class="o">=</span><span class="n">start_proxy_broker</span><span class="p">,</span>
+                                        <span class="n">proxy_broker_spawn</span><span class="o">=</span><span class="n">proxy_broker_spawn</span><span class="p">,</span>
+                                        <span class="n">pubsub_monitor_topic</span><span class="o">=</span><span class="n">pubsub_monitor_topic</span><span class="p">,</span>
+                                        <span class="n">pubsub_monitor_listener_spawn</span><span class="o">=</span><span class="n">pubsub_monitor_listener_spawn</span><span class="p">,</span>
+                                        <span class="o">**</span><span class="n">zeromq_kwargs</span> <span class="ow">or</span> <span class="p">{})</span>
+
+        <span class="n">ZeroMQMiddlewarePubSub</span><span class="p">()</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">add_topic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQPublisher.await_connection">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.await_connection">[docs]</a>
+    <span class="k">def</span> <span class="nf">await_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for the connection to be established.</span>
+
+<span class="sd">        :param out_topic: str: Name of the output topic</span>
+<span class="sd">        :param repeats: int: Number of repeats to await connection. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">out_topic</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">out_topic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Waiting for output connection: </span><span class="si">{</span><span class="n">out_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">repeats</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+                <span class="n">repeats</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">while</span> <span class="n">repeats</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">repeats</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">repeats</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">connected</span> <span class="o">=</span> <span class="n">ZeroMQMiddlewarePubSub</span><span class="p">()</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">is_connected</span><span class="p">(</span><span class="n">out_topic</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">connected</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Output connection established: </span><span class="si">{</span><span class="n">out_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">connected</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQPublisher.close">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the publisher.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ZeroMQMiddlewarePubSub</span><span class="p">()</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">remove_topic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_socket&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="ZeroMQNativeObjectPublisher">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher">[docs]</a>
+<span class="nd">@Publishers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ZeroMQNativeObjectPublisher</span><span class="p">(</span><span class="n">ZeroMQPublisher</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ZeroMQNativeObjectPublisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">serializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The NativeObjectPublisher using the ZeroMQ message construct assuming a combination of python native objects</span>
+<span class="sd">        and numpy arrays as input. Serializes the data (including plugins) using the encoder and sends it as a string.</span>
+
+<span class="sd">        :param name: str: Name of the publisher</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether to wait for at least one listener before unblocking the script. Default is True</span>
+<span class="sd">        :param serializer_kwargs: dict: Additional kwargs for the serializer</span>
+<span class="sd">        :param kwargs: dict: Additional kwargs for the publisher</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span> <span class="o">=</span> <span class="n">JsonEncoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span> <span class="o">=</span> <span class="n">serializer_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+            <span class="n">PublisherWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQNativeObjectPublisher.establish">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the connection to the publisher.</span>
+
+<span class="sd">        :param repeats: int: Number of repeats to await connection. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUB</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">socket_property</span> <span class="ow">in</span> <span class="n">ZeroMQMiddlewarePubSub</span><span class="p">()</span><span class="o">.</span><span class="n">zeromq_kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_sub_address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_topic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">await_connection</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">repeats</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_establishment</span><span class="p">(</span><span class="n">established</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQNativeObjectPublisher.publish">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.publish">[docs]</a>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish the object to the middleware.</span>
+
+<span class="sd">        :param obj: object: Object to publish</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">obj_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span><span class="p">,</span>
+                             <span class="n">serializer_kwrags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">,</span> <span class="n">obj_str</span><span class="o">.</span><span class="n">encode</span><span class="p">()])</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ZeroMQImagePublisher">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher">[docs]</a>
+<span class="nd">@Publishers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ZeroMQImagePublisher</span><span class="p">(</span><span class="n">ZeroMQNativeObjectPublisher</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ZeroMQImagePublisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">jpg</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The ImagePublisher using the ZeroMQ message construct assuming a numpy array as input.</span>
+
+<span class="sd">        :param name: str: Name of the publisher</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether to wait for at least one listener before unblocking the script. Default is True</span>
+<span class="sd">        :param width: int: Width of the image. Default is -1 meaning that the width is not fixed</span>
+<span class="sd">        :param height: int: Height of the image. Default is -1 meaning that the height is not fixed</span>
+<span class="sd">        :param rgb: bool: True if the image is RGB, False if it is grayscale. Default is True</span>
+<span class="sd">        :param fp: bool: True if the image is floating point, False if it is integer. Default is False</span>
+<span class="sd">        :param jpg: bool: True if the image should be compressed as JPG. Default is False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jpg</span> <span class="o">=</span> <span class="n">jpg</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQImagePublisher.publish">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher.publish">[docs]</a>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish the image to the middleware.</span>
+
+<span class="sd">        :param img: np.ndarray: Image to publish formatted as a cv2 image np.ndarray[img_height, img_width, channels]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> \
+                <span class="ow">not</span> <span class="p">((</span><span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="ow">and</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect image shape for publisher&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">img</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s1">&#39;C_CONTIGUOUS&#39;</span><span class="p">]:</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jpg</span><span class="p">:</span>
+            <span class="n">img_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span><span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="n">img</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">img_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span><span class="p">,</span>
+                                 <span class="n">serializer_kwrags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="n">img_header</span> <span class="o">=</span> <span class="s1">&#39;{timestamp:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">,</span> <span class="n">img_header</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">img_str</span><span class="p">])</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ZeroMQAudioChunkPublisher">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher">[docs]</a>
+<span class="nd">@Publishers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;AudioChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ZeroMQAudioChunkPublisher</span><span class="p">(</span><span class="n">ZeroMQNativeObjectPublisher</span><span class="p">):</span>
+<div class="viewcode-block" id="ZeroMQAudioChunkPublisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">chunk</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The AudioChunkPublisher using the ZeroMQ message construct assuming a numpy array as input.</span>
+
+<span class="sd">        :param name: str: Name of the publisher</span>
+<span class="sd">        :param out_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol. ZeroMQ currently only supports TCP for PUB/SUB pattern. Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether to wait for at least one listener before unblocking the script. Default is True</span>
+<span class="sd">        :param channels: int: Number of channels. Default is 1</span>
+<span class="sd">        :param rate: int: Sampling rate. Default is 44100</span>
+<span class="sd">        :param chunk: int: Chunk size. Default is -1 meaning that the chunk size is not fixed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span>
+                         <span class="n">width</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">jpg</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQAudioChunkPublisher.publish">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher.publish">[docs]</a>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aud</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish the audio chunk to the middleware.</span>
+
+<span class="sd">        :param aud: Tuple[np.ndarray, int]: Audio chunk to publish formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="n">aud</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">aud</span>
+        <span class="k">if</span> <span class="n">aud</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">!=</span> <span class="n">rate</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect audio rate for publisher&quot;</span><span class="p">)</span>
+        <span class="n">chunk</span><span class="p">,</span> <span class="n">channels</span> <span class="o">=</span> <span class="n">aud</span><span class="o">.</span><span class="n">shape</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aud</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="n">aud</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">!=</span> <span class="n">chunk</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">!=</span> <span class="n">channels</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect audio shape for publisher&quot;</span><span class="p">)</span>
+        <span class="n">aud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">aud</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">requirements</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+
+        <span class="n">aud_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">chunk</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">aud</span><span class="p">),</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_encoder</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_kwargs</span><span class="p">,</span>
+                             <span class="n">serializer_kwrags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_serializer_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="n">aud_header</span> <span class="o">=</span> <span class="s1">&#39;{timestamp:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">,</span> <span class="n">aud_header</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">aud_str</span><span class="p">])</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ZeroMQPropertiesPublisher">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPropertiesPublisher">[docs]</a>
+<span class="nd">@Publishers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Properties&quot;</span><span class="p">,</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ZeroMQPropertiesPublisher</span><span class="p">(</span><span class="n">ZeroMQPublisher</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ZeroMQPropertiesPublisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPropertiesPublisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

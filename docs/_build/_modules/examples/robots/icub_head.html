@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.robots.icub_head &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">examples.robots.icub_head</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for examples.robots.icub_head</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">iCub Head Controller and Camera Viewer using YAW for Communication</span>
+
+<span class="sd">This script demonstrates the capability to control the iCub robot&#39;s head and view its camera feed using</span>
+<span class="sd">the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern,</span>
+<span class="sd">allowing for message publishing and listening functionalities between processes or machines.</span>
+
+<span class="sd">Demonstrations:</span>
+<span class="sd">    - Using Image messages for camera feed transmission.</span>
+<span class="sd">    - Running publishers and listeners concurrently with the yarp.RFModule.</span>
+<span class="sd">    - Using YAW for creating a port listener only.</span>
+
+<span class="sd">Requirements:</span>
+<span class="sd">    - YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - iCub Robot and Simulator: Ensure the robot and its simulator are installed and configured.</span>
+<span class="sd">        When running in simulation mode, the `iCub_SIM` must be running in a standalone terminal</span>
+<span class="sd">        (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - NumPy: Used for creating arrays (installed with YAW)</span>
+<span class="sd">    - SciPy: For applying smoothing filters to the facial expressions (refer to https://www.scipy.org/install.html for installation instructions)</span>
+<span class="sd">    - Pexpect: To control the facial expressions using RPC</span>
+
+<span class="sd">    Install using pip:</span>
+<span class="sd">    ``pip install scipy pexpect``</span>
+
+<span class="sd">Run:</span>
+<span class="sd">    # For the list of keyboard controls, refer to the comments in Keyboard Controls.</span>
+
+<span class="sd">    # Alternative 1: Simulation Mode</span>
+<span class="sd">        # Ensure that the `iCub_SIM` is running in a standalone terminal.</span>
+
+<span class="sd">        # The listener displays images, and coordinates are published without utilizing YAW&#39;s utilities.</span>
+
+<span class="sd">        ``python3 icub_head.py --simulation --get_cam_feed --control_head --control_expressions``</span>
+
+<span class="sd">    # Alternative 2: Physical Robot</span>
+<span class="sd">        # The listener displays images, and coordinates are published without utilizing YAW&#39;s utilities.</span>
+
+<span class="sd">        ``python3 icub_head.py --get_cam_feed --control_head --control_expressions``</span>
+
+<span class="sd">Keyboard Controls:</span>
+<span class="sd">    - Head Control:</span>
+<span class="sd">        - Up/Down: Control the head pitch</span>
+<span class="sd">        - Right/Left: Control the head yaw</span>
+<span class="sd">        - A/D: Control the head roll (right/left)</span>
+<span class="sd">        - R: Reset the head to the initial position</span>
+<span class="sd">        - Esc: Quit the application</span>
+<span class="sd">    - Eye Control:</span>
+<span class="sd">        - W/S: Control the eye pitch (up/down)</span>
+<span class="sd">        - C/Z: Control the eye yaw (right/left)</span>
+<span class="sd">        - R: Reset the eye to the initial position</span>
+<span class="sd">        - Esc: Quit the application</span>
+<span class="sd">    - Facial Expressions:</span>
+<span class="sd">        - 0: Neutral</span>
+<span class="sd">        - 1: Happy</span>
+<span class="sd">        - 2: Sad</span>
+<span class="sd">        - 3: Surprise</span>
+<span class="sd">        - 4: Fear</span>
+<span class="sd">        - 5: Disgust</span>
+<span class="sd">        - 6: Anger</span>
+<span class="sd">        - 7: Contempt</span>
+<span class="sd">        - 8: Cunning</span>
+<span class="sd">        - 9: Shy</span>
+<span class="sd">        - Esc: Quit the application</span>
+<span class="sd">    - Camera Feed:</span>
+<span class="sd">        - Esc: Quit the application</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">yarp</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pexpect</span>
+
+    <span class="n">HAVE_PEXPECT</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAVE_PEXPECT</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.wrapper</span> <span class="kn">import</span> <span class="n">MiddlewareCommunicator</span>
+
+<span class="n">ICUB_DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_DEFAULT_COMMUNICATOR&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="n">ICUB_DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_DEFAULT_MWARE&quot;</span><span class="p">,</span> <span class="n">ICUB_DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+<span class="n">ICUB_DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ICUB_DEFAULT_COMMUNICATOR&quot;</span><span class="p">,</span> <span class="n">ICUB_DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+<span class="n">ICUB_DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ICUB_DEFAULT_MWARE&quot;</span><span class="p">,</span> <span class="n">ICUB_DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+
+<span class="n">EMOTION_LOOKUP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Neutral&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;neu&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Happy&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;hap&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Sad&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;sad&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Surprise&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;sur&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Fear&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;L04&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;R04&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;M66&quot;</span><span class="p">)],</span>  <span class="c1"># change to array</span>
+    <span class="s2">&quot;Disgust&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;L01&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;R01&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;M66&quot;</span><span class="p">)],</span>  <span class="c1"># change to array</span>
+    <span class="s2">&quot;Anger&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;ang&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Contempt&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;L01&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;R09&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;ME9&quot;</span><span class="p">)],</span>  <span class="c1"># change to array</span>
+    <span class="s2">&quot;Cunning&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;cun&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Shy&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;shy&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;Evil&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="s2">&quot;evi&quot;</span><span class="p">)]</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="cartesian_to_spherical">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.cartesian_to_spherical">[docs]</a>
+<span class="k">def</span> <span class="nf">cartesian_to_spherical</span><span class="p">(</span><span class="n">xyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expand_return</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert cartesian coordinates to spherical coordinates.</span>
+
+<span class="sd">    :param xyz: tuple: Cartesian coordinates (x, y, z)</span>
+<span class="sd">    :param x: float: Cartesian coordinate x</span>
+<span class="sd">    :param y: float: Cartesian coordinate y</span>
+<span class="sd">    :param z: float: Cartesian coordinate z</span>
+<span class="sd">    :param expand_return: bool: Whether to return the spherical coordinates as a dictionary or not</span>
+<span class="sd">    :return: tuple: Spherical coordinates (p, t, r) or dictionary: Spherical coordinates {&quot;p&quot;: p, &quot;t&quot;: t, &quot;r&quot;: r}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">xor</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+    <span class="k">assert</span> <span class="n">xor</span><span class="p">((</span><span class="n">xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">all</span><span class="p">((</span><span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="n">z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">expand_return</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">expand_return</span> <span class="o">=</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">xyz</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">xyz</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">xyz</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,))</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xy</span><span class="p">))</span> <span class="c1"># for elevation angle defined from XY-plane up</span>
+    <span class="c1"># ptr[1] = np.arctan2(np.sqrt(xy), xyz[2])  # for elevation angle defined from Z-axis down</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xy</span> <span class="o">+</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ptr</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">expand_return</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span></div>
+
+
+
+<div class="viewcode-block" id="mode_smoothing_filter">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.mode_smoothing_filter">[docs]</a>
+<span class="k">def</span> <span class="nf">mode_smoothing_filter</span><span class="p">(</span><span class="n">time_series</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply a smoothing filter to the time series using the mode of the last `window_length` values.</span>
+
+<span class="sd">    :param time_series: list: Time series to apply the smoothing filter to</span>
+<span class="sd">    :param default: object: Default value to return if the mode count is less than `min_count`</span>
+<span class="sd">    :param window_length: int: Length of the window to apply the smoothing filter to</span>
+<span class="sd">    :param min_count: int: Minimum number of values in the window to apply the smoothing filter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">scipy.stats</span>
+    <span class="k">if</span> <span class="n">min_count</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">min_count</span> <span class="o">=</span> <span class="n">window_length</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">time_series</span><span class="p">[</span><span class="o">-</span><span class="n">window_length</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">mode</span><span class="o">.</span><span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="n">min_count</span> <span class="k">else</span> <span class="n">default</span></div>
+
+
+
+<div class="viewcode-block" id="ICub">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub">[docs]</a>
+<span class="k">class</span> <span class="nc">ICub</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="p">,</span> <span class="n">yarp</span><span class="o">.</span><span class="n">RFModule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ICub head controller, facial expression transmitter and camera viewer. Head control can be achieved following two methods:</span>
+<span class="sd">    1. Using the `control_head_gaze` method, which controls the head gaze in the spherical coordinate system.</span>
+<span class="sd">    2. Using the `control_gaze_at_plane` method, which controls the head gaze in the cartesian coordinate system.</span>
+<span class="sd">    Emotions can be controlled using the `update_facial_expressions` method.</span>
+<span class="sd">    Camera feed can be viewed using the `receive_images` method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">MWARE</span> <span class="o">=</span> <span class="n">ICUB_DEFAULT_COMMUNICATOR</span>
+    <span class="n">CAP_PROP_FRAME_WIDTH</span> <span class="o">=</span> <span class="mi">320</span>
+    <span class="n">CAP_PROP_FRAME_HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
+    <span class="n">HEAD_COORDINATES_PORT</span> <span class="o">=</span> <span class="s2">&quot;/control_interface/head_coordinates&quot;</span>
+    <span class="n">EYE_COORDINATES_PORT</span> <span class="o">=</span> <span class="s2">&quot;/control_interface/eye_coordinates&quot;</span>
+    <span class="n">GAZE_PLANE_COORDINATES_PORT</span> <span class="o">=</span> <span class="s2">&quot;/control_interface/gaze_plane_coordinates&quot;</span>
+    <span class="n">FACIAL_EXPRESSIONS_PORT</span> <span class="o">=</span> <span class="s2">&quot;/control_interface/facial_expressions&quot;</span>
+    <span class="c1"># constants</span>
+    <span class="n">FACIAL_EXPRESSIONS_QUEUE_SIZE</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">FACIAL_EXPRESSION_SMOOTHING_WINDOW</span> <span class="o">=</span> <span class="mi">6</span>
+
+<div class="viewcode-block" id="ICub.__init__">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">get_cam_feed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">img_width</span><span class="o">=</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">img_height</span><span class="o">=</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span>
+                 <span class="n">control_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">set_head_coordinates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">head_coordinates_port</span><span class="o">=</span><span class="n">HEAD_COORDINATES_PORT</span><span class="p">,</span>
+                 <span class="n">control_eyes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">set_eye_coordinates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eye_coordinates_port</span><span class="o">=</span><span class="n">EYE_COORDINATES_PORT</span><span class="p">,</span>
+                 <span class="n">ikingaze</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">gaze_plane_coordinates_port</span><span class="o">=</span><span class="n">GAZE_PLANE_COORDINATES_PORT</span><span class="p">,</span>
+                 <span class="n">control_expressions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">set_facial_expressions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">facial_expressions_port</span><span class="o">=</span><span class="n">FACIAL_EXPRESSIONS_PORT</span><span class="p">,</span>
+                 <span class="n">mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ICub head controller, facial expression transmitter and camera viewer.</span>
+
+<span class="sd">        :param simulation: bool: Whether to run the simulation or not</span>
+<span class="sd">        :param headless: bool: Whether to run the headless mode or not</span>
+<span class="sd">        :param get_cam_feed: bool: Whether to get (listen) the camera feed or not</span>
+<span class="sd">        :param img_width: int: Width of the image</span>
+<span class="sd">        :param img_height: int: Height of the image</span>
+<span class="sd">        :param control_head: bool: Whether to control the head</span>
+<span class="sd">        :param set_head_coordinates: bool: Whether to set (publish) the head coordinates</span>
+<span class="sd">        :param head_coordinates_port: str: Port to receive the head coordinates for controlling the head</span>
+<span class="sd">        :param control_eyes: bool: Whether to control the eyes</span>
+<span class="sd">        :param set_eye_coordinates: bool: Whether to set (publish) the eye coordinates</span>
+<span class="sd">        :param eye_coordinates_port: str: Port to receive the eye coordinates for controlling the eyes</span>
+<span class="sd">        :param ikingaze: bool: Whether to use the iKinGazeCtrl</span>
+<span class="sd">        :param gaze_plane_coordinates_port: str: Port to receive the gaze plane coordinates for controlling the head/eyes</span>
+<span class="sd">        :param control_expressions: bool: Whether to control the facial expressions</span>
+<span class="sd">        :param set_facial_expressions: bool: Whether to set (publish) the facial expressions</span>
+<span class="sd">        :param facial_expressions_port: str: Port to receive the facial expressions for controlling the facial expressions</span>
+<span class="sd">        :param mware: str: Middleware to use</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;iCubController&quot;</span>
+        <span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">yarp</span><span class="o">.</span><span class="n">RFModule</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span> <span class="o">=</span> <span class="n">mware</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSIONS_PORT</span> <span class="o">=</span> <span class="n">facial_expressions_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">GAZE_PLANE_COORDINATES_PORT</span> <span class="o">=</span> <span class="n">gaze_plane_coordinates_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">HEAD_COORDINATES_PORT</span> <span class="o">=</span> <span class="n">head_coordinates_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">EYE_COORDINATES_PORT</span> <span class="o">=</span> <span class="n">eye_coordinates_port</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">headless</span> <span class="o">=</span> <span class="n">headless</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span> <span class="o">=</span> <span class="n">ikingaze</span>
+
+        <span class="c1"># prepare a property object</span>
+        <span class="n">props</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Property</span><span class="p">()</span>
+        <span class="n">props</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="s2">&quot;remote_controlboard&quot;</span><span class="p">)</span>
+        <span class="n">props</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="s2">&quot;/client/head&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">simulation</span><span class="p">:</span>
+            <span class="n">props</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;remote&quot;</span><span class="p">,</span> <span class="s2">&quot;/icubSim/head&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cam_props</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cam_world_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icubSim/cam&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;cam_left_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icubSim/cam/left&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;cam_right_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icubSim/cam/right&quot;</span><span class="p">}</span>
+            <span class="n">emotion_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;yarp rpc /icubSim/face/emotions/in&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">props</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;remote&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub/head&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cam_props</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cam_world_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icub/cam/left&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;cam_left_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icub/cam/left&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;cam_right_port&quot;</span><span class="p">:</span> <span class="s2">&quot;/icub/cam/right&quot;</span><span class="p">}</span>
+            <span class="n">emotion_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;yarp rpc /icub/face/emotions/in&quot;</span>
+
+        <span class="k">if</span> <span class="n">img_width</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">img_width</span> <span class="o">=</span> <span class="n">img_width</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span> <span class="o">=</span> <span class="n">img_width</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cam_props</span><span class="p">[</span><span class="s2">&quot;img_width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_width</span>
+
+        <span class="k">if</span> <span class="n">img_height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">img_height</span> <span class="o">=</span> <span class="n">img_height</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span> <span class="o">=</span> <span class="n">img_height</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cam_props</span><span class="p">[</span><span class="s2">&quot;img_height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_height</span>
+
+        <span class="k">if</span> <span class="n">control_expressions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">HAVE_PEXPECT</span><span class="p">:</span>
+                <span class="c1"># control emotional expressions using RPC</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">pexpect</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">emotion_cmd</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;pexpect must be installed to control the emotion interface&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_facial_expressions</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_expression</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>  <span class="c1"># (emotion part on the robot&#39;s face , emotional expression category)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expressions_queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSIONS_QUEUE_SIZE</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_facial_expressions</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">control_head</span> <span class="ow">or</span> <span class="n">control_eyes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ikingaze</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gaze_encs</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">props_gaze</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Property</span><span class="p">()</span>
+                <span class="n">props_gaze</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                <span class="n">props_gaze</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="s2">&quot;gazecontrollerclient&quot;</span><span class="p">)</span>
+                <span class="n">props_gaze</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;remote&quot;</span><span class="p">,</span> <span class="s2">&quot;/iKinGazeCtrl&quot;</span><span class="p">)</span>
+                <span class="n">props_gaze</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="s2">&quot;/client/gaze&quot;</span><span class="p">)</span>
+                <span class="c1">#</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gaze_driver</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">PolyDriver</span><span class="p">(</span><span class="n">props_gaze</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gaze_driver</span><span class="o">.</span><span class="n">viewIGazeControl</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">setStabilizationMode</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+                <span class="c1"># set movement speed</span>
+                <span class="c1"># self.update_head_gaze_speed(head=0.8)</span>
+                <span class="c1"># self.update_eye_gaze_speed(eye=0.5)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_control_head_eye_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># create remote driver</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_head_driver</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">PolyDriver</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+
+                <span class="c1"># query motor control interfaces</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head_driver</span><span class="o">.</span><span class="n">viewIPositionControl</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ienc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head_driver</span><span class="o">.</span><span class="n">viewIEncoders</span><span class="p">()</span>
+
+                <span class="c1"># retrieve number of joints</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">getAxes</span><span class="p">()</span>
+
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;controlling </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="si">}</span><span class="s2"> joints&quot;</span><span class="p">)</span>
+
+                <span class="c1"># read encoders</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ienc</span><span class="o">.</span><span class="n">getEncoders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">control_head</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_head_gaze_speed</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">control_eyes</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_eye_gaze_speed</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+                <span class="c1"># set movement speed</span>
+                <span class="c1"># self.update_head_gaze_speed(pitch=10.0, roll=10.0, yaw=20.0)</span>
+                <span class="c1"># self.update_eye_gaze_speed(pitch=10.0, yaw=10.0, vergence=20.0)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_head_gaze_speed</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_eye_gaze_speed</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_control_head_eye_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wait_for_gaze</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_gaze_at_plane</span><span class="p">,</span> <span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">get_cam_feed</span><span class="p">:</span>
+            <span class="c1"># control the listening properties from within the app</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_images</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">facial_expressions_port</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">set_facial_expressions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_facial_expressions</span><span class="p">,</span> <span class="s2">&quot;publish&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSIONS_QUEUE_SIZE</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">update_facial_expressions</span><span class="p">(</span><span class="s2">&quot;hap&quot;</span><span class="p">,</span> <span class="n">part</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_facial_expressions</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">head_coordinates_port</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">set_head_coordinates</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_head_coordinates</span><span class="p">,</span> <span class="s2">&quot;publish&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_head_coordinates</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">eye_coordinates_port</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">set_eye_coordinates</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_eye_coordinates</span><span class="p">,</span> <span class="s2">&quot;publish&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acquire_eye_coordinates</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gaze_plane_coordinates_port</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_gaze_at_plane</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ICub.build">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.build">[docs]</a>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Updates the default method arguments according to constructor arguments. This method is called by the module constructor.</span>
+<span class="sd">        It is not necessary to call it manually.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">acquire_head_coordinates</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">HEAD_COORDINATES_PORT</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">acquire_eye_coordinates</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">EYE_COORDINATES_PORT</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">receive_gaze_plane_coordinates</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GAZE_PLANE_COORDINATES_PORT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">wait_for_gaze</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">reset_gaze</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">,)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">update_head_gaze_speed</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">update_eye_gaze_speed</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">_control_head_eye_gaze</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">,)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">control_gaze_at_plane</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">acquire_facial_expressions</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSIONS_PORT</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">update_facial_expressions</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="n">ICub</span><span class="o">.</span><span class="n">receive_images</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ICub.acquire_head_coordinates">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.acquire_head_coordinates">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$head_coordinates_port&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">acquire_head_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head_coordinates_port</span><span class="o">=</span><span class="n">HEAD_COORDINATES_PORT</span><span class="p">,</span> <span class="n">cv2_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Acquire head coordinates for controlling the iCub.</span>
+
+<span class="sd">        :param head_coordinates_port: str: Port to receive head coordinates</span>
+<span class="sd">        :param cv2_key: int: Key pressed by the user</span>
+<span class="sd">        :return: dict: Head orientation coordinates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">cv2_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;controlling orientation in headless mode not yet supported&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># Esc key to exit</span>
+                <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># normally -1 returned,so don&#39;t print it</span>
+                <span class="k">pass</span>
+            <span class="c1"># the keyboard commands for controlling the robot</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">82</span><span class="p">:</span>  <span class="c1"># Up key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head pitch up&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">84</span><span class="p">:</span>  <span class="c1"># Down key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head pitch down&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">83</span><span class="p">:</span>  <span class="c1"># Right key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head yaw left&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">81</span><span class="p">:</span>  <span class="c1"># Left key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head yaw right&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">97</span><span class="p">:</span>  <span class="c1"># A key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head roll right&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># D key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;head roll left&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">114</span><span class="p">:</span>  <span class="c1"># R key: reset the orientation</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">()</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;resetting the orientation&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">cv2_key</span><span class="p">)</span>  <span class="c1"># else print its value</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="n">head_coordinates_port</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;pitch&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="s2">&quot;roll&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;yaw&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;zyx&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.acquire_eye_coordinates">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.acquire_eye_coordinates">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$eye_coordinates_port&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">acquire_eye_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eye_coordinates_port</span><span class="o">=</span><span class="n">EYE_COORDINATES_PORT</span><span class="p">,</span> <span class="n">cv2_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Acquire eye coordinates for controlling the iCub.</span>
+
+<span class="sd">        :param eye_coordinates_port: str: Port to receive eye coordinates</span>
+<span class="sd">        :param cv2_key: int: Key pressed by the user</span>
+<span class="sd">        :return: dict: Eye oreintation coordinates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">cv2_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;controlling orientation in headless mode not yet supported&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># Esc key to exit</span>
+                <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># normally -1 returned,so don&#39;t print it</span>
+                <span class="k">pass</span>
+            <span class="c1"># the keyboard commands for controlling the robot</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">119</span><span class="p">:</span>  <span class="c1"># W key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;eye pitch up&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">115</span><span class="p">:</span>  <span class="c1"># S key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;eye pitch down&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">122</span><span class="p">:</span>  <span class="c1"># Z key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;eye yaw left&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>  <span class="c1"># C key</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;eye yaw right&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">114</span><span class="p">:</span>  <span class="c1"># R key: reset the orientation</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">()</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;resetting the orientation&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">cv2_key</span><span class="p">)</span>  <span class="c1"># else print its value</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="n">eye_coordinates_port</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;pitch&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="s2">&quot;yaw&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;vergence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="p">[</span><span class="mi">2</span><span class="p">]},</span></div>
+
+
+<div class="viewcode-block" id="ICub.receive_gaze_plane_coordinates">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.receive_gaze_plane_coordinates">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$gaze_plane_coordinates_port&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">receive_gaze_plane_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gaze_plane_coordinates_port</span><span class="o">=</span><span class="n">GAZE_PLANE_COORDINATES_PORT</span><span class="p">,</span>
+                                       <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receive gaze plane (normalized x,y) coordinates for controlling the iCub.</span>
+
+<span class="sd">        :param gaze_plane_coordinates_port: str: Port to receive gaze plane coordinates</span>
+<span class="sd">        :return: dict: Gaze plane coordinates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span></div>
+
+
+<div class="viewcode-block" id="ICub.wait_for_gaze">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.wait_for_gaze">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/wait_for_gaze&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wait_for_gaze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for the gaze actuation to complete.</span>
+<span class="sd">        :param reset: bool: Whether to reset the gaze location (centre)</span>
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Gaze waiting log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+            <span class="c1"># self._igaze.clearNeckPitch()</span>
+            <span class="c1"># self._igaze.clearNeckRoll()</span>
+            <span class="c1"># self._igaze.clearNeckYaw()</span>
+            <span class="c1"># self._igaze.clearEyes()</span>
+            <span class="k">if</span> <span class="n">reset</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">lookAtAbsAngles</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gaze_encs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">waitMotionDone</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">reset</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">positionMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">checkMotionDone</span><span class="p">():</span>
+                    <span class="k">pass</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_wait_for_gaze&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;waiting for gaze completed with reset=</span><span class="si">{</span><span class="n">reset</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.reset_gaze">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.reset_gaze">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/reset_gaze&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">reset_gaze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset the eyes and head to their original position.</span>
+
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Gaze reset log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait_for_gaze</span><span class="p">(</span><span class="n">reset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_reset_gaze&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;reset gaze&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.update_head_gaze_speed">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.update_head_gaze_speed">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/head_speed&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">update_head_gaze_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">head</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control the iCub head speed.</span>
+
+<span class="sd">        :param pitch: float-&gt;pitch[deg/s]: Pitch speed</span>
+<span class="sd">        :param roll: float-&gt;roll[deg/s]: Roll speed</span>
+<span class="sd">        :param yaw: float-&gt;yaw[deg/s]: Yaw speed</span>
+<span class="sd">        :param head: float-&gt;speed[0,1]: Neck trajectory speed in normalized units (only when using iKinGazeCtrl)</span>
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Head orientation speed log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">setNeckTrajTime</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_head_speed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;head speed set to </span><span class="si">{</span><span class="n">head</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pitch</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">roll</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">yaw</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_head_speed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;head speed set to </span><span class="si">{</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="n">yaw</span><span class="si">}</span><span class="s2"> (pitch, roll, yaw)&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.update_eye_gaze_speed">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.update_eye_gaze_speed">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/eye_speed&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">update_eye_gaze_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">vergence</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">eye</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control the iCub eye speed.</span>
+
+<span class="sd">        :param pitch: float-&gt;pitch[deg/s]: Pitch speed</span>
+<span class="sd">        :param yaw: float-&gt;yaw[deg/s]: Yaw speed</span>
+<span class="sd">        :param vergence: float-&gt;vergence[deg/s]: Speed of vergence shift between the eyes</span>
+<span class="sd">        :param eye: float-&gt;speed[0,1]: Eye trajectory speed in normalized units (only when using iKinGazeCtrl)</span>
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Eye orientation speed log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">setEyesTrajTime</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_eye_speed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;eye speed set to </span><span class="si">{</span><span class="n">eye</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">pitch</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">yaw</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">setRefSpeed</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">vergence</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_eye_speed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;eye speed set to </span><span class="si">{</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">vergence</span><span class="si">}</span><span class="s2"> (pitch, yaw, vergence)&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.control_head_gaze">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.control_head_gaze">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/head_orientation_coordinates&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">control_head_gaze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control the iCub head relative to previous coordinates following the roll,pitch,yaw convention (order=xyz)</span>
+<span class="sd">        (initialized at 0 looking straight ahead).</span>
+
+<span class="sd">        :param pitch: float-&gt;pitch[deg]: Pitch angle</span>
+<span class="sd">        :param roll: float-&gt;roll[deg]: Roll angle</span>
+<span class="sd">        :param yaw: float-&gt;yaw[deg]: Yaw angle</span>
+<span class="sd">        :param order: str: Euler axis order. Only accepts xyz (roll, pitch, yaw)</span>
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Head orientation coordinates log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">!=</span> <span class="s2">&quot;xyz&quot;</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;only accepts ratation angles following the order=&#39;xyz&#39; convention&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="c1"># wait for the action to complete</span>
+        <span class="c1"># self.wait_for_gaze(reset=False)</span>
+
+        <span class="c1"># initialize a new tmp vector identical to encs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+        <span class="c1"># head control</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">pitch</span><span class="p">)</span>  <span class="c1"># tilt/pitch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">roll</span><span class="p">)</span>  <span class="c1"># swing/roll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">yaw</span><span class="p">)</span>  <span class="c1"># pan/yaw</span>
+
+        <span class="c1"># self._ipos.positionMove(self.init_pos_head.data())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">pitch</span><span class="p">,</span> <span class="n">roll</span><span class="p">,</span> <span class="n">yaw</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_head_coordinates&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;head orientation set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="si">}</span><span class="s2"> (pitch, roll, yaw)&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.control_eye_gaze">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.control_eye_gaze">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/eye_orientation_coordinates&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">control_eye_gaze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vergence</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control the iCub eyes relative to previous coordinates (initialized at 0 looking straight ahead).</span>
+
+<span class="sd">        :param pitch: float-&gt;pitch[deg]: Pitch angle</span>
+<span class="sd">        :param yaw: float-&gt;yaw[deg]: Yaw (version) angle</span>
+<span class="sd">        :param vergence: float-&gt;yaw[deg]: Vergence angle between the eyes</span>
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Eye orientation coordinates log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># wait for the action to complete</span>
+        <span class="c1"># self.wait_for_gaze(reset=False)</span>
+
+        <span class="c1"># initialize a new tmp vector identical to encs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+        <span class="c1"># eye control</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">pitch</span><span class="p">)</span>  <span class="c1"># eye tilt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">yaw</span><span class="p">)</span>  <span class="c1"># eye pan/version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">vergence</span><span class="p">)</span>  <span class="c1"># the vergence between the eyes (to align, set to 0)</span>
+
+        <span class="c1"># self._ipos.positionMove(self.init_pos_eyes.data())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">pitch</span><span class="p">,</span> <span class="n">yaw</span><span class="p">,</span> <span class="n">vergence</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_eye_coordinates&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;eye orientation set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="si">}</span><span class="s2"> (pitch, yaw, vergence)&quot;</span><span class="p">},</span></div>
+
+
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/head_eye_orientation_coordinates&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_control_head_eye_gaze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Issue the movement command</span>
+
+<span class="sd">        :param _mware: str: Middleware to use</span>
+<span class="sd">        :return: dict: Head orientation coordinates log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># initialize a new tmp vector identical to encs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_jnts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+        <span class="c1"># head + eye control</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># tilt/pitch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># swing/roll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># pan/yaw</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># eye tilt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># eye pan/version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># the vergence between the eyes (to align, set to 0)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ipos</span><span class="o">.</span><span class="n">positionMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_pos</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_head_eye_coordinates&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;head orientation set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_head</span><span class="si">}</span><span class="s2"> (pitch, roll, yaw) and eye orientation to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_eyes</span><span class="si">}</span><span class="s2"> (pitch, yaw, vergence)&quot;</span><span class="p">},</span>
+
+<div class="viewcode-block" id="ICub.control_gaze_at_plane">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.control_gaze_at_plane">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/gaze_plane_coordinates&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">control_gaze_at_plane</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">limit_x</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">limit_y</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">control_eyes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">control_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gaze at specific point in a normalized plane in front of the iCub.</span>
+
+<span class="sd">        :param x: float-&gt;x[-1,1]: x coordinate in the plane limited to the range of -1 (left) and 1 (right)</span>
+<span class="sd">        :param y: float-&gt;y[-1,1]: y coordinate in the plane limited to the range of -1 (bottom) and 1 (top)</span>
+<span class="sd">        :param limit_x: float-&gt;limit_x[0,1]: x coordinate limit in the plane</span>
+<span class="sd">        :param limit_y: float-&gt;limit_y[0,1]: y coordinate limit in the plane</span>
+<span class="sd">        :param control_eyes: bool: Whether to control the eyes of the robot directly</span>
+<span class="sd">        :param control_head: bool: Whether to control the head of the robot directly</span>
+<span class="sd">        :return: dict: Gaze coordinates log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># wait for the action to complete</span>
+        <span class="c1"># self.wait_for_gaze(reset=False)</span>
+
+        <span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">limit_x</span><span class="p">,</span> <span class="n">limit_y</span><span class="p">))</span>  <span class="c1"># limit viewing region</span>
+        <span class="n">ptr</span> <span class="o">=</span> <span class="n">cartesian_to_spherical</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="o">=-</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">expand_return</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># initialize a new tmp vector identical to encs</span>
+        <span class="n">ptr_degrees</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="n">control_eyes</span> <span class="ow">and</span> <span class="n">control_head</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;set ikingaze=True in order to move eyes and head simultaneously&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_ikin</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gaze_encs</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_ikin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_ikin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_pos_ikin</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_igaze</span><span class="o">.</span><span class="n">lookAtAbsAngles</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_pos_ikin</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">control_head</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;set ikingaze=False in order to move head only&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">roll</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">control_eyes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;set ikingaze=False in order to move eyes only&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">yaw</span><span class="o">=</span><span class="n">ptr_degrees</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vergence</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_gaze_plane_coordinates&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;moving gaze toward </span><span class="si">{</span><span class="n">ptr_degrees</span><span class="si">}</span><span class="s2"> with head=</span><span class="si">{</span><span class="n">control_head</span><span class="si">}</span><span class="s2"> and eyes=</span><span class="si">{</span><span class="n">control_eyes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.acquire_facial_expressions">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.acquire_facial_expressions">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$facial_expressions_port&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">acquire_facial_expressions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facial_expressions_port</span><span class="o">=</span><span class="n">FACIAL_EXPRESSIONS_PORT</span><span class="p">,</span> <span class="n">cv2_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Acquire facial expressions from the iCub.</span>
+
+<span class="sd">        :param facial_expressions_port: str: Port to acquire facial expressions from</span>
+<span class="sd">        :param cv2_key: int: Key to press to set the facial expression</span>
+<span class="sd">        :return: dict: Facial expressions log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">emotion</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">cv2_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;controlling expressions in headless mode not yet supported&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># Esc key to exit</span>
+                <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># normally -1 returned,so don&quot;t print it</span>
+                <span class="k">pass</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">48</span><span class="p">:</span>  <span class="c1"># 0 key: Neutral emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Neutral&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing neutrality&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">49</span><span class="p">:</span>  <span class="c1"># 1 key: Happy emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Happy&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing happiness&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>  <span class="c1"># 2 key: Sad emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Sad&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing sadness&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">51</span><span class="p">:</span>  <span class="c1"># 3 key: Surprise emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Surprise&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing surprise&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">52</span><span class="p">:</span>  <span class="c1"># 4 key: Fear emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Fear&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing fear&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">53</span><span class="p">:</span>  <span class="c1"># 5 key: Disgust emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Disgust&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing disgust&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">54</span><span class="p">:</span>  <span class="c1"># 6 key: Anger emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Anger&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing anger&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">55</span><span class="p">:</span>  <span class="c1"># 7 key: Contempt emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Contempt&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing contempt&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">56</span><span class="p">:</span>  <span class="c1"># 8 key: Cunning emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Cunning&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing cunningness&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">cv2_key</span> <span class="o">==</span> <span class="mi">57</span><span class="p">:</span>  <span class="c1"># 9 key: Shy emotion</span>
+                <span class="n">emotion</span> <span class="o">=</span> <span class="s2">&quot;Shy&quot;</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;expressing shyness&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">cv2_key</span><span class="p">)</span>  <span class="c1"># else print its value</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="n">facial_expressions_port</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;emotion_category&quot;</span><span class="p">:</span> <span class="n">emotion</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.update_facial_expressions">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.update_facial_expressions">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$_mware&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;/icub_controller/logs/facial_expressions&quot;</span><span class="p">,</span>
+                                     <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">update_facial_expressions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expression</span><span class="p">,</span> <span class="n">part</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="n">MWARE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control facial expressions of the iCub.</span>
+
+<span class="sd">        :param expression: str: Expression to be controlled</span>
+<span class="sd">        :param expression: str or tuple(str-&gt;part, str-&gt;emotion) or list[str] or list[tuple(str-&gt;part, str-&gt;emotion)]:</span>
+<span class="sd">                            Expression/s abbreviation or matching lookup table entry.</span>
+<span class="sd">                            If a list is provided, the actions are executed in sequence</span>
+<span class="sd">        :param part: str: Abbreviation describing parts to control (refer to iCub documentation) ( mou, eli, leb, reb, all, raw, LIGHTS)</span>
+<span class="sd">        :param smoothing: str: Name of smoothing filter to avoid abrupt changes in emotional expressions</span>
+<span class="sd">        :return: Emotion log for a given time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">expression</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">expression</span> <span class="o">=</span> <span class="n">expression</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">smoothing</span> <span class="o">==</span> <span class="s2">&quot;mode&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">expressions_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+            <span class="n">transmitted_expression</span> <span class="o">=</span> <span class="n">mode_smoothing_filter</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expressions_queue</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;neu&quot;</span><span class="p">,</span>
+                                                           <span class="n">window_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSION_SMOOTHING_WINDOW</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">transmitted_expression</span> <span class="o">=</span> <span class="n">expression</span>
+
+        <span class="n">expressions_lookup</span> <span class="o">=</span> <span class="n">EMOTION_LOOKUP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">transmitted_expression</span><span class="p">,</span> <span class="n">transmitted_expression</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expressions_lookup</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">expressions_lookup</span> <span class="o">=</span> <span class="p">[(</span><span class="n">part</span> <span class="k">if</span> <span class="n">part</span> <span class="k">else</span> <span class="s2">&quot;LIGHTS&quot;</span><span class="p">,</span> <span class="n">expressions_lookup</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_expression</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">part</span> <span class="k">if</span> <span class="n">part</span> <span class="k">else</span> <span class="s2">&quot;LIGHTS&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_expression</span><span class="p">[</span>
+            <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">transmitted_expression</span><span class="p">:</span>
+            <span class="n">expressions_lookup</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">part_lookup</span><span class="p">,</span> <span class="n">expression_lookup</span><span class="p">)</span> <span class="ow">in</span> <span class="n">expressions_lookup</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">part_lookup</span> <span class="o">==</span> <span class="s2">&quot;LIGHTS&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set leb </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set reb </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set mou </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set leb/reb/mou </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set </span><span class="si">{</span><span class="n">part_lookup</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;set </span><span class="si">{</span><span class="n">part_lookup</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">expression_lookup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_expression</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">part</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_expression</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">transmitted_expression</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;logging_facial_expressions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;emotion set to </span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">expression</span><span class="si">}</span><span class="s2"> with smoothing=</span><span class="si">{</span><span class="n">smoothing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span></div>
+
+
+<div class="viewcode-block" id="ICub.receive_images">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.receive_images">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">,</span> <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$cam_world_port&quot;</span><span class="p">,</span>
+                                     <span class="n">width</span><span class="o">=</span><span class="s2">&quot;$img_width&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;$img_height&quot;</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;$_rgb&quot;</span><span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">,</span> <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$cam_left_port&quot;</span><span class="p">,</span>
+                                     <span class="n">width</span><span class="o">=</span><span class="s2">&quot;$img_width&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;$img_height&quot;</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;$_rgb&quot;</span><span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">,</span> <span class="s2">&quot;ICub&quot;</span><span class="p">,</span> <span class="s2">&quot;$cam_right_port&quot;</span><span class="p">,</span>
+                                     <span class="n">width</span><span class="o">=</span><span class="s2">&quot;$img_width&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;$img_height&quot;</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="s2">&quot;$_rgb&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">receive_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cam_world_port</span><span class="p">,</span> <span class="n">cam_left_port</span><span class="p">,</span> <span class="n">cam_right_port</span><span class="p">,</span>
+                       <span class="n">img_width</span><span class="o">=</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">img_height</span><span class="o">=</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">_rgb</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receive images from the iCub.</span>
+
+<span class="sd">        :param cam_world_port: str: Port to receive images from the world camera</span>
+<span class="sd">        :param cam_left_port: str: Port to receive images from the left camera</span>
+<span class="sd">        :param cam_right_port: str: Port to receive images from the right camera</span>
+<span class="sd">        :param img_width: int: Width of the image</span>
+<span class="sd">        :param img_height: int: Height of the image</span>
+<span class="sd">        :param _rgb: bool: Whether the image is RGB or not</span>
+<span class="sd">        :return: Images from the iCub</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">external_cam</span><span class="p">,</span> <span class="n">left_cam</span><span class="p">,</span> <span class="n">right_cam</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">external_cam</span><span class="p">,</span> <span class="n">left_cam</span><span class="p">,</span> <span class="n">right_cam</span></div>
+
+
+<div class="viewcode-block" id="ICub.getPeriod">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.getPeriod">[docs]</a>
+    <span class="k">def</span> <span class="nf">getPeriod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the period of the module.</span>
+<span class="sd">        :return: float: Period of the module</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">0.01</span></div>
+
+
+<div class="viewcode-block" id="ICub.updateModule">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.ICub.updateModule">[docs]</a>
+    <span class="k">def</span> <span class="nf">updateModule</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># print(self.getPeriod())</span>
+        <span class="n">external_cam</span><span class="p">,</span> <span class="n">left_cam</span><span class="p">,</span> <span class="n">right_cam</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_images</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">cam_props</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">external_cam</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">external_cam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">img_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_width</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+            <span class="n">left_cam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">img_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_width</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+            <span class="n">right_cam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">img_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_width</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">external_cam</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">external_cam</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+            <span class="n">left_cam</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">left_cam</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+            <span class="n">right_cam</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">right_cam</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">headless</span><span class="p">:</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;ICubCam&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">left_cam</span><span class="p">,</span> <span class="n">external_cam</span><span class="p">,</span> <span class="n">right_cam</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">switch_emotion</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acquire_facial_expressions</span><span class="p">(</span><span class="n">facial_expressions_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">FACIAL_EXPRESSIONS_PORT</span><span class="p">,</span>
+                                                          <span class="n">cv2_key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">switch_emotion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">switch_emotion</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_facial_expressions</span><span class="p">(</span><span class="n">switch_emotion</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;emotion_category&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                           <span class="n">part</span><span class="o">=</span><span class="n">switch_emotion</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;part&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+
+        <span class="c1"># move robot head</span>
+        <span class="n">move_robot_head</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acquire_head_coordinates</span><span class="p">(</span><span class="n">head_coordinates_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">HEAD_COORDINATES_PORT</span><span class="p">,</span>
+                                                         <span class="n">cv2_key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">move_robot_head</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">move_robot_head</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">robot_head_speed</span> <span class="o">=</span> <span class="n">move_robot_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">robot_head_speed</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">robot_head_speed</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_head_gaze_speed</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                            <span class="n">roll</span><span class="o">=</span><span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                            <span class="n">yaw</span><span class="o">=</span><span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">move_robot_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reset_gaze&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_head_gaze</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">move_robot_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                                   <span class="n">roll</span><span class="o">=</span><span class="n">move_robot_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                                   <span class="n">yaw</span><span class="o">=</span><span class="n">move_robot_head</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+
+        <span class="c1"># move robot eyes</span>
+        <span class="n">move_robot_eyes</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acquire_eye_coordinates</span><span class="p">(</span><span class="n">eye_coordinates_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">EYE_COORDINATES_PORT</span><span class="p">,</span>
+                                                        <span class="n">cv2_key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">move_robot_eyes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">move_robot_eyes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">robot_eye_speed</span> <span class="o">=</span> <span class="n">move_robot_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">robot_eye_speed</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">robot_eye_speed</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_eye_gaze_speed</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                           <span class="n">yaw</span><span class="o">=</span><span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                           <span class="n">vergence</span><span class="o">=</span><span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vergence&quot;</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">move_robot_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reset_gaze&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_eye_gaze</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="n">move_robot_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                                  <span class="n">yaw</span><span class="o">=</span><span class="n">move_robot_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                                  <span class="n">vergence</span><span class="o">=</span><span class="n">move_robot_eyes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vergence&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">move_robot_head</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">move_robot_eyes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_control_head_eye_gaze</span><span class="p">()</span>
+
+        <span class="n">move_robot</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_gaze_plane_coordinates</span><span class="p">(</span><span class="n">gaze_plane_coordinates_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">GAZE_PLANE_COORDINATES_PORT</span><span class="p">,</span>
+                                                          <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">move_robot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">move_robot</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">robot_eye_speed</span> <span class="o">=</span> <span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eye_speed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">robot_eye_speed</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">robot_eye_speed</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_eye_gaze_speed</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;pitch&quot;</span><span class="p">:</span> <span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                              <span class="s2">&quot;yaw&quot;</span><span class="p">:</span> <span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                              <span class="s2">&quot;vergence&quot;</span><span class="p">:</span> <span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vergence&quot;</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">),</span> <span class="s2">&quot;_mware&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">}</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;eye&quot;</span><span class="p">:</span> <span class="n">robot_eye_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eye&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="s2">&quot;_mware&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">})</span>
+
+            <span class="n">robot_head_speed</span> <span class="o">=</span> <span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;head_speed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">robot_head_speed</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">robot_head_speed</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_head_gaze_speed</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;pitch&quot;</span><span class="p">:</span> <span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                               <span class="s2">&quot;roll&quot;</span><span class="p">:</span> <span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+                                               <span class="s2">&quot;yaw&quot;</span><span class="p">:</span> <span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaw&quot;</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">),</span> <span class="s2">&quot;_mware&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">}</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;head&quot;</span><span class="p">:</span> <span class="n">robot_head_speed</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="s2">&quot;_mware&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">})</span>
+
+            <span class="k">if</span> <span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reset_gaze&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset_gaze</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">control_gaze_at_plane</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+                                       <span class="n">limit_x</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;limit_x&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+                                       <span class="n">limit_y</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;limit_y&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+                                       <span class="n">control_head</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;control_head&quot;</span><span class="p">,</span>
+                                                                   <span class="kc">False</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ikingaze</span> <span class="k">else</span> <span class="kc">True</span><span class="p">),</span>
+                                       <span class="n">control_eyes</span><span class="o">=</span><span class="n">move_robot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;control_eyes&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">_mware</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">MWARE</span><span class="p">),</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="parse_args">
+<a class="viewcode-back" href="../../../examples_docs/examples.robots.html#examples.robots.icub_head.parse_args">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--simulation&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Run in simulation&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Disable CV2 GUI&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--ikingaze&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enable iKinGazeCtrl&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--get_cam_feed&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Get the camera feeds from the robot&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--control_head&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Control the head&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--set_head_coordinates&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Publish head coordinates set using keyboard commands&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--head_coordinates_port&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The port (topic) name used for receiving and transmitting head orientation &quot;</span>
+                             <span class="s2">&quot;Setting the port name without --set_head_coordinates will only receive the coordinates&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--control_eyes&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Control the eyes&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--set_eye_coordinates&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Publish eye coordinates set using keyboard commands&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--eye_coordinates_port&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The port (topic) name used for receiving and transmitting eye orientation &quot;</span>
+                             <span class="s2">&quot;Setting the port name without --set_eye_coordinates will only receive the coordinates&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--gaze_plane_coordinates_port&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The port (topic) name used for receiving plane coordinates in 2D for robot to look at&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--control_expressions&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Control the facial expressions&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--set_facial_expressions&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Publish facial expressions set using keyboard commands&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--facial_expressions_port&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The port (topic) name used for receiving and transmitting facial expressions. &quot;</span>
+                             <span class="s2">&quot;Setting the port name without --set_facial_expressions will only receive the facial expressions&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--mware&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">ICUB_DEFAULT_COMMUNICATOR</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The middleware used for communication. &quot;</span>
+                             <span class="s2">&quot;This can be overriden by providing either of the following environment variables &quot;</span>
+                             <span class="s2">&quot;{YAW_DEFAULT_COMMUNICATOR, YAW_DEFAULT_MWARE, &quot;</span>
+                             <span class="s2">&quot;ICUB_DEFAULT_COMMUNICATOR, ICUB_DEFAULT_MWARE}. Defaults to &#39;yarp&#39;&quot;</span><span class="p">,</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">get_communicators</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">headless</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">set_facial_expressions</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">set_head_eye_coordinates</span><span class="p">)),</span> \
+        <span class="s2">&quot;setters require a CV2 window for capturing keystrokes. Disable --set-... for running in headless mode&quot;</span>
+    <span class="n">controller</span> <span class="o">=</span> <span class="n">ICub</span><span class="p">(</span><span class="o">**</span><span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="n">controller</span><span class="o">.</span><span class="n">runModule</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

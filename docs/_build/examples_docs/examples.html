@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples.communication_patterns package" href="examples.communication_patterns.html" />
+    <link rel="prev" title="YARP + iCub Setup and Instructions" href="../yarp_install_lnk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.hello_world">examples.hello_world module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.hello_world.HelloWorld"><code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.hello_world.HelloWorld.send_message"><code class="docutils literal notranslate"><span class="pre">HelloWorld.send_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.hello_world.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">examples package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-package">
+<h1>examples package<a class="headerlink" href="#examples-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_patterns.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_patterns.html#module-examples.communication_patterns.request_reply_example">examples.communication_patterns.request_reply_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep"><code class="docutils literal notranslate"><span class="pre">ReqRep</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep.send_img_message"><code class="docutils literal notranslate"><span class="pre">ReqRep.send_img_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep.send_aud_message"><code class="docutils literal notranslate"><span class="pre">ReqRep.send_aud_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.sound_play"><code class="docutils literal notranslate"><span class="pre">sound_play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_patterns.html#examples.communication_patterns.request_reply_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_patterns.html#module-examples.communication_patterns">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_schemes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_schemes.html#module-examples.communication_schemes.channeling_example">examples.communication_schemes.channeling_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.channeling_example.ChannelingCls"><code class="docutils literal notranslate"><span class="pre">ChannelingCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.channeling_example.ChannelingCls.read_mulret_mulmware"><code class="docutils literal notranslate"><span class="pre">ChannelingCls.read_mulret_mulmware()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.channeling_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.channeling_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_schemes.html#module-examples.communication_schemes.forwarding_example">examples.communication_schemes.forwarding_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.forwarding_example.ForwardCls"><code class="docutils literal notranslate"><span class="pre">ForwardCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_A"><code class="docutils literal notranslate"><span class="pre">ForwardCls.read_chain_A()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_B"><code class="docutils literal notranslate"><span class="pre">ForwardCls.read_chain_B()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.forwarding_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.forwarding_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_schemes.html#module-examples.communication_schemes.mirroring_example">examples.communication_schemes.mirroring_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.mirroring_example.MirrorCls"><code class="docutils literal notranslate"><span class="pre">MirrorCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.mirroring_example.MirrorCls.read_msg"><code class="docutils literal notranslate"><span class="pre">MirrorCls.read_msg()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.mirroring_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.communication_schemes.html#examples.communication_schemes.mirroring_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.communication_schemes.html#module-examples.communication_schemes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.custom_msgs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.custom_msgs.html#module-examples.custom_msgs.ros_message_example">examples.custom_msgs.ros_message_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_message_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_message_example.Notifier.send_message"><code class="docutils literal notranslate"><span class="pre">Notifier.send_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_message_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_message_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.custom_msgs.html#module-examples.custom_msgs.ros_parameter_example">examples.custom_msgs.ros_parameter_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_parameter_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_parameter_example.Notifier.set_property"><code class="docutils literal notranslate"><span class="pre">Notifier.set_property()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_parameter_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.custom_msgs.html#examples.custom_msgs.ros_parameter_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.custom_msgs.html#module-examples.custom_msgs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#module-examples.encoders.plugins.astropy_tables">examples.encoders.plugins.astropy_tables module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#module-examples.encoders.plugins">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.astropy_example">examples.encoders.astropy_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.astropy_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.astropy_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.astropy_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.astropy_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.dask_example">examples.encoders.dask_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.dask_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.dask_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.dask_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.dask_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.jax_example">examples.encoders.jax_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.jax_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.jax_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.jax_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.jax_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.mxnet_example">examples.encoders.mxnet_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.mxnet_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.mxnet_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.mxnet_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.mxnet_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.numpy_pandas_example">examples.encoders.numpy_pandas_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.numpy_pandas_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.numpy_pandas_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.numpy_pandas_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.numpy_pandas_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.paddlepaddle_example">examples.encoders.paddlepaddle_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.paddlepaddle_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.paddlepaddle_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.paddlepaddle_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.paddlepaddle_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.pillow_example">examples.encoders.pillow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pillow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.pillow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pillow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pillow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.pint_example">examples.encoders.pint_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pint_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.pint_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pint_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pint_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.pyarrow_example">examples.encoders.pyarrow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pyarrow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.pyarrow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pyarrow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pyarrow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.pytorch_example">examples.encoders.pytorch_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pytorch_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.pytorch_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pytorch_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.pytorch_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.tensorflow_example">examples.encoders.tensorflow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.tensorflow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.tensorflow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.tensorflow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.tensorflow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.xarray_example">examples.encoders.xarray_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.xarray_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.xarray_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.xarray_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.xarray_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders.zarr_example">examples.encoders.zarr_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.zarr_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.html#examples.encoders.zarr_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.zarr_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.html#examples.encoders.zarr_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.html#module-examples.encoders">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.robots.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.robots.html#module-examples.robots.icub_head">examples.robots.icub_head module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.cartesian_to_spherical"><code class="docutils literal notranslate"><span class="pre">cartesian_to_spherical()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.mode_smoothing_filter"><code class="docutils literal notranslate"><span class="pre">mode_smoothing_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub"><code class="docutils literal notranslate"><span class="pre">ICub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.__init__"><code class="docutils literal notranslate"><span class="pre">ICub.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.MWARE"><code class="docutils literal notranslate"><span class="pre">ICub.MWARE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSIONS_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.GAZE_PLANE_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.GAZE_PLANE_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.HEAD_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.HEAD_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.EYE_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.EYE_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.CAP_PROP_FRAME_WIDTH"><code class="docutils literal notranslate"><span class="pre">ICub.CAP_PROP_FRAME_WIDTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.CAP_PROP_FRAME_HEIGHT"><code class="docutils literal notranslate"><span class="pre">ICub.CAP_PROP_FRAME_HEIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.build"><code class="docutils literal notranslate"><span class="pre">ICub.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.acquire_head_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_head_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.acquire_eye_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_eye_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.receive_gaze_plane_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.receive_gaze_plane_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.wait_for_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.wait_for_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.reset_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.reset_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.update_head_gaze_speed"><code class="docutils literal notranslate"><span class="pre">ICub.update_head_gaze_speed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.update_eye_gaze_speed"><code class="docutils literal notranslate"><span class="pre">ICub.update_eye_gaze_speed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.control_head_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.control_head_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.control_eye_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.control_eye_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.control_gaze_at_plane"><code class="docutils literal notranslate"><span class="pre">ICub.control_gaze_at_plane()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.acquire_facial_expressions"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_facial_expressions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.update_facial_expressions"><code class="docutils literal notranslate"><span class="pre">ICub.update_facial_expressions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.receive_images"><code class="docutils literal notranslate"><span class="pre">ICub.receive_images()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.getPeriod"><code class="docutils literal notranslate"><span class="pre">ICub.getPeriod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.ICub.updateModule"><code class="docutils literal notranslate"><span class="pre">ICub.updateModule()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.robots.html#examples.robots.icub_head.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.robots.html#module-examples.robots">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.sensors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.sensors.html#module-examples.sensors.cam_mic">examples.sensors.cam_mic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.CamMic"><code class="docutils literal notranslate"><span class="pre">CamMic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.CamMic.__init__"><code class="docutils literal notranslate"><span class="pre">CamMic.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.CamMic.collect_cam"><code class="docutils literal notranslate"><span class="pre">CamMic.collect_cam()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.CamMic.collect_mic"><code class="docutils literal notranslate"><span class="pre">CamMic.collect_mic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.CamMic.capture_cam_mic"><code class="docutils literal notranslate"><span class="pre">CamMic.capture_cam_mic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.sound_play"><code class="docutils literal notranslate"><span class="pre">sound_play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.sensors.html#examples.sensors.cam_mic.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.sensors.html#module-examples.sensors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.hello_world">
+<span id="examples-hello-world-module"></span><h2>examples.hello_world module<a class="headerlink" href="#module-examples.hello_world" title="Link to this heading"></a></h2>
+<p>This example shows how to use the MiddlewareCommunicator to send and receive messages. It can be used to test the
+functionality of the middleware using the PUB/SUB pattern and the REQ/REP pattern. The example can be run on a single
+machine or on multiple machines. In this example (as with all other examples), the communication middleware is selected
+using the <code class="docutils literal notranslate"><span class="pre">--mware</span></code> argument. The default is ZeroMQ, but YARP, ROS, and ROS2 are also supported.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+</ul>
+</dd>
+<dt>Run:</dt><dd><dl>
+<dt># Alternative 1: PUB/SUB mode</dt><dd><p># On machine 1 (or process 1): PUB/SUB mode - Publisher waits for keyboard input and transmits message</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">hello_world.py</span> <span class="pre">--publish</span> <span class="pre">--mware</span> <span class="pre">zeromq</span></code></p>
+<p># On machine 2 (or process 2): PUB/SUB mode - Listener waits for message and prints the received object</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">hello_world.py</span> <span class="pre">--listen</span> <span class="pre">--mware</span> <span class="pre">zeromq</span></code></p>
+</dd>
+<dt># Alternative 2: REQ/REP mode</dt><dd><p># On machine 1 (or process 1): REQ/REP mode - Replier waits for a message, sends a reply, and prints the received object</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">hello_world.py</span> <span class="pre">--reply</span> <span class="pre">--mware</span> <span class="pre">zeromq</span></code></p>
+<p># On machine 2 (or process 2): REQ/REP mode - Requester sends a predefined message and waits for a reply</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">hello_world.py</span> <span class="pre">--request</span> <span class="pre">--mware</span> <span class="pre">zeromq</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.hello_world.HelloWorld">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.hello_world.</span></span><span class="sig-name descname"><span class="pre">HelloWorld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/hello_world.html#HelloWorld"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.hello_world.HelloWorld" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.hello_world.HelloWorld.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_from_requester</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.hello_world.HelloWorld.send_message" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages and mirror user input.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.hello_world.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.hello_world.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/hello_world.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.hello_world.parse_args" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-examples">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../yarp_install_lnk.html" class="btn btn-neutral float-left" title="YARP + iCub Setup and Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.communication_patterns.html" class="btn btn-neutral float-right" title="examples.communication_patterns package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

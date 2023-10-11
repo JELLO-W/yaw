@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.sensors package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples" href="modules.html" />
+    <link rel="prev" title="examples.robots package" href="examples.robots.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples.sensors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.sensors.cam_mic">examples.sensors.cam_mic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.sensors.cam_mic.CamMic"><code class="docutils literal notranslate"><span class="pre">CamMic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.sensors.cam_mic.CamMic.__init__"><code class="docutils literal notranslate"><span class="pre">CamMic.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.sensors.cam_mic.CamMic.collect_cam"><code class="docutils literal notranslate"><span class="pre">CamMic.collect_cam()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.sensors.cam_mic.CamMic.collect_mic"><code class="docutils literal notranslate"><span class="pre">CamMic.collect_mic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.sensors.cam_mic.CamMic.capture_cam_mic"><code class="docutils literal notranslate"><span class="pre">CamMic.capture_cam_mic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.sensors.cam_mic.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.sensors.cam_mic.sound_play"><code class="docutils literal notranslate"><span class="pre">sound_play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.sensors.cam_mic.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.sensors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html">examples package</a></li>
+      <li class="breadcrumb-item active">examples.sensors package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.sensors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-sensors-package">
+<h1>examples.sensors package<a class="headerlink" href="#examples-sensors-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.sensors.cam_mic">
+<span id="examples-sensors-cam-mic-module"></span><h2>examples.sensors.cam_mic module<a class="headerlink" href="#module-examples.sensors.cam_mic" title="Link to this heading"></a></h2>
+<p>A simple example of using the Wrapper class to publish and listen to audio and video streams.</p>
+<p>This script demonstrates the capability to transmit audio and video streams using the 
+MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the Image and AudioChunk messages</p></li>
+<li><p>Transmitting an audio and video stream</p></li>
+<li><p>Applying the PUB/SUB pattern with persistence</p></li>
+<li><p>Transmitting OpenCV images captured from a camera on the publishing end and displayed on the listener’s end</p></li>
+<li><p>Transmitting a sounddevice (PortAudio with NumPy) audio chunk captured from a microphone which can be played back on the listener’s end</p></li>
+<li><p>Spawning of multiple processes specifying different functionality for listeners and publishers</p></li>
+<li><p>Using a single return wrapper functionality in conjunction with synchronous callbacks</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>OpenCV: Used for handling and creating images (installed with YAW)</p></li>
+<li><p>sounddevice, soundfile: Used for handling audio</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sounddevice</span> <span class="pre">soundfile</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl>
+<dt># Alternative 1: Separate audio and video publishing</dt><dd><p># On machine 1 (or process 1): The audio stream publishing</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">publish</span> <span class="pre">--stream</span> <span class="pre">audio</span> <span class="pre">--mic_source</span> <span class="pre">0</span></code></p>
+<p># On machine 2 (or process 2): The video stream publishing</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">publish</span> <span class="pre">--stream</span> <span class="pre">video</span> <span class="pre">--img_source</span> <span class="pre">0</span></code></p>
+<p># On machine 3 (or process 3): The audio stream listening</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--stream</span> <span class="pre">audio</span></code></p>
+<p># On machine 4 (or process 4): The video stream listening</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--stream</span> <span class="pre">video</span></code></p>
+</dd>
+<dt># Alternative 2: Concurrent audio and video publishing</dt><dd><p># On machine 1 (or process 1): The audio/video stream publishing</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">publish</span> <span class="pre">--stream</span> <span class="pre">audio</span> <span class="pre">video</span> <span class="pre">--img_source</span> <span class="pre">0</span> <span class="pre">--mic_source</span> <span class="pre">0</span></code></p>
+<p># On machine 2 (or process 2): The audio/video stream listening</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">cam_mic.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--stream</span> <span class="pre">audio</span> <span class="pre">video</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.CamMic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.sensors.cam_mic.</span></span><span class="sig-name descname"><span class="pre">CamMic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('audio',</span> <span class="pre">'video')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_chunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#CamMic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.CamMic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.CamMic.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('audio',</span> <span class="pre">'video')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_chunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#CamMic.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.CamMic.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialises the middleware communicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.CamMic.collect_cam">
+<span class="sig-name descname"><span class="pre">collect_cam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#CamMic.collect_cam"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.CamMic.collect_cam" title="Link to this definition"></a></dt>
+<dd><p>Collect images from the camera.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.CamMic.collect_mic">
+<span class="sig-name descname"><span class="pre">collect_mic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aud</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_chunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8820</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mic_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#CamMic.collect_mic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.CamMic.collect_mic" title="Link to this definition"></a></dt>
+<dd><p>Collect audio from the microphone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.CamMic.capture_cam_mic">
+<span class="sig-name descname"><span class="pre">capture_cam_mic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#CamMic.capture_cam_mic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.CamMic.capture_cam_mic" title="Link to this definition"></a></dt>
+<dd><p>Capture audio and video from the camera and microphone.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.sensors.cam_mic.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.sound_play">
+<span class="sig-prename descclassname"><span class="pre">examples.sensors.cam_mic.</span></span><span class="sig-name descname"><span class="pre">sound_play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_aud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#sound_play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.sound_play" title="Link to this definition"></a></dt>
+<dd><p>Play audio using sounddevice.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_aud</strong> – Tuple[np.ndarray, int]: The audio chunk and sampling rate to play</p></li>
+<li><p><strong>blocking</strong> – bool: Whether to block the execution until the audio is played</p></li>
+<li><p><strong>device</strong> – int: The sound device to use for audio playback</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: Whether the audio was played successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.sensors.cam_mic.main">
+<span class="sig-prename descclassname"><span class="pre">examples.sensors.cam_mic.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/sensors/cam_mic.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.sensors.cam_mic.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-examples.sensors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples.sensors" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.robots.html" class="btn btn-neutral float-left" title="examples.robots package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

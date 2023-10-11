@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.custom_msgs package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples.encoders package" href="examples.encoders.html" />
+    <link rel="prev" title="examples.communication_schemes package" href="examples.communication_schemes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples.custom_msgs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.custom_msgs.ros_message_example">examples.custom_msgs.ros_message_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_message_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.custom_msgs.ros_message_example.Notifier.send_message"><code class="docutils literal notranslate"><span class="pre">Notifier.send_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_message_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_message_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.custom_msgs.ros_parameter_example">examples.custom_msgs.ros_parameter_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_parameter_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.custom_msgs.ros_parameter_example.Notifier.set_property"><code class="docutils literal notranslate"><span class="pre">Notifier.set_property()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_parameter_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.custom_msgs.ros_parameter_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.custom_msgs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html">examples package</a></li>
+      <li class="breadcrumb-item active">examples.custom_msgs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.custom_msgs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-custom-msgs-package">
+<h1>examples.custom_msgs package<a class="headerlink" href="#examples-custom-msgs-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.custom_msgs.ros_message_example">
+<span id="examples-custom-msgs-ros-message-example-module"></span><h2>examples.custom_msgs.ros_message_example module<a class="headerlink" href="#module-examples.custom_msgs.ros_message_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for ROS messages using YAW.</p>
+<p>This script demonstrates the capability to transmit ROS messages, specifically
+geometry_msgs/Pose and std_msgs/String, using the MiddlewareCommunicator within
+the YAW library. The communication follows the PUB/SUB pattern allowing
+message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the ROS message</p></li>
+<li><p>Transmitting std_msgs/String and geometry_msgs/Pose ROS messages</p></li>
+<li><p>Applying the PUB/SUB pattern with channeling and mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>ROS, ROSPy: Used for handling and creating ROS messages (refer to the YAW documentation for installation instructions)</p></li>
+</ul>
+<p>Ensure ROS is installed and the required message types are available.</p>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">ros_message_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the received ROS messages</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">ros_message_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_message_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_message_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_message_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_message_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_message_example.Notifier.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_message_example.html#Notifier.send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_message_example.Notifier.send_message" title="Link to this definition"></a></dt>
+<dd><p>Exchange ROS messages over ROS.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_message_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_message_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_message_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_message_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_message_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_message_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_message_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_message_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notify class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.custom_msgs.ros_parameter_example">
+<span id="examples-custom-msgs-ros-parameter-example-module"></span><h2>examples.custom_msgs.ros_parameter_example module<a class="headerlink" href="#module-examples.custom_msgs.ros_parameter_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for ROS properties using YAW.</p>
+<p>This script demonstrates the capability to transmit ROS properties, specifically
+using the Properties message, using the MiddlewareCommunicator within the
+YAW library. The communication follows the PUB/SUB pattern allowing
+property publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the Properties message</p></li>
+<li><p>Transmitting various data types as properties, such as strings, dictionaries, and non-persistent properties</p></li>
+<li><p>Applying the PUB/SUB pattern with channeling and mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>ROS, ROSPy: Used for handling and creating ROS properties (refer to the YAW documentation for installation instructions)</p></li>
+</ul>
+<p>Ensure ROS is installed and the required message types are available.</p>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits properties</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">ros_parameter_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for properties and prints the received properties</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">ros_parameter_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_parameter_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_parameter_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_parameter_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_parameter_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_parameter_example.Notifier.set_property">
+<span class="sig-name descname"><span class="pre">set_property</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_parameter_example.html#Notifier.set_property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_parameter_example.Notifier.set_property" title="Link to this definition"></a></dt>
+<dd><p>Exchange ROS properties over ROS.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_parameter_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_parameter_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_parameter_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_parameter_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.custom_msgs.ros_parameter_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.custom_msgs.ros_parameter_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/custom_msgs/ros_parameter_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.custom_msgs.ros_parameter_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notify class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.custom_msgs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples.custom_msgs" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.communication_schemes.html" class="btn btn-neutral float-left" title="examples.communication_schemes package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.encoders.html" class="btn btn-neutral float-right" title="examples.encoders package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

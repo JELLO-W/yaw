@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.connect.publishers &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+      <li class="breadcrumb-item active">yaw.connect.publishers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.connect.publishers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+
+<span class="kn">from</span> <span class="nn">yaw.utils</span> <span class="kn">import</span> <span class="n">SingletonOptimized</span><span class="p">,</span> <span class="n">dynamic_module_import</span>
+
+
+<div class="viewcode-block" id="PublisherWatchDog">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.PublisherWatchDog">[docs]</a>
+<span class="k">class</span> <span class="nc">PublisherWatchDog</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SingletonOptimized</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A watchdog that scans for publishers and removes them from the ring if they are not established.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PublisherWatchDog.__init__">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">inner_repeats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the PublisherWatchDog.</span>
+
+<span class="sd">        :param repeats: int: The number of times to repeat the scan</span>
+<span class="sd">        param inner_repeats: int: The number of times to repeat the scan for each publisher</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeats</span> <span class="o">=</span> <span class="n">repeats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inner_repeats</span> <span class="o">=</span> <span class="n">inner_repeats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="PublisherWatchDog.add_publisher">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.add_publisher">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_publisher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">publisher</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a publisher to the ring.</span>
+
+<span class="sd">        :param publisher: Publisher: The publisher to add</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">publisher</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PublisherWatchDog.remove_publisher">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.remove_publisher">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_publisher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">publisher</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove a publisher from the ring.</span>
+
+<span class="sd">        :param publisher: Publisher: The publisher to remove</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">publisher</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PublisherWatchDog.scan">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.scan">[docs]</a>
+    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scan for publishers and remove them from the ring if they are established.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">repeats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeats</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span> <span class="ow">and</span> <span class="p">(</span><span class="n">repeats</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">repeats</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">repeats</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">publisher</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span><span class="p">:</span>
+                <span class="n">found_publisher</span> <span class="o">=</span> <span class="n">publisher</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inner_repeats</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">found_publisher</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">publisher_ring</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">publisher</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Publishers">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publishers">[docs]</a>
+<span class="k">class</span> <span class="nc">Publishers</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class that holds all publishers and their corresponding middleware communicators.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">registry</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">mwares</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Publishers.register">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publishers.register">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">communicator</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register a publisher for a given data type and middleware communicator.</span>
+
+<span class="sd">        :param data_type: str: The data type to register the publisher for e.g., &quot;NativeObject&quot;, &quot;Image&quot;, &quot;AudioChunk&quot;, etc.</span>
+<span class="sd">        :param communicator: str: The middleware communicator to register the publisher for e.g., &quot;ros&quot;, &quot;ros2&quot;, &quot;yarp&quot;, &quot;zeromq&quot;, etc.</span>
+<span class="sd">        :return: Callable[..., Any]: A decorator function that registers the decorated class as a publisher for the given data type and middleware communicator</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">cls_</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">data_type</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">communicator</span><span class="p">]</span> <span class="o">=</span> <span class="n">cls_</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">mwares</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">communicator</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cls_</span>
+        <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+<div class="viewcode-block" id="Publishers.scan">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publishers.scan">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">scan</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scan for publishers and add them to the registry.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">modules</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;publishers&quot;</span><span class="p">,</span> <span class="s2">&quot;*.py&quot;</span><span class="p">),</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">modules</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;yaw.publishers.&quot;</span> <span class="o">+</span> <span class="n">module</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../publishers/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span>
+                   <span class="n">modules</span><span class="p">]</span>
+        <span class="n">dynamic_module_import</span><span class="p">(</span><span class="n">modules</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Publisher">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publisher">[docs]</a>
+<span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A base class for all publishers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Publisher.__init__">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publisher.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Publisher.</span>
+
+<span class="sd">        :param name: str: The name of the publisher</span>
+<span class="sd">        :param out_topic: str: The name of the output topic</span>
+<span class="sd">        :param carrier: str: The name of the carrier to use</span>
+<span class="sd">        :param should_wait: bool: Whether to wait for the publisher to be established or not</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out_topic</span> <span class="o">=</span> <span class="n">out_topic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span> <span class="o">=</span> <span class="n">carrier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span> <span class="o">=</span> <span class="n">should_wait</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">established</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Publisher.check_establishment">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publisher.check_establishment">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_establishment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">established</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the publisher is established and remove it from the ring if it is.</span>
+
+<span class="sd">        :param established: bool: Whether the publisher is established or not</span>
+<span class="sd">        :return: bool: Whether the publisher is established or not</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">established</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">established</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+                <span class="n">PublisherWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">remove_publisher</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+            <span class="n">PublisherWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">PublisherWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">publisher_ring</span><span class="p">:</span>
+                <span class="n">established</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">established</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">established</span></div>
+
+
+<div class="viewcode-block" id="Publisher.establish">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publisher.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the publisher.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+<div class="viewcode-block" id="Publisher.publish">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.publishers.Publisher.publish">[docs]</a>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish an object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

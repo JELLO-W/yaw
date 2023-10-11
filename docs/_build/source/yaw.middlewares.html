@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.middlewares package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw.middlewares package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/yaw.middlewares.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw-middlewares-package">
+<h1>yaw.middlewares package<a class="headerlink" href="#yaw-middlewares-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.middlewares.ros">
+<span id="yaw-middlewares-ros-module"></span><h2>yaw.middlewares.ros module<a class="headerlink" href="#module-yaw.middlewares.ros" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.middlewares.ros2">
+<span id="yaw-middlewares-ros2-module"></span><h2>yaw.middlewares.ros2 module<a class="headerlink" href="#module-yaw.middlewares.ros2" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.ros2.ROS2Middleware">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.middlewares.ros2.</span></span><span class="sig-name descname"><span class="pre">ROS2Middleware</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/ros2.html#ROS2Middleware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.ros2.ROS2Middleware" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ROS2 middleware wrapper. This class is a singleton, so it can be instantiated only once. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> method
+should be called to initialize the middleware. The <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method should be called to deinitialize the middleware
+and destroy all connections. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">deinit</span></code> methods are automatically called when the class is
+instantiated and when the program exits, respectively.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.ros2.ROS2Middleware.activate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/ros2.html#ROS2Middleware.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.ros2.ROS2Middleware.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the ROS2 middleware. This method should be called to initialize the middleware.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ROS2 initialisation function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.ros2.ROS2Middleware.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/ros2.html#ROS2Middleware.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.ros2.ROS2Middleware.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ROS2 middleware. This method is automatically called when the class is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – list: Positional arguments to be passed to the ROS2 initialisation function</p></li>
+<li><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ROS2 initialisation function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.ros2.ROS2Middleware.deinit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/ros2.html#ROS2Middleware.deinit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.ros2.ROS2Middleware.deinit" title="Link to this definition"></a></dt>
+<dd><p>Deinitialize the ROS2 middleware. This method is automatically called when the program exits.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.middlewares.yarp">
+<span id="yaw-middlewares-yarp-module"></span><h2>yaw.middlewares.yarp module<a class="headerlink" href="#module-yaw.middlewares.yarp" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.yarp.YarpMiddleware">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.middlewares.yarp.</span></span><span class="sig-name descname"><span class="pre">YarpMiddleware</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/yarp.html#YarpMiddleware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.yarp.YarpMiddleware" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>YARP middleware wrapper. This class is a singleton, so it can be instantiated only once. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> method
+should be called to initialize the middleware. The <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method should be called to deinitialize the middleware
+and destroy all connections. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">deinit</span></code> methods are automatically called when the class is
+instantiated and when the program exits, respectively.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.yarp.YarpMiddleware.activate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/yarp.html#YarpMiddleware.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.yarp.YarpMiddleware.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the YARP middleware. This method should be called to initialize the middleware.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the YARP initialisation function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.yarp.YarpMiddleware.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/yarp.html#YarpMiddleware.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.yarp.YarpMiddleware.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the YARP middleware. This method is automatically called when the class is instantiated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.yarp.YarpMiddleware.deinit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/yarp.html#YarpMiddleware.deinit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.yarp.YarpMiddleware.deinit" title="Link to this definition"></a></dt>
+<dd><p>Deinitialize the YARP middleware. This method is automatically called when the program exits.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.middlewares.zeromq">
+<span id="yaw-middlewares-zeromq-module"></span><h2>yaw.middlewares.zeromq module<a class="headerlink" href="#module-yaw.middlewares.zeromq" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.middlewares.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQMiddlewarePubSub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ZeroMQ PUB/SUB middleware wrapper. This class is a singleton, so it can be instantiated only once. The <code class="docutils literal notranslate"><span class="pre">activate</span></code>
+method should be called to initialize the middleware. The <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method should be called to deinitialize the
+middleware and destroy all connections. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">deinit</span></code> methods are automatically called when the
+class is instantiated and when the program exits, respectively.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ZeroMQSharedMonitorData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Shared data class for the ZeroMQ PUB/SUB monitor. This class is used to share data between the main process and
+the monitor listener process/thread.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the shared data class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_multiprocessing</strong> – bool: Whether to use multiprocessing or threading</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.add_topic">
+<span class="sig-name descname"><span class="pre">add_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.add_topic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.add_topic" title="Link to this definition"></a></dt>
+<dd><p>Add a topic to the shared data class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topic</strong> – str: The topic to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_topic">
+<span class="sig-name descname"><span class="pre">remove_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_topic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_topic" title="Link to this definition"></a></dt>
+<dd><p>Remove a topic from the shared data class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topic</strong> – str: The topic to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_topics">
+<span class="sig-name descname"><span class="pre">get_topics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_topics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_topics" title="Link to this definition"></a></dt>
+<dd><p>Get the list of topics in the shared data class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list: The list of topics</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.update_connection">
+<span class="sig-name descname"><span class="pre">update_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.update_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.update_connection" title="Link to this definition"></a></dt>
+<dd><p>Update the connection data for a topic, e.g. the number of subscribers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – str: The topic to update</p></li>
+<li><p><strong>data</strong> – dict: The connection data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_connection">
+<span class="sig-name descname"><span class="pre">remove_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_connection" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection data for a topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topic</strong> – str: The topic to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_connections">
+<span class="sig-name descname"><span class="pre">get_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_connections" title="Link to this definition"></a></dt>
+<dd><p>Get the connection data for all topics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict: The connection data for all topics</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.is_connected">
+<span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.is_connected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.is_connected" title="Link to this definition"></a></dt>
+<dd><p>Check whether a topic is connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>topic</strong> – str: The topic to check</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.activate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the ZeroMQ PUB/SUB middleware. This method should be called to initialize the middleware.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ZeroMQ initialisation function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeromq_proxy_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeromq_post_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ZeroMQ PUB/SUB middleware. This method is automatically called when the class is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zeromq_proxy_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</p></li>
+<li><p><strong>zeromq_post_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</p></li>
+<li><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ZeroMQ initialisation function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.proxy_thread">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">proxy_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_pub_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp://127.0.0.1:5555'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_sub_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp://127.0.0.1:5556'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inproc_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inproc://monitor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.proxy_thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.proxy_thread" title="Link to this definition"></a></dt>
+<dd><p>Proxy thread for the ZeroMQ PUB/SUB proxy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>socket_pub_address</strong> – str: The address of the PUB socket</p></li>
+<li><p><strong>socket_sub_address</strong> – str: The address of the SUB socket</p></li>
+<li><p><strong>inproc_address</strong> – str: The address of the inproc socket (connections within the same process, for exchanging subscription data between the proxy and the monitor)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.subscription_monitor_thread">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subscription_monitor_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inproc_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inproc://monitor'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socket_sub_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcp://127.0.0.1:5556'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pubsub_monitor_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ZEROMQ/CONNECTIONS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.subscription_monitor_thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.subscription_monitor_thread" title="Link to this definition"></a></dt>
+<dd><p>Subscription monitor thread for the ZeroMQ PUB/SUB proxy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inproc_address</strong> – str: The address of the inproc socket (connections within the same process, for exchanging subscription data between the proxy and the monitor)</p></li>
+<li><p><strong>socket_sub_address</strong> – str: The address of the SUB socket</p></li>
+<li><p><strong>pubsub_monitor_topic</strong> – str: The topic to use for publishing subscription data</p></li>
+<li><p><strong>verbose</strong> – bool: Whether to print debug messages</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.deinit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewarePubSub.deinit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.deinit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.middlewares.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQMiddlewareReqRep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareReqRep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ZeroMQ REQ/REP middleware wrapper. This class is a singleton, so it can be instantiated only once. The <code class="docutils literal notranslate"><span class="pre">activate</span></code>
+method should be called to initialize the middleware. The <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method should be called to deinitialize the
+middleware and destroy all connections. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">deinit</span></code> methods are automatically called when the
+class is instantiated and when the program exits, respectively.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.activate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareReqRep.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the ZeroMQ REQ/REP middleware. This method should be called to initialize the middleware.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ZeroMQ initialisation function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeromq_proxy_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeromq_post_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareReqRep.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ZeroMQ REQ/REP middleware. This method is automatically called when the class is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zeromq_proxy_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</p></li>
+<li><p><strong>zeromq_post_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</p></li>
+<li><p><strong>args</strong> – list: Positional arguments to be passed to the ZeroMQ initialisation function</p></li>
+<li><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ZeroMQ initialisation function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.deinit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareReqRep.deinit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.deinit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.middlewares.zeromq.</span></span><span class="sig-name descname"><span class="pre">ZeroMQMiddlewareParamServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareParamServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ZeroMQ parameter server middleware wrapper. This class is a singleton, so it can be instantiated only once. The
+<code class="docutils literal notranslate"><span class="pre">activate</span></code> method should be called to initialize the middleware. The <code class="docutils literal notranslate"><span class="pre">deinit</span></code> method should be called to
+deinitialize the middleware and destroy all connections. The <code class="docutils literal notranslate"><span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">deinit</span></code> methods are automatically
+called when the class is instantiated and when the program exits, respectively.</p>
+<p>Note: This parameter server is experimental and not fully tested.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.activate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareParamServer.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.activate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zeromq_proxy_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeromq_post_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareParamServer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ZeroMQ parameter server middleware. This method is automatically called when the class is
+instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zeromq_proxy_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</p></li>
+<li><p><strong>zeromq_post_kwargs</strong> – Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</p></li>
+<li><p><strong>kwargs</strong> – dict: Keyword arguments to be passed to the ZeroMQ initialisation function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.publish_params">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cached_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareParamServer.publish_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.publish_params" title="Link to this definition"></a></dt>
+<dd><p>Publish parameters to the parameter server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_server</strong> – zmq.Socket: The parameter server socket</p></li>
+<li><p><strong>params</strong> – dict: The parameters to be published</p></li>
+<li><p><strong>cached_params</strong> – dict: The cached parameters. This is used to check whether the parameters have changed</p></li>
+<li><p><strong>root_topics</strong> – set: The root topics. This is used to check whether there are any active subscribers</p></li>
+<li><p><strong>update_trigger</strong> – bool: Whether to trigger an update of the parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, dict]: Whether to trigger an update of the parameters and the cached parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.deinit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/middlewares/zeromq.html#ZeroMQMiddlewareParamServer.deinit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.deinit" title="Link to this definition"></a></dt>
+<dd><p>Deinitialize the ZeroMQ parameter server.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.middlewares">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yaw.middlewares" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

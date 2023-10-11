@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.connect package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw.connect package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/yaw.connect.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw-connect-package">
+<h1>yaw.connect package<a class="headerlink" href="#yaw-connect-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.connect.clients">
+<span id="yaw-connect-clients-module"></span><h2>yaw.connect.clients module<a class="headerlink" href="#module-yaw.connect.clients" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.clients.Clients">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.clients.</span></span><span class="sig-name descname"><span class="pre">Clients</span></span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Clients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Clients" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that holds all clients and their corresponding middleware communicators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.clients.Clients.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'AudioChunk:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.ros2.ROS2AudioChunkClient'&gt;,</span> <span class="pre">'AudioChunk:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.yarp.YarpAudioChunkClient'&gt;,</span> <span class="pre">'AudioChunk:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.zeromq.ZeroMQAudioChunkClient'&gt;,</span> <span class="pre">'Image:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.ros2.ROS2ImageClient'&gt;,</span> <span class="pre">'Image:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.yarp.YarpImageClient'&gt;,</span> <span class="pre">'Image:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.zeromq.ZeroMQImageClient'&gt;,</span> <span class="pre">'MMO:fallback':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.FallbackClient'&gt;,</span> <span class="pre">'NativeObject:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.ros2.ROS2NativeObjectClient'&gt;,</span> <span class="pre">'NativeObject:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.yarp.YarpNativeObjectClient'&gt;,</span> <span class="pre">'NativeObject:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.clients.zeromq.ZeroMQNativeObjectClient'&gt;}</span></em><a class="headerlink" href="#yaw.connect.clients.Clients.registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.clients.Clients.mwares">
+<span class="sig-name descname"><span class="pre">mwares</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fallback',</span> <span class="pre">'ros2',</span> <span class="pre">'yarp',</span> <span class="pre">'zeromq'}</span></em><a class="headerlink" href="#yaw.connect.clients.Clients.mwares" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.clients.Clients.register">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">communicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Clients.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Clients.register" title="Link to this definition"></a></dt>
+<dd><p>Register a client with the given data type and middleware communicator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – str: The data type to register the client for e.g., “NativeObject”, “Image”, “AudioChunk”, etc.</p></li>
+<li><p><strong>communicator</strong> – str: The middleware communicator to register the client for e.g., “ros”, “ros2”, “yarp”, “zeromq”, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.clients.Clients.scan">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Clients.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Clients.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for clients and add them to the registry.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.clients.Client">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.clients.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Client" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for clients.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.clients.Client.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Client.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Client.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: The name of the client</p></li>
+<li><p><strong>in_topic</strong> – str: The topic to listen to</p></li>
+<li><p><strong>carrier</strong> – str: The middleware carrier to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.clients.Client.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Client.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Client.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.clients.Client.request">
+<span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/clients.html#Client.request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.clients.Client.request" title="Link to this definition"></a></dt>
+<dd><p>Send a request to the server.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.connect.listeners">
+<span id="yaw-connect-listeners-module"></span><h2>yaw.connect.listeners module<a class="headerlink" href="#module-yaw.connect.listeners" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.listeners.ListenerWatchDog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.listeners.</span></span><span class="sig-name descname"><span class="pre">ListenerWatchDog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#ListenerWatchDog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.ListenerWatchDog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A watchdog that scans for listeners and removes them from the ring if they are not established.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.ListenerWatchDog.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#ListenerWatchDog.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.ListenerWatchDog.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ListenerWatchDog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: The number of times to repeat the scan</p>
+</dd>
+</dl>
+<p>param inner_repeats: int: The number of times to repeat the scan for each listener</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.ListenerWatchDog.add_listener">
+<span class="sig-name descname"><span class="pre">add_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#ListenerWatchDog.add_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.ListenerWatchDog.add_listener" title="Link to this definition"></a></dt>
+<dd><p>Add a listener to the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>listener</strong> – Listener: The listener to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.ListenerWatchDog.remove_listener">
+<span class="sig-name descname"><span class="pre">remove_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#ListenerWatchDog.remove_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.ListenerWatchDog.remove_listener" title="Link to this definition"></a></dt>
+<dd><p>Remove a listener from the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>listener</strong> – Listener: The listener to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.ListenerWatchDog.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#ListenerWatchDog.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.ListenerWatchDog.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for listeners and remove them from the ring if they are established.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listeners">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.listeners.</span></span><span class="sig-name descname"><span class="pre">Listeners</span></span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listeners"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listeners" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that holds all listeners and their corresponding middleware communicators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listeners.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'AudioChunk:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.ros2.ROS2AudioChunkListener'&gt;,</span> <span class="pre">'AudioChunk:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.yarp.YarpAudioChunkListener'&gt;,</span> <span class="pre">'AudioChunk:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.zeromq.ZeroMQAudioChunkListener'&gt;,</span> <span class="pre">'Image:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.ros2.ROS2ImageListener'&gt;,</span> <span class="pre">'Image:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.yarp.YarpImageListener'&gt;,</span> <span class="pre">'Image:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.zeromq.ZeroMQImageListener'&gt;,</span> <span class="pre">'MMO:fallback':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.FallbackListener'&gt;,</span> <span class="pre">'NativeObject:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.ros2.ROS2NativeObjectListener'&gt;,</span> <span class="pre">'NativeObject:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.yarp.YarpNativeObjectListener'&gt;,</span> <span class="pre">'NativeObject:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.zeromq.ZeroMQNativeObjectListener'&gt;,</span> <span class="pre">'Properties:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.ros2.ROS2PropertiesListener'&gt;,</span> <span class="pre">'Properties:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.yarp.YarpPropertiesListener'&gt;,</span> <span class="pre">'Properties:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.listeners.zeromq.ZeroMQPropertiesListener'&gt;}</span></em><a class="headerlink" href="#yaw.connect.listeners.Listeners.registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listeners.mwares">
+<span class="sig-name descname"><span class="pre">mwares</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fallback',</span> <span class="pre">'ros2',</span> <span class="pre">'yarp',</span> <span class="pre">'zeromq'}</span></em><a class="headerlink" href="#yaw.connect.listeners.Listeners.mwares" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listeners.register">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">communicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listeners.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listeners.register" title="Link to this definition"></a></dt>
+<dd><p>Register a listener with the given data type and middleware communicator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – str: The data type to register the listener for e.g., “NativeObject”, “Image”, “AudioChunk”, etc.</p></li>
+<li><p><strong>communicator</strong> – str: The middleware communicator to register the listener for e.g., “ros”, “ros2”, “yarp”, “zeromq”, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listeners.scan">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listeners.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listeners.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for listeners and add them to the registry.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.listeners.</span></span><span class="sig-name descname"><span class="pre">Listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for listeners.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listener.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listener.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listener.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Listener.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: The name of the listener</p></li>
+<li><p><strong>in_topic</strong> – str: The topic to listen to</p></li>
+<li><p><strong>carrier</strong> – str: The middleware carrier to use</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether to wait for the listener to be established or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listener.check_establishment">
+<span class="sig-name descname"><span class="pre">check_establishment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">established</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listener.check_establishment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listener.check_establishment" title="Link to this definition"></a></dt>
+<dd><p>Check if the listener is established or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>established</strong> – bool: Whether the listener is established or not</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: Whether the listener is established or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listener.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listener.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listener.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the listener.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.listeners.Listener.listen">
+<span class="sig-name descname"><span class="pre">listen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/listeners.html#Listener.listen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.listeners.Listener.listen" title="Link to this definition"></a></dt>
+<dd><p>Listen for incoming data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.connect.publishers">
+<span id="yaw-connect-publishers-module"></span><h2>yaw.connect.publishers module<a class="headerlink" href="#module-yaw.connect.publishers" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.publishers.PublisherWatchDog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.publishers.</span></span><span class="sig-name descname"><span class="pre">PublisherWatchDog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#PublisherWatchDog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.PublisherWatchDog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A watchdog that scans for publishers and removes them from the ring if they are not established.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.PublisherWatchDog.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#PublisherWatchDog.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.PublisherWatchDog.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PublisherWatchDog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeats</strong> – int: The number of times to repeat the scan</p>
+</dd>
+</dl>
+<p>param inner_repeats: int: The number of times to repeat the scan for each publisher</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.PublisherWatchDog.add_publisher">
+<span class="sig-name descname"><span class="pre">add_publisher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">publisher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#PublisherWatchDog.add_publisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.PublisherWatchDog.add_publisher" title="Link to this definition"></a></dt>
+<dd><p>Add a publisher to the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>publisher</strong> – Publisher: The publisher to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.PublisherWatchDog.remove_publisher">
+<span class="sig-name descname"><span class="pre">remove_publisher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">publisher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#PublisherWatchDog.remove_publisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.PublisherWatchDog.remove_publisher" title="Link to this definition"></a></dt>
+<dd><p>Remove a publisher from the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>publisher</strong> – Publisher: The publisher to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.PublisherWatchDog.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#PublisherWatchDog.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.PublisherWatchDog.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for publishers and remove them from the ring if they are established.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publishers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.publishers.</span></span><span class="sig-name descname"><span class="pre">Publishers</span></span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publishers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publishers" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that holds all publishers and their corresponding middleware communicators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publishers.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'AudioChunk:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.ros2.ROS2AudioChunkPublisher'&gt;,</span> <span class="pre">'AudioChunk:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.yarp.YarpAudioChunkPublisher'&gt;,</span> <span class="pre">'AudioChunk:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.zeromq.ZeroMQAudioChunkPublisher'&gt;,</span> <span class="pre">'Image:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.ros2.ROS2ImagePublisher'&gt;,</span> <span class="pre">'Image:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.yarp.YarpImagePublisher'&gt;,</span> <span class="pre">'Image:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.zeromq.ZeroMQImagePublisher'&gt;,</span> <span class="pre">'MMO:fallback':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.FallbackPublisher'&gt;,</span> <span class="pre">'NativeObject:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.ros2.ROS2NativeObjectPublisher'&gt;,</span> <span class="pre">'NativeObject:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.yarp.YarpNativeObjectPublisher'&gt;,</span> <span class="pre">'NativeObject:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.zeromq.ZeroMQNativeObjectPublisher'&gt;,</span> <span class="pre">'Properties:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.ros2.ROS2PropertiesPublisher'&gt;,</span> <span class="pre">'Properties:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.yarp.YarpPropertiesPublisher'&gt;,</span> <span class="pre">'Properties:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.publishers.zeromq.ZeroMQPropertiesPublisher'&gt;}</span></em><a class="headerlink" href="#yaw.connect.publishers.Publishers.registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publishers.mwares">
+<span class="sig-name descname"><span class="pre">mwares</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fallback',</span> <span class="pre">'ros2',</span> <span class="pre">'yarp',</span> <span class="pre">'zeromq'}</span></em><a class="headerlink" href="#yaw.connect.publishers.Publishers.mwares" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publishers.register">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">communicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publishers.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publishers.register" title="Link to this definition"></a></dt>
+<dd><p>Register a publisher for a given data type and middleware communicator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – str: The data type to register the publisher for e.g., “NativeObject”, “Image”, “AudioChunk”, etc.</p></li>
+<li><p><strong>communicator</strong> – str: The middleware communicator to register the publisher for e.g., “ros”, “ros2”, “yarp”, “zeromq”, etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Callable[…, Any]: A decorator function that registers the decorated class as a publisher for the given data type and middleware communicator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publishers.scan">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publishers.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publishers.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for publishers and add them to the registry.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publisher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.publishers.</span></span><span class="sig-name descname"><span class="pre">Publisher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publisher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for all publishers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publisher.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">should_wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publisher.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publisher.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Publisher.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: The name of the publisher</p></li>
+<li><p><strong>out_topic</strong> – str: The name of the output topic</p></li>
+<li><p><strong>carrier</strong> – str: The name of the carrier to use</p></li>
+<li><p><strong>should_wait</strong> – bool: Whether to wait for the publisher to be established or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publisher.check_establishment">
+<span class="sig-name descname"><span class="pre">check_establishment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">established</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publisher.check_establishment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publisher.check_establishment" title="Link to this definition"></a></dt>
+<dd><p>Check if the publisher is established and remove it from the ring if it is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>established</strong> – bool: Whether the publisher is established or not</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool: Whether the publisher is established or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publisher.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publisher.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publisher.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the publisher.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.publishers.Publisher.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/publishers.html#Publisher.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.publishers.Publisher.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish an object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.connect.servers">
+<span id="yaw-connect-servers-module"></span><h2>yaw.connect.servers module<a class="headerlink" href="#module-yaw.connect.servers" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.servers.Servers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.servers.</span></span><span class="sig-name descname"><span class="pre">Servers</span></span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Servers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Servers" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that holds all servers and their corresponding middleware communicators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.servers.Servers.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'AudioChunk:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.ros2.ROS2AudioChunkServer'&gt;,</span> <span class="pre">'AudioChunk:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.yarp.YarpAudioChunkServer'&gt;,</span> <span class="pre">'AudioChunk:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.zeromq.ZeroMQAudioChunkServer'&gt;,</span> <span class="pre">'Image:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.ros2.ROS2ImageServer'&gt;,</span> <span class="pre">'Image:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.yarp.YarpImageServer'&gt;,</span> <span class="pre">'Image:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.zeromq.ZeroMQImageServer'&gt;,</span> <span class="pre">'MMO:fallback':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.FallbackServer'&gt;,</span> <span class="pre">'NativeObject:ros2':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.ros2.ROS2NativeObjectServer'&gt;,</span> <span class="pre">'NativeObject:yarp':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.yarp.YarpNativeObjectServer'&gt;,</span> <span class="pre">'NativeObject:zeromq':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.servers.zeromq.ZeroMQNativeObjectServer'&gt;}</span></em><a class="headerlink" href="#yaw.connect.servers.Servers.registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.connect.servers.Servers.mwares">
+<span class="sig-name descname"><span class="pre">mwares</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fallback',</span> <span class="pre">'ros2',</span> <span class="pre">'yarp',</span> <span class="pre">'zeromq'}</span></em><a class="headerlink" href="#yaw.connect.servers.Servers.mwares" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Servers.register">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">communicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Servers.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Servers.register" title="Link to this definition"></a></dt>
+<dd><p>Register a server with the given data type and middleware communicator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – str: The data type to register the server for e.g., “NativeObject”, “Image”, “AudioChunk”, etc.</p></li>
+<li><p><strong>communicator</strong> – str: The middleware communicator to register the server for e.g., “ros”, “ros2”, “yarp”, “zeromq”, etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Callable: A decorator that registers the server with the given data type and middleware communicator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Servers.scan">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Servers.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Servers.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan for servers and add them to the registry.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.servers.Server">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.servers.</span></span><span class="sig-name descname"><span class="pre">Server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic_connect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Server" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for servers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Server.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carrier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_topic_connect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Server.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Server.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – str: The name of the server</p></li>
+<li><p><strong>out_topic</strong> – str: The topic to publish to</p></li>
+<li><p><strong>carrier</strong> – str: The middleware carrier to use</p></li>
+<li><p><strong>out_topic_connect</strong> – str: The topic to connect to (this is deprecated and will be removed in the future since its usage is limited to YARP)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Server.establish">
+<span class="sig-name descname"><span class="pre">establish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Server.establish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Server.establish" title="Link to this definition"></a></dt>
+<dd><p>Establish the server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Server.await_request">
+<span class="sig-name descname"><span class="pre">await_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Server.await_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Server.await_request" title="Link to this definition"></a></dt>
+<dd><p>Await a request from a client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.servers.Server.reply">
+<span class="sig-name descname"><span class="pre">reply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/servers.html#Server.reply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.servers.Server.reply" title="Link to this definition"></a></dt>
+<dd><p>Reply to a client request.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.connect.wrapper">
+<span id="yaw-connect-wrapper-module"></span><h2>yaw.connect.wrapper module<a class="headerlink" href="#module-yaw.connect.wrapper" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.connect.wrapper.</span></span><span class="sig-name descname"><span class="pre">MiddlewareCommunicator</span></span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialises the middleware communicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.register">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">middleware</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'zeromq'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.register" title="Link to this definition"></a></dt>
+<dd><p>Registers a function to the middleware communicator, defining its communication message type and associated
+middleware. Note that the function returned is a wrapper that can alter the behavior of the registered function
+based on the communication mode set in the middleware communicator registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – Union[str, List[Any]]: Specifies the communication message type, either as a string or a list containing specifications of the data type and middleware</p></li>
+<li><p><strong>middleware</strong> – str: Specifies the middleware to be used for the communication, defaults to DEFAULT_COMMUNICATOR</p></li>
+<li><p><strong>args</strong> – tuple: Variable positional arguments to be passed to the function</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments to be passed to the function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Callable[…, Any]: A wrapper function that triggers specific communication modes (e.g., publish, listen, reply, request) based on the registered function and middleware settings</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NotImplementedError: If <cite>data_type</cite> is a dictionary or an unsupported type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.activate_communication">
+<span class="sig-name descname"><span class="pre">activate_communication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.activate_communication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.activate_communication" title="Link to this definition"></a></dt>
+<dd><p>Activates the communication mode for a registered function in the middleware communicator.
+The mode determines how the function will interact with the middleware communicator upon invocation,
+e.g., whether it should publish its return values, listen for values, etc.
+The communication mode can be set for all instances of the function or individually per instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> – Union[str, Callable[…, Any]]: The function or the name of the function for which the communication mode should be activated</p></li>
+<li><p><strong>mode</strong> – Union[str, List[str]]: Specifies the communication mode to be activated, either as a single mode (string) applicable to all instances, or as a list of modes (strings) per instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>IndexError: If mode is a list and the number of elements does not match the number of instances</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ValueError: If the instance address cannot be found in the registry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.close" title="Link to this definition"></a></dt>
+<dd><p>Closes this middleware communicator instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.get_communicators">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_communicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.get_communicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.get_communicators" title="Link to this definition"></a></dt>
+<dd><p>Returns the available middleware communicators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set[str]: The available middleware communicators (excluding the fallback communicator)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.close_all_instances">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close_all_instances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.close_all_instances"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.close_all_instances" title="Link to this definition"></a></dt>
+<dd><p>Closes all instances of the middleware communicator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.connect.wrapper.MiddlewareCommunicator.close_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/connect/wrapper.html#MiddlewareCommunicator.close_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.connect.wrapper.MiddlewareCommunicator.close_instance" title="Link to this definition"></a></dt>
+<dd><p>Closes a specific instance of the middleware communicator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instance_addr</strong> – str: The unique identifier of the instance to be closed, defaults to None</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError: If the instance address cannot be found in the registry</p>
+</dd>
+</dl>
+<p>Note that the instance address is the hex representation of the instance’s id. If no instance address is provided, all instances will be closed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.connect">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yaw.connect" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

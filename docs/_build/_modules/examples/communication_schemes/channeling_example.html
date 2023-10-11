@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.communication_schemes.channeling_example &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">examples.communication_schemes.channeling_example</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for examples.communication_schemes.channeling_example</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Channeling Example using YAW.</span>
+
+<span class="sd">This script demonstrates message channeling through three different middleware (A, B, and C) using</span>
+<span class="sd">the MiddlewareCommunicator within the YAW library. It allows message publishing and listening</span>
+<span class="sd">functionalities between processes or machines.</span>
+
+<span class="sd">Demonstrations:</span>
+<span class="sd">    - Using NativeObject, Image, and AudioChunk messages</span>
+<span class="sd">    - Transmitting messages through different middlewares (e.g., ROS, YARP, ZeroMQ)</span>
+<span class="sd">    - Applying the PUB/SUB pattern with channeling</span>
+
+<span class="sd">Requirements:</span>
+<span class="sd">    - YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - NumPy: Used for creating arrays (installed with YAW)</span>
+
+<span class="sd">    Install using pip:</span>
+<span class="sd">        ``pip install numpy``</span>
+
+<span class="sd">Run:</span>
+<span class="sd">    # On machine 1 (or process 1): Mode: Publisher sends messages through channels A [ZeroMQ], B [ROS2], and C [YARP]</span>
+<span class="sd">        ``python3 channeling_example.py --mode publish --mware_A zeromq --mware_B ros2 --mware_C yarp``</span>
+
+<span class="sd">    # On machine 2 (or process 2): Mode: Listener waits for message from channels A [ZeroMQ], B [ROS2], and C [YARP]</span>
+<span class="sd">        ``python3 channeling_example.py --mode listen --mware_A zeromq --mware_B ros2 --mware_C yarp``</span>
+
+<span class="sd">    # On machine 3 (or process 3): Mode: Listener waits for message from channel C [YARP]</span>
+<span class="sd">        ``python3 channeling_example.py --mode listen --mware_C yarp``</span>
+
+<span class="sd">    # On machine 4 (or process 4) [OPTIONAL]: Mode: Listener waits for message from channel B [ROS2]</span>
+<span class="sd">        ``python3 channeling_example.py --mode listen --mware_B ros2``</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.wrapper</span> <span class="kn">import</span> <span class="n">MiddlewareCommunicator</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span>
+
+
+<div class="viewcode-block" id="ChannelingCls">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_schemes.html#examples.communication_schemes.channeling_example.ChannelingCls">[docs]</a>
+<span class="k">class</span> <span class="nc">ChannelingCls</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="p">):</span>
+<div class="viewcode-block" id="ChannelingCls.read_mulret_mulmware">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_schemes.html#examples.communication_schemes.channeling_example.ChannelingCls.read_mulret_mulmware">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware_A&quot;</span><span class="p">,</span> <span class="s2">&quot;ChannelingCls&quot;</span><span class="p">,</span> <span class="s2">&quot;/example/native_A_msg&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;mcast&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware_B&quot;</span><span class="p">,</span> <span class="s2">&quot;ChannelingCls&quot;</span><span class="p">,</span> <span class="s2">&quot;/example/image_B_msg&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;$img_width&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;$img_height&quot;</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;AudioChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware_C&quot;</span><span class="p">,</span> <span class="s2">&quot;ChannelingCls&quot;</span><span class="p">,</span> <span class="s2">&quot;/example/audio_C_msg&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;$aud_rate&quot;</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="s2">&quot;$aud_chunk&quot;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="s2">&quot;$aud_channels&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">read_mulret_mulmware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">img_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                             <span class="n">aud_rate</span><span class="o">=</span><span class="mi">44100</span><span class="p">,</span> <span class="n">aud_chunk</span><span class="o">=</span><span class="mi">8820</span><span class="p">,</span> <span class="n">aud_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                             <span class="n">mware_A</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mware_B</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mware_C</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read and forward messages through channels A, B, and C.&quot;&quot;&quot;</span>
+        <span class="n">ros_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="n">zeromq_aud</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">aud_chunk</span><span class="p">),</span> <span class="n">aud_rate</span><span class="p">,)</span>
+        <span class="n">yarp_native</span> <span class="o">=</span> <span class="p">[</span><span class="n">ros_img</span><span class="p">,</span> <span class="n">zeromq_aud</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">yarp_native</span><span class="p">,</span> <span class="n">ros_img</span><span class="p">,</span> <span class="n">zeromq_aud</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="parse_args">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_schemes.html#examples.communication_schemes.channeling_example.parse_args">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command line arguments.&quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Channeling Example using YAW.&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mode&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;publish&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;publish&quot;</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">},</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The transmission mode&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mware_A&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">get_communicators</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;none&quot;</span><span class="p">}),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The middleware to use for transmission of channel A&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mware_B&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">get_communicators</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;none&quot;</span><span class="p">}),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The middleware to use for transmission of channel B&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mware_C&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">get_communicators</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;none&quot;</span><span class="p">}),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The middleware to use for transmission of channel C&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_schemes.html#examples.communication_schemes.channeling_example.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function to initiate ChannelingCls class and communication.&quot;&quot;&quot;</span>
+    <span class="n">channeling</span> <span class="o">=</span> <span class="n">ChannelingCls</span><span class="p">()</span>
+    <span class="n">channeling</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">channeling</span><span class="o">.</span><span class="n">read_mulret_mulmware</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">A_native</span><span class="p">,</span> <span class="n">B_img</span><span class="p">,</span> <span class="n">C_aud</span> <span class="o">=</span> <span class="n">channeling</span><span class="o">.</span><span class="n">read_mulret_mulmware</span><span class="p">(</span>
+            <span class="n">mware_A</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware_A</span><span class="p">,</span> <span class="n">mware_B</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware_B</span><span class="p">,</span> <span class="n">mware_C</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware_C</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">A_native</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">mware_A</span><span class="si">}</span><span class="s2">_native::&quot;</span><span class="p">,</span> <span class="n">A_native</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">B_img</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">mware_B</span><span class="si">}</span><span class="s2">_img::&quot;</span><span class="p">,</span> <span class="n">B_img</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">C_aud</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">mware_C</span><span class="si">}</span><span class="s2">_aud::&quot;</span><span class="p">,</span> <span class="n">C_aud</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

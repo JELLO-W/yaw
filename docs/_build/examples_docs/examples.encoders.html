@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.encoders package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples.encoders.plugins package" href="examples.encoders.plugins.html" />
+    <link rel="prev" title="examples.custom_msgs package" href="examples.custom_msgs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples.encoders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.astropy_example">examples.encoders.astropy_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.astropy_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.astropy_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.astropy_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.astropy_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.dask_example">examples.encoders.dask_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.dask_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.dask_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.dask_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.dask_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.jax_example">examples.encoders.jax_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.jax_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.jax_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.jax_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.jax_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.mxnet_example">examples.encoders.mxnet_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.mxnet_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.mxnet_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.mxnet_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.mxnet_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.numpy_pandas_example">examples.encoders.numpy_pandas_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.numpy_pandas_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.numpy_pandas_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.numpy_pandas_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.numpy_pandas_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.paddlepaddle_example">examples.encoders.paddlepaddle_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.paddlepaddle_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.paddlepaddle_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.paddlepaddle_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.paddlepaddle_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.pillow_example">examples.encoders.pillow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pillow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.pillow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pillow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pillow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.pint_example">examples.encoders.pint_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pint_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.pint_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pint_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pint_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.pyarrow_example">examples.encoders.pyarrow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pyarrow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.pyarrow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pyarrow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pyarrow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.pytorch_example">examples.encoders.pytorch_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pytorch_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.pytorch_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pytorch_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.pytorch_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.tensorflow_example">examples.encoders.tensorflow_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.tensorflow_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.tensorflow_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.tensorflow_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.tensorflow_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.xarray_example">examples.encoders.xarray_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.xarray_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.xarray_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.xarray_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.xarray_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders.zarr_example">examples.encoders.zarr_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.zarr_example.Notifier"><code class="docutils literal notranslate"><span class="pre">Notifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.encoders.zarr_example.Notifier.exchange_object"><code class="docutils literal notranslate"><span class="pre">Notifier.exchange_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.zarr_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.encoders.zarr_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.encoders">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html">examples package</a></li>
+      <li class="breadcrumb-item active">examples.encoders package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.encoders.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-encoders-package">
+<h1>examples.encoders package<a class="headerlink" href="#examples-encoders-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.plugins.html#module-examples.encoders.plugins.astropy_tables">examples.encoders.plugins.astropy_tables module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.encoders.plugins.html#examples.encoders.plugins.astropy_tables.AstropyData"><code class="docutils literal notranslate"><span class="pre">AstropyData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#examples.encoders.plugins.astropy_tables.AstropyData.__init__"><code class="docutils literal notranslate"><span class="pre">AstropyData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#examples.encoders.plugins.astropy_tables.AstropyData.encode"><code class="docutils literal notranslate"><span class="pre">AstropyData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.encoders.plugins.html#examples.encoders.plugins.astropy_tables.AstropyData.decode"><code class="docutils literal notranslate"><span class="pre">AstropyData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.encoders.plugins.html#module-examples.encoders.plugins">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.encoders.astropy_example">
+<span id="examples-encoders-astropy-example-module"></span><h2>examples.encoders.astropy_example module<a class="headerlink" href="#module-examples.encoders.astropy_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and Astropy Tables (external plugin).</p>
+<p>This script demonstrates the capability to transmit native Python objects and Astropy Tables using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines. By modifying the
+<code class="docutils literal notranslate"><span class="pre">YAW_PLUGINS_PATH</span></code> environment variable to include the current directory, which contains the
+plugins directory with <code class="docutils literal notranslate"><span class="pre">astropy_tables.py</span></code> file, the <code class="docutils literal notranslate"><span class="pre">AstropyTable</span></code> message can be used to transmit Astropy Tables.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and Astropy Tables</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+<li><p>Using an external plugin to handle Astropy Tables</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>Astropy: Used for creating and handling astronomical tables</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">astropy</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">astropy_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">astropy_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.astropy_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.astropy_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/astropy_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.astropy_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.astropy_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/astropy_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.astropy_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with Astropy Tables and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.astropy_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.astropy_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/astropy_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.astropy_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.astropy_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.astropy_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/astropy_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.astropy_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.dask_example">
+<span id="examples-encoders-dask-example-module"></span><h2>examples.encoders.dask_example module<a class="headerlink" href="#module-examples.encoders.dask_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and Dask Arrays/Dataframes.</p>
+<p>This script demonstrates the capability to transmit native Python objects and Dask arrays/dataframes using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and Dask arrays/dataframes</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>Dask, pandas: Used for handling and creating arrays and dataframes</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span> <span class="pre">dask[complete]</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">dask_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and computes and prints the Dask objects</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">dask_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.dask_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.dask_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/dask_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.dask_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.dask_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/dask_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.dask_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with Dask arrays/dataframes and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.dask_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.dask_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/dask_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.dask_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.dask_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.dask_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/dask_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.dask_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.jax_example">
+<span id="examples-encoders-jax-example-module"></span><h2>examples.encoders.jax_example module<a class="headerlink" href="#module-examples.encoders.jax_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and JAX arrays.</p>
+<p>This script demonstrates the capability to transmit native Python objects and JAX arrays using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and JAX arrays</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>JAX: Used for handling and creating arrays (refer to <a class="reference external" href="https://jax.readthedocs.io/en/latest/installation.html">https://jax.readthedocs.io/en/latest/installation.html</a> for installation instructions)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jax</span> <span class="pre">jaxlib</span></code>  # Basic installation of JAX</p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">jax_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">jax_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.jax_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.jax_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/jax_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.jax_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.jax_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/jax_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.jax_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with JAX arrays and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.jax_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.jax_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/jax_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.jax_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.jax_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.jax_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/jax_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.jax_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.mxnet_example">
+<span id="examples-encoders-mxnet-example-module"></span><h2>examples.encoders.mxnet_example module<a class="headerlink" href="#module-examples.encoders.mxnet_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and MXNet tensors.</p>
+<p>This script demonstrates the capability to transmit native Python objects and MXNet tensors using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and MXNet tensors</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+<li><p>Transmitting MXNet tensors with different contexts (CPU and GPU if available)</p></li>
+<li><p>Flipping of contexts by mapping CPU to GPU and vice versa</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>MXNet: Used for handling and creating tensors (refer to <a class="reference external" href="https://mxnet.apache.org/get_started">https://mxnet.apache.org/get_started</a> for installation instructions)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mxnet</span></code>  # Basic installation of MXNet</p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mxnet_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mxnet_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.mxnet_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.mxnet_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/mxnet_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.mxnet_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.mxnet_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/mxnet_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.mxnet_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with MXNet tensors and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.mxnet_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.mxnet_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/mxnet_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.mxnet_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.mxnet_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.mxnet_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/mxnet_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.mxnet_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.numpy_pandas_example">
+<span id="examples-encoders-numpy-pandas-example-module"></span><h2>examples.encoders.numpy_pandas_example module<a class="headerlink" href="#module-examples.encoders.numpy_pandas_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects, NumPy Arrays, and Pandas Series/Dataframes.</p>
+<p>This script demonstrates the capability to transmit native Python objects, NumPy arrays, and Pandas series/dataframes using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects, NumPy arrays, and Pandas series/dataframes</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>NumPy: Used for creating arrays (installed with YAW)</p></li>
+<li><p>pandas: Used for creating and handling series and dataframes</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">numpy_pandas_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">numpy_pandas_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.numpy_pandas_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.numpy_pandas_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/numpy_pandas_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.numpy_pandas_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.numpy_pandas_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/numpy_pandas_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.numpy_pandas_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with NumPy arrays, Pandas series/dataframes, and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.numpy_pandas_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.numpy_pandas_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/numpy_pandas_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.numpy_pandas_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.numpy_pandas_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.numpy_pandas_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/numpy_pandas_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.numpy_pandas_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.paddlepaddle_example">
+<span id="examples-encoders-paddlepaddle-example-module"></span><h2>examples.encoders.paddlepaddle_example module<a class="headerlink" href="#module-examples.encoders.paddlepaddle_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and PaddlePaddle tensors.</p>
+<p>This script demonstrates the capability to transmit native Python objects and PaddlePaddle tensors using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and PaddlePaddle tensors</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+<li><p>Transmitting PaddlePaddle tensors with different devices (CPU and GPU if available)</p></li>
+<li><p>Flipping of devices by mapping CPU to GPU and vice versa</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>PaddlePaddle: Used for handling and creating tensors (refer to <a class="reference external" href="https://www.paddlepaddle.org.cn/en/install/quick">https://www.paddlepaddle.org.cn/en/install/quick</a> for installation instructions)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">paddlepaddle-gpu</span></code>  # Basic installation of PaddlePaddle</p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">paddlepaddle_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">paddlepaddle_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.paddlepaddle_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.paddlepaddle_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/paddlepaddle_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.paddlepaddle_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.paddlepaddle_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/paddlepaddle_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.paddlepaddle_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with PaddlePaddle tensors and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.paddlepaddle_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.paddlepaddle_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/paddlepaddle_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.paddlepaddle_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.paddlepaddle_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.paddlepaddle_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/paddlepaddle_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.paddlepaddle_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.pillow_example">
+<span id="examples-encoders-pillow-example-module"></span><h2>examples.encoders.pillow_example module<a class="headerlink" href="#module-examples.encoders.pillow_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for pillow images.</p>
+<p>This script demonstrates the capability to transmit native Python objects and pillow images in different formats using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and pillow images</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>NumPy: Used for creating image arrays (installed with YAW)</p></li>
+<li><p>pillow: Used for handling image objects</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pillow</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pillow_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pillow_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.pillow_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.pillow_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/pillow_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pillow_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.pillow_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pillow_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pillow_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pillow_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pillow_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pillow_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pillow_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pillow_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pillow_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pillow_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pillow_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notify class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.pint_example">
+<span id="examples-encoders-pint-example-module"></span><h2>examples.encoders.pint_example module<a class="headerlink" href="#module-examples.encoders.pint_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and Pint Quantities.</p>
+<p>This script demonstrates the capability to transmit native Python objects and Pint Quantities using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and Pint Quantities</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>pint: Used for handling physical quantities with units</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pint</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pint_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pint_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.pint_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.pint_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/pint_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pint_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.pint_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pint_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pint_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with Pint Quantities and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pint_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pint_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pint_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pint_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pint_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pint_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pint_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pint_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.pyarrow_example">
+<span id="examples-encoders-pyarrow-example-module"></span><h2>examples.encoders.pyarrow_example module<a class="headerlink" href="#module-examples.encoders.pyarrow_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and PyArrow arrays.</p>
+<p>This script demonstrates the capability to transmit native Python objects and PyArrow arrays using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and PyArrow arrays</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>pyarrow: Used for handling Apache Arrow arrays</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyarrow</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pyarrow_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pyarrow_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.pyarrow_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.pyarrow_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/pyarrow_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pyarrow_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.pyarrow_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pyarrow_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pyarrow_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with PyArrow arrays and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pyarrow_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pyarrow_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pyarrow_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pyarrow_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pyarrow_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pyarrow_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pyarrow_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pyarrow_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.pytorch_example">
+<span id="examples-encoders-pytorch-example-module"></span><h2>examples.encoders.pytorch_example module<a class="headerlink" href="#module-examples.encoders.pytorch_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and PyTorch tensors.</p>
+<p>This script demonstrates the capability to transmit native Python objects and PyTorch tensors using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern,
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and PyTorch tensors</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+<li><p>Transmitting PyTorch tensors with different devices (CPU and GPU if available)</p></li>
+<li><p>Flipping of devices by mapping CPU to GPU and vice versa</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>PyTorch: Used for handling and creating tensors (refer to <a class="reference external" href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a> for installation instructions)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torch&gt;=1.12.1&quot;</span></code>  # Basic installation of PyTorch</p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pytorch_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">pytorch_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.pytorch_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.pytorch_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/pytorch_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pytorch_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.pytorch_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pytorch_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pytorch_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with PyTorch tensors and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pytorch_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pytorch_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pytorch_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pytorch_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.pytorch_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.pytorch_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/pytorch_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.pytorch_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.tensorflow_example">
+<span id="examples-encoders-tensorflow-example-module"></span><h2>examples.encoders.tensorflow_example module<a class="headerlink" href="#module-examples.encoders.tensorflow_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and TensorFlow tensors.</p>
+<p>This script demonstrates the capability to transmit native Python objects and TensorFlow tensors using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and TensorFlow tensors</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>TensorFlow: Used for creating and handling tensors (refer to <a class="reference external" href="https://www.tensorflow.org/install">https://www.tensorflow.org/install</a> for installation instructions)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;tensorflow&gt;=2.9.1&quot;</span></code>  # Basic installation of TensorFlow</p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">tensorflow_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">tensorflow_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.tensorflow_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.tensorflow_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/tensorflow_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.tensorflow_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.tensorflow_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/tensorflow_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.tensorflow_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with TensorFlow tensors and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.tensorflow_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.tensorflow_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/tensorflow_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.tensorflow_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.tensorflow_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.tensorflow_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/tensorflow_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.tensorflow_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.xarray_example">
+<span id="examples-encoders-xarray-example-module"></span><h2>examples.encoders.xarray_example module<a class="headerlink" href="#module-examples.encoders.xarray_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and xarray DataArrays.</p>
+<p>This script demonstrates the capability to transmit native Python objects and xarray DataArrays using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and xarray DataArrays</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>NumPy: Used for creating arrays (installed with YAW)</p></li>
+<li><p>xarray, pandas: Used for creating and handling DataArrays</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span> <span class="pre">xarray</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">xarray_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">xarray_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.xarray_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.xarray_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/xarray_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.xarray_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.xarray_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/xarray_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.xarray_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with xarray DataArrays and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.xarray_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.xarray_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/xarray_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.xarray_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.xarray_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.xarray_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/xarray_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.xarray_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders.zarr_example">
+<span id="examples-encoders-zarr-example-module"></span><h2>examples.encoders.zarr_example module<a class="headerlink" href="#module-examples.encoders.zarr_example" title="Link to this heading"></a></h2>
+<p>A message publisher and listener for native Python objects and Zarr arrays/groups.</p>
+<p>This script demonstrates the capability to transmit native Python objects and Zarr arrays/groups using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern
+allowing message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a nested dummy Python object with native objects and Zarr arrays/groups</p></li>
+<li><p>Applying the PUB/SUB pattern with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>NumPy: Used for creating arrays (installed with YAW)</p></li>
+<li><p>zarr: Used for creating and handling Zarr arrays and groups</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">zarr</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Publisher waits for keyboard input and transmits message</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">zarr_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Listener waits for message and prints the entire dummy object</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">zarr_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.encoders.zarr_example.Notifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.encoders.zarr_example.</span></span><span class="sig-name descname"><span class="pre">Notifier</span></span><a class="reference internal" href="../_modules/examples/encoders/zarr_example.html#Notifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.zarr_example.Notifier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.encoders.zarr_example.Notifier.exchange_object">
+<span class="sig-name descname"><span class="pre">exchange_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/zarr_example.html#Notifier.exchange_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.zarr_example.Notifier.exchange_object" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages with Zarr arrays/groups and other native Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.zarr_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.zarr_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/zarr_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.zarr_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.encoders.zarr_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.encoders.zarr_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/encoders/zarr_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.encoders.zarr_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate Notifier class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.encoders">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples.encoders" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.custom_msgs.html" class="btn btn-neutral float-left" title="examples.custom_msgs package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.encoders.plugins.html" class="btn btn-neutral float-right" title="examples.encoders.plugins package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

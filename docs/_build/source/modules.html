@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw">
+<h1>yaw<a class="headerlink" href="#yaw" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yaw.html">yaw package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html">yaw.clients package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.ros">yaw.clients.ros module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.ros2">yaw.clients.ros2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.yarp">yaw.clients.yarp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.zeromq">yaw.clients.zeromq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#module-yaw.clients">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.config.html">yaw.config package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.config.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.config.html#module-yaw.config.manager">yaw.config.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.config.html#module-yaw.config">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html">yaw.connect package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.clients">yaw.connect.clients module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.listeners">yaw.connect.listeners module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.publishers">yaw.connect.publishers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.servers">yaw.connect.servers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.wrapper">yaw.connect.wrapper module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#module-yaw.connect">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html">yaw.listeners package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.ros">yaw.listeners.ros module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.ros2">yaw.listeners.ros2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.yarp">yaw.listeners.yarp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.zeromq">yaw.listeners.zeromq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html">yaw.middlewares package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.ros">yaw.middlewares.ros module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.ros2">yaw.middlewares.ros2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.yarp">yaw.middlewares.yarp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.zeromq">yaw.middlewares.zeromq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html">yaw.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.dask_data">yaw.plugins.dask_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.jax_tensor">yaw.plugins.jax_tensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.mxnet_tensor">yaw.plugins.mxnet_tensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.paddle_tensor">yaw.plugins.paddle_tensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pandas_data">yaw.plugins.pandas_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pillow_image">yaw.plugins.pillow_image module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pint_quantities">yaw.plugins.pint_quantities module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pyarrow_array">yaw.plugins.pyarrow_array module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pytorch_tensor">yaw.plugins.pytorch_tensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.tensorflow_tensor">yaw.plugins.tensorflow_tensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.xarray_data">yaw.plugins.xarray_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.zarr_array">yaw.plugins.zarr_array module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html">yaw.publishers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.ros">yaw.publishers.ros module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.ros2">yaw.publishers.ros2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.yarp">yaw.publishers.yarp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.zeromq">yaw.publishers.zeromq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html">yaw.servers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.ros">yaw.servers.ros module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.ros2">yaw.servers.ros2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.yarp">yaw.servers.yarp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.zeromq">yaw.servers.zeromq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#module-yaw.servers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.standalone.html">yaw.standalone package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.standalone.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_param_server">yaw.standalone.zeromq_param_server module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_proxy_broker">yaw.standalone.zeromq_proxy_broker module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_pubsub_topic_monitor">yaw.standalone.zeromq_pubsub_topic_monitor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.tests.html">yaw.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.html#module-yaw.tests.test_middleware">yaw.tests.test_middleware module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.html#module-yaw.tests.test_wrapper">yaw.tests.test_wrapper module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.html#module-yaw.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.html#module-yaw.encoders">yaw.encoders module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.encoders.JsonEncoder"><code class="docutils literal notranslate"><span class="pre">JsonEncoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">JsonEncoder.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonEncoder.find_plugin"><code class="docutils literal notranslate"><span class="pre">JsonEncoder.find_plugin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonEncoder.encode"><code class="docutils literal notranslate"><span class="pre">JsonEncoder.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonEncoder.default"><code class="docutils literal notranslate"><span class="pre">JsonEncoder.default()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.encoders.JsonDecodeHook"><code class="docutils literal notranslate"><span class="pre">JsonDecodeHook</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonDecodeHook.__init__"><code class="docutils literal notranslate"><span class="pre">JsonDecodeHook.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.encoders.JsonDecodeHook.object_hook"><code class="docutils literal notranslate"><span class="pre">JsonDecodeHook.object_hook()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.html#module-yaw.utils">yaw.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.deepcopy"><code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.get_default_args"><code class="docutils literal notranslate"><span class="pre">get_default_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.match_args"><code class="docutils literal notranslate"><span class="pre">match_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.dynamic_module_import"><code class="docutils literal notranslate"><span class="pre">dynamic_module_import()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.SingletonOptimized"><code class="docutils literal notranslate"><span class="pre">SingletonOptimized</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.Plugin"><code class="docutils literal notranslate"><span class="pre">Plugin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.Plugin.encode"><code class="docutils literal notranslate"><span class="pre">Plugin.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.Plugin.decode"><code class="docutils literal notranslate"><span class="pre">Plugin.decode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.utils.PluginRegistrar"><code class="docutils literal notranslate"><span class="pre">PluginRegistrar</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.PluginRegistrar.encoder_registry"><code class="docutils literal notranslate"><span class="pre">PluginRegistrar.encoder_registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.PluginRegistrar.decoder_registry"><code class="docutils literal notranslate"><span class="pre">PluginRegistrar.decoder_registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.PluginRegistrar.register"><code class="docutils literal notranslate"><span class="pre">PluginRegistrar.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.html#yaw.utils.PluginRegistrar.scan"><code class="docutils literal notranslate"><span class="pre">PluginRegistrar.scan()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.html#module-yaw">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.html#yaw.get_project_info_from_setup"><code class="docutils literal notranslate"><span class="pre">get_project_info_from_setup()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

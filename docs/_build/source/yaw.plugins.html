@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.plugins package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw.plugins package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/yaw.plugins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw-plugins-package">
+<h1>yaw.plugins package<a class="headerlink" href="#yaw-plugins-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.plugins.dask_data">
+<span id="yaw-plugins-dask-data-module"></span><h2>yaw.plugins.dask_data module<a class="headerlink" href="#module-yaw.plugins.dask_data" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for Dask Arrays/Dataframes Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode Dask data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>DaskData</cite>, registered as a plugin to manage the
+conversion of Dask data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>Dask: A flexible library for parallel computing in Python (refer to <a class="reference external" href="https://docs.dask.org/en/latest/install.html">https://docs.dask.org/en/latest/install.html</a> for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>Pandas: A data structures library for data analysis, time series, and statistics (refer to <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html</a> for installation instructions)</dt><dd><p>Note: If Dask or Pandas is not available, HAVE_DASK will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span> <span class="pre">dask[complete]</span></code>  # Basic installation of Dask and Pandas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.dask_data.DaskData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.dask_data.</span></span><span class="sig-name descname"><span class="pre">DaskData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/dask_data.html#DaskData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.dask_data.DaskData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.dask_data.DaskData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/dask_data.html#DaskData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.dask_data.DaskData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the DaskData plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.dask_data.DaskData.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/dask_data.html#DaskData.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.dask_data.DaskData.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode Dask data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Union[dd.DataFrame, da.Array]: The Dask data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and object type</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.dask_data.DaskData.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/dask_data.html#DaskData.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.dask_data.DaskData.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into Dask data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and object type</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, Union[dd.DataFrame, da.Array]]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- Union[dd.DataFrame, da.Array]: The decoded Dask data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.jax_tensor">
+<span id="yaw-plugins-jax-tensor-module"></span><h2>yaw.plugins.jax_tensor module<a class="headerlink" href="#module-yaw.plugins.jax_tensor" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for JAX Tensor Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode JAX tensor data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>JAXTensor</cite>, registered as a plugin to manage the
+conversion of JAX tensor data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>JAX: An open-source high-performance machine learning library (refer to <a class="reference external" href="https://github.com/google/jax">https://github.com/google/jax</a> for installation instructions)</dt><dd><p>Note: If JAX is not available, HAVE_JAX will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jax</span> <span class="pre">jaxlib</span></code>  # Basic installation of JAX</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.jax_tensor.JAXTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.jax_tensor.</span></span><span class="sig-name descname"><span class="pre">JAXTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/jax_tensor.html#JAXTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.jax_tensor.JAXTensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.jax_tensor.JAXTensor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/jax_tensor.html#JAXTensor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.jax_tensor.JAXTensor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the JAXTensor plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.jax_tensor.JAXTensor.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/jax_tensor.html#JAXTensor.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.jax_tensor.JAXTensor.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode JAX tensor data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – jax.numpy.DeviceArray: The JAX tensor data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name and encoded data string</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.jax_tensor.JAXTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/jax_tensor.html#JAXTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.jax_tensor.JAXTensor.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into JAX tensor data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, jax.numpy.DeviceArray]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- jax.numpy.DeviceArray: The decoded JAX tensor data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.mxnet_tensor">
+<span id="yaw-plugins-mxnet-tensor-module"></span><h2>yaw.plugins.mxnet_tensor module<a class="headerlink" href="#module-yaw.plugins.mxnet_tensor" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for MXNet Tensor Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode MXNet tensor data using YAW.
+It leverages base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>MXNetTensor</cite>, registered as a plugin to manage the
+conversion of MXNet tensor data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>MXNet: A deep learning framework designed for both efficiency and flexibility (refer to <a class="reference external" href="https://mxnet.apache.org/get_started">https://mxnet.apache.org/get_started</a> for installation instructions)</dt><dd><p>Note: If MXNet is not available, HAVE_MXNET will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mxnet</span></code>  # Basic installation of MXNet</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.mxnet_device_to_str">
+<span class="sig-prename descclassname"><span class="pre">yaw.plugins.mxnet_tensor.</span></span><span class="sig-name descname"><span class="pre">mxnet_device_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#mxnet_device_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.mxnet_device_to_str" title="Link to this definition"></a></dt>
+<dd><p>Convert an MXNet device to a string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Union[str, mxnet.Context, dict]: Various possible types representing an MXNet device as mxnet.Context or str. Also accepts a dictionary mapping encoded device strings to decoding devices</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[str, dict]: A string or dictionary representing the MXNet device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.mxnet_str_to_device">
+<span class="sig-prename descclassname"><span class="pre">yaw.plugins.mxnet_tensor.</span></span><span class="sig-name descname"><span class="pre">mxnet_str_to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#mxnet_str_to_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.mxnet_str_to_device" title="Link to this definition"></a></dt>
+<dd><p>Convert a string to an MXNet device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – str: A string representing an MXNet device</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mxnet.Context: An MXNet context representing the device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.MXNetTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.mxnet_tensor.</span></span><span class="sig-name descname"><span class="pre">MXNetTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_mxnet_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_mxnet_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#MXNetTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.MXNetTensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.MXNetTensor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_mxnet_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_mxnet_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#MXNetTensor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.MXNetTensor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the MXNetTensor plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_mxnet_device</strong> – Union[mxnet.Context, str]: Default MXNet device to load tensors onto</p></li>
+<li><p><strong>map_mxnet_devices</strong> – dict: [Optional] A dictionary mapping encoded device strings to decoding devices</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.MXNetTensor.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#MXNetTensor.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.MXNetTensor.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode MXNet tensor data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – mxnet.nd.NDArray: The MXNet tensor data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and device string.</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.mxnet_tensor.MXNetTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/mxnet_tensor.html#MXNetTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.mxnet_tensor.MXNetTensor.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into MXNet tensor data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and device string</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, mxnet.nd.NDArray]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- mxnet.nd.NDArray: The decoded MXNet tensor data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.paddle_tensor">
+<span id="yaw-plugins-paddle-tensor-module"></span><h2>yaw.plugins.paddle_tensor module<a class="headerlink" href="#module-yaw.plugins.paddle_tensor" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for PaddlePaddle Tensor Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode PaddlePaddle tensor data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>PaddleTensor</cite>, registered as a plugin to manage the
+conversion of PaddlePaddle tensor data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>PaddlePaddle: An open-source deep learning platform developed by Baidu (refer to <a class="reference external" href="https://www.paddlepaddle.org.cn/en/install/quick">https://www.paddlepaddle.org.cn/en/install/quick</a> for installation instructions)</dt><dd><p>Note: If PaddlePaddle is not available, HAVE_PADDLE will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">paddlepaddle</span></code>  # Basic installation of PaddlePaddle</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.paddle_device_to_str">
+<span class="sig-prename descclassname"><span class="pre">yaw.plugins.paddle_tensor.</span></span><span class="sig-name descname"><span class="pre">paddle_device_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#paddle_device_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.paddle_device_to_str" title="Link to this definition"></a></dt>
+<dd><p>Convert a PaddlePaddle device to a string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Union[str, paddle.fluid.libpaddle.Place, dict]: Various possible types representing a PaddlePaddle device</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[str, dict]: A string or dictionary representing the PaddlePaddle device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.paddle_str_to_device">
+<span class="sig-prename descclassname"><span class="pre">yaw.plugins.paddle_tensor.</span></span><span class="sig-name descname"><span class="pre">paddle_str_to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#paddle_str_to_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.paddle_str_to_device" title="Link to this definition"></a></dt>
+<dd><p>Convert a string to a PaddlePaddle device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – str: A string representing a PaddlePaddle device</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>paddle.fluid.libpaddle.Place: A PaddlePaddle place representing the device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.PaddleTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.paddle_tensor.</span></span><span class="sig-name descname"><span class="pre">PaddleTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_paddle_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_paddle_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#PaddleTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.PaddleTensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.PaddleTensor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_paddle_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_paddle_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#PaddleTensor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.PaddleTensor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PaddleTensor plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_paddle_device</strong> – Union[paddle.fluid.libpaddle.Place, str]: Default PaddlePaddle device to load tensors onto</p></li>
+<li><p><strong>map_paddle_devices</strong> – dict: A dictionary mapping encoded device strings to decoding devices</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.PaddleTensor.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#PaddleTensor.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.PaddleTensor.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode PaddlePaddle tensor data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – paddle.Tensor: The PaddlePaddle tensor data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and device string</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.paddle_tensor.PaddleTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/paddle_tensor.html#PaddleTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.paddle_tensor.PaddleTensor.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into PaddlePaddle tensor data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and device string</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, paddle.Tensor]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- paddle.Tensor: The decoded PaddlePaddle tensor data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.pandas_data">
+<span id="yaw-plugins-pandas-data-module"></span><h2>yaw.plugins.pandas_data module<a class="headerlink" href="#module-yaw.plugins.pandas_data" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for Pandas Series/Dataframes Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode Pandas data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>PandasData</cite>, registered as a plugin to manage the
+conversion of Pandas data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>Pandas: A data structures library for data analysis, time series, and statistics (refer to <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html</a> for installation instructions)</dt><dd><p>Note: If Pandas is not available, HAVE_PANDAS will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span></code>  # Basic installation of Pandas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.pandas_data.PandasData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.pandas_data.</span></span><span class="sig-name descname"><span class="pre">PandasData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pandas_data.html#PandasData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pandas_data.PandasData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pandas_data.PandasData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pandas_data.html#PandasData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pandas_data.PandasData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PandasData plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pandas_data.PandasData.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pandas_data.html#PandasData.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pandas_data.PandasData.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode Pandas data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Union[pandas.DataFrame, pandas.Series]: The Pandas data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and object type</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pandas_data.PandasData.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pandas_data.html#PandasData.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pandas_data.PandasData.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into Pandas data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and object type</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, Union[pandas.DataFrame, pandas.Series]]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- Union[pandas.DataFrame, pandas.Series]: The decoded Pandas data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.pillow_image">
+<span id="yaw-plugins-pillow-image-module"></span><h2>yaw.plugins.pillow_image module<a class="headerlink" href="#module-yaw.plugins.pillow_image" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for PIL Image Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode PIL Image data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings, and also handles non-ASCII encodings for certain image formats.</p>
+<p>The script contains a class, <cite>PILImage</cite>, registered as a plugin to manage the
+conversion of PIL Image data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>PIL (Pillow): A Python Imaging Library that adds image processing capabilities to your Python interpreter (refer to <a class="reference external" href="https://pillow.readthedocs.io/en/stable/installation.html">https://pillow.readthedocs.io/en/stable/installation.html</a> for installation instructions)</dt><dd><p>Note: If PIL is not available, HAVE_PIL will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Pillow</span></code>  # Basic installation of Pillow (PIL Fork)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.pillow_image.PILImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.pillow_image.</span></span><span class="sig-name descname"><span class="pre">PILImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pillow_image.html#PILImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pillow_image.PILImage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pillow_image.PILImage.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pillow_image.html#PILImage.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pillow_image.PILImage.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PILImage plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pillow_image.PILImage.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pillow_image.html#PILImage.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pillow_image.PILImage.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode PIL Image data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Image.Image: The PIL Image data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name and encoded data string, with optional image size and mode for raw data</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pillow_image.PILImage.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pillow_image.html#PILImage.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pillow_image.PILImage.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into PIL Image data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and optionally image size and mode for raw data</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, Image.Image]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- Image.Image: The decoded PIL Image data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.pint_quantities">
+<span id="yaw-plugins-pint-quantities-module"></span><h2>yaw.plugins.pint_quantities module<a class="headerlink" href="#module-yaw.plugins.pint_quantities" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for Pint Quantity Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode Pint Quantity Data using YAW.
+It utilizes base64 encoding and JSON serialization.</p>
+<p>The script contains a class, <cite>PintData</cite>, registered as a plugin to manage the
+conversion of Pint Quantity data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>Pint: A package to define, operate and manipulate physical quantities (refer to <a class="reference external" href="https://pint.readthedocs.io/en/stable/">https://pint.readthedocs.io/en/stable/</a> for installation instructions)</dt><dd><p>Note: If Pint is not available, HAVE_PINT will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pint</span></code>  # Basic installation of Pint</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.pint_quantities.PintData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.pint_quantities.</span></span><span class="sig-name descname"><span class="pre">PintData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pint_quantities.html#PintData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pint_quantities.PintData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pint_quantities.PintData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pint_quantities.html#PintData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pint_quantities.PintData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PintData plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pint_quantities.PintData.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pint_quantities.html#PintData.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pint_quantities.PintData.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode Pint Quantity data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – pint.Quantity: The Pint Quantity data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and object type</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pint_quantities.PintData.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pint_quantities.html#PintData.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pint_quantities.PintData.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into Pint Quantity data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and object type</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, pint.Quantity]: A tuple containing:
+- bool: Indicating that the decoding was successful
+- pint.Quantity: The decoded Pint Quantity data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.pyarrow_array">
+<span id="yaw-plugins-pyarrow-array-module"></span><h2>yaw.plugins.pyarrow_array module<a class="headerlink" href="#module-yaw.plugins.pyarrow_array" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for PyArrow StructArray Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode PyArrow StructArray Data using YAW.
+It utilizes base64 encoding and pickle serialization.</p>
+<p>The script contains a class, <cite>PyArrowArray</cite>, registered as a plugin to manage the
+conversion of PyArrow StructArray data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>PyArrow: A cross-language development platform for in-memory data (refer to <a class="reference external" href="https://arrow.apache.org/install/">https://arrow.apache.org/install/</a> for installation instructions)</dt><dd><p>Note: If PyArrow is not available, HAVE_PYARROW will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyarrow</span></code>  # Basic installation of PyArrow</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.pyarrow_array.PyArrowArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.pyarrow_array.</span></span><span class="sig-name descname"><span class="pre">PyArrowArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pyarrow_array.html#PyArrowArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pyarrow_array.PyArrowArray" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pyarrow_array.PyArrowArray.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pyarrow_array.html#PyArrowArray.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pyarrow_array.PyArrowArray.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PyArrowArray plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pyarrow_array.PyArrowArray.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pyarrow_array.html#PyArrowArray.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pyarrow_array.PyArrowArray.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode PyArrow StructArray data using pickle and base64.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – pa.StructArray: The PyArrow StructArray data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, pickled data string, and any buffer data</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pyarrow_array.PyArrowArray.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pyarrow_array.html#PyArrowArray.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pyarrow_array.PyArrowArray.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a pickled and base64 encoded string back into PyArrow StructArray data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the pickled data string and any buffer data</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, pa.StructArray]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- pa.StructArray: The decoded PyArrow StructArray data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.pytorch_tensor">
+<span id="yaw-plugins-pytorch-tensor-module"></span><h2>yaw.plugins.pytorch_tensor module<a class="headerlink" href="#module-yaw.plugins.pytorch_tensor" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for PyTorch Tensor Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode PyTorch tensor data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>PytorchTensor</cite>, registered as a plugin to manage the
+conversion of PyTorch tensor data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>PyTorch: An open-source machine learning library developed by Facebook’s AI Research lab (refer to <a class="reference external" href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a> for installation instructions)</dt><dd><p>Note: If PyTorch is not available, HAVE_TORCH will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">torch</span></code>  # Basic installation of PyTorch</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.pytorch_tensor.PytorchTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.pytorch_tensor.</span></span><span class="sig-name descname"><span class="pre">PytorchTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_torch_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_torch_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pytorch_tensor.html#PytorchTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pytorch_tensor.PytorchTensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pytorch_tensor.PytorchTensor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_torch_device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_torch_devices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pytorch_tensor.html#PytorchTensor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pytorch_tensor.PytorchTensor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PytorchTensor plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_torch_device</strong> – str: Default PyTorch device to load tensors onto</p></li>
+<li><p><strong>map_torch_devices</strong> – dict: A dictionary mapping encoded device strings to decoding devices</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pytorch_tensor.PytorchTensor.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pytorch_tensor.html#PytorchTensor.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pytorch_tensor.PytorchTensor.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode PyTorch tensor data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – torch.Tensor: The PyTorch tensor data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, and device string</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.pytorch_tensor.PytorchTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/pytorch_tensor.html#PytorchTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.pytorch_tensor.PytorchTensor.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into PyTorch tensor data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string and device string</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, torch.Tensor]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- torch.Tensor: The decoded PyTorch tensor data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.tensorflow_tensor">
+<span id="yaw-plugins-tensorflow-tensor-module"></span><h2>yaw.plugins.tensorflow_tensor module<a class="headerlink" href="#module-yaw.plugins.tensorflow_tensor" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for TensorFlow Tensor Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode TensorFlow tensor data using YAW.
+It utilizes base64 encoding to convert binary data into ASCII strings.</p>
+<p>The script contains a class, <cite>TensorflowTensor</cite>, registered as a plugin to manage the
+conversion of TensorFlow tensor data (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>TensorFlow: An end-to-end open-source platform for machine learning (refer to <a class="reference external" href="https://www.tensorflow.org/install">https://www.tensorflow.org/install</a> for installation instructions)</dt><dd><p>Note: If TensorFlow is not available, HAVE_TENSORFLOW will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tensorflow</span></code>  # Basic installation of TensorFlow</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.tensorflow_tensor.TensorflowTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.tensorflow_tensor.</span></span><span class="sig-name descname"><span class="pre">TensorflowTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/tensorflow_tensor.html#TensorflowTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.tensorflow_tensor.TensorflowTensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.tensorflow_tensor.TensorflowTensor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/tensorflow_tensor.html#TensorflowTensor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.tensorflow_tensor.TensorflowTensor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the TensorflowTensor plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.tensorflow_tensor.TensorflowTensor.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/tensorflow_tensor.html#TensorflowTensor.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.tensorflow_tensor.TensorflowTensor.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode TensorFlow tensor data into a base64 ASCII string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – tensorflow.Tensor: The TensorFlow tensor data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name and encoded data string</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.tensorflow_tensor.TensorflowTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/tensorflow_tensor.html#TensorflowTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.tensorflow_tensor.TensorflowTensor.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 ASCII string back into TensorFlow tensor data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, tensorflow.Tensor]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- tensorflow.Tensor: The decoded TensorFlow tensor data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.xarray_data">
+<span id="yaw-plugins-xarray-data-module"></span><h2>yaw.plugins.xarray_data module<a class="headerlink" href="#module-yaw.plugins.xarray_data" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for XArray DataArray/Dataset Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode XArray Data using YAW.
+It utilizes base64 encoding and JSON serialization.</p>
+<p>The script contains a class, <cite>XArrayData</cite>, registered as a plugin to manage the
+conversion of XArray Data (DataArray and Dataset) (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>Pandas: A data structures library for data analysis, time series, and statistics (refer to <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html</a> for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>XArray: N-D labeled arrays and datasets in Python (refer to <a class="reference external" href="http://xarray.pydata.org/en/stable/getting-started-guide/installing.html">http://xarray.pydata.org/en/stable/getting-started-guide/installing.html</a> for installation instructions)</dt><dd><p>Note: If XArray is not available, HAVE_XARRAY will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;pandas&lt;2.0&quot;</span> <span class="pre">xarray</span></code>  # Basic installation of XArray</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.xarray_data.XArrayData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.xarray_data.</span></span><span class="sig-name descname"><span class="pre">XArrayData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/xarray_data.html#XArrayData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.xarray_data.XArrayData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.xarray_data.XArrayData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/xarray_data.html#XArrayData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.xarray_data.XArrayData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the XArrayData plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.xarray_data.XArrayData.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/xarray_data.html#XArrayData.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.xarray_data.XArrayData.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode XArray Data using JSON and base64.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Union[xr.DataArray, xr.Dataset]: The XArray Data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, data type, and object name</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.xarray_data.XArrayData.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/xarray_data.html#XArrayData.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.xarray_data.XArrayData.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a JSON and base64 encoded string back into XArray Data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string, data type, and object name</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, Union[xr.DataArray, xr.Dataset]]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- Union[xr.DataArray, xr.Dataset]: The decoded XArray Data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins.zarr_array">
+<span id="yaw-plugins-zarr-array-module"></span><h2>yaw.plugins.zarr_array module<a class="headerlink" href="#module-yaw.plugins.zarr_array" title="Link to this heading"></a></h2>
+<p>Encoder and Decoder for Zarr Array/Group Data via YAW.</p>
+<p>This script provides mechanisms to encode and decode Zarr Data using YAW.
+It utilizes base64 encoding and zip compression.</p>
+<p>The script contains a class, <cite>ZarrData</cite>, registered as a plugin to manage the
+conversion of Zarr Data (Array and Group) (if available) between its original and encoded forms.</p>
+<dl>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>Zarr: A format for the storage of chunked, compressed, N-dimensional arrays (refer to <a class="reference external" href="https://zarr.readthedocs.io/en/stable/">https://zarr.readthedocs.io/en/stable/</a> for installation instructions)</dt><dd><p>Note: If Zarr is not available, HAVE_ZARR will be set to False and
+the plugin will be registered with no types.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>You can install the necessary packages using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">zarr</span></code>  # Basic installation of Zarr</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.plugins.zarr_array.ZarrData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.plugins.zarr_array.</span></span><span class="sig-name descname"><span class="pre">ZarrData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/zarr_array.html#ZarrData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.zarr_array.ZarrData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="yaw.html#yaw.utils.Plugin" title="yaw.utils.Plugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plugin</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.zarr_array.ZarrData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/zarr_array.html#ZarrData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.zarr_array.ZarrData.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ZarrData plugin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.zarr_array.ZarrData.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/zarr_array.html#ZarrData.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.zarr_array.ZarrData.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode Zarr Data using zip compression and base64.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Union[zarr.Array, zarr.Group]: The Zarr Data to encode</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: Always True, indicating that the encoding was successful
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name, encoded data string, data type, and object name.</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.plugins.zarr_array.ZarrData.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_full</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/plugins/zarr_array.html#ZarrData.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.plugins.zarr_array.ZarrData.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a zip compressed and base64 encoded string back into Zarr Data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_type</strong> – type: The expected type of the decoded object (not used)</p></li>
+<li><p><strong>obj_full</strong> – tuple: A tuple containing the encoded data string, data type, and object name</p></li>
+<li><p><strong>args</strong> – tuple: Additional arguments (not used)</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments (not used)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, Union[zarr.Array, zarr.Group]]: A tuple containing:
+- bool: Always True, indicating that the decoding was successful
+- Union[zarr.Array, zarr.Group]: The decoded Zarr Data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yaw.plugins" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

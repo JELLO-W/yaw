@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Environment Variables" href="Environment%20Variables.html" />
+    <link rel="prev" title="Communication Schemes" href="Communication%20Schemes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/User Guide/Configuration.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code>’s child class method modes can be independently set to:</p>
+<ul class="simple">
+<li><p><strong>publish</strong>: Run the method and publish the results using the middleware’s transmission protocol</p></li>
+<li><p><strong>listen</strong>: Skip the method and wait for the publisher with the same port name to transmit a message, eventually returning the received message</p></li>
+<li><p><strong>reply</strong>: Run the method and publish the results using the middleware’s transmission protocol. Arguments are received from the requester</p></li>
+<li><p><strong>request</strong>: Send a request to the replier in the form of arguments passed to the method. Skip the method and wait for the replier with the same port name to transmit a message, eventually returning the received message</p></li>
+<li><p><strong>none</strong>(default): Run the method as usual without triggering publish, listen, request or reply. <em>hint</em>: Setting the mode to <code class="docutils literal notranslate"><span class="pre">None</span></code> (or <code class="docutils literal notranslate"><span class="pre">null</span></code> within a yaml configuration file) has the same effect</p></li>
+<li><p><strong>disable</strong>: Disables the method and returns None for all its returns. Caution should be taken when disabling a method since it
+could break subsequent calls</p></li>
+</ul>
+<p>These properties can be set by calling:</p>
+<p><code class="docutils literal notranslate"><span class="pre">activate_communication(&lt;Method</span> <span class="pre">name&gt;,</span> <span class="pre">mode=&lt;Mode&gt;)</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;Method</span> <span class="pre">name&gt;</span></code> is the method’s name (<code class="docutils literal notranslate"><span class="pre">string</span></code> name of method by definition) and <code class="docutils literal notranslate"><span class="pre">&lt;Mode&gt;</span></code> is the transmission mode
+(<code class="docutils literal notranslate"><span class="pre">&quot;publish&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;listen&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;reply&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> | <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;disable&quot;</span></code>) depending on the communication pattern .
+The <code class="docutils literal notranslate"><span class="pre">activate_communication</span></code> method can be called multiple times. <code class="docutils literal notranslate"><span class="pre">&lt;Method</span> <span class="pre">name&gt;</span></code> could also be a class instance method, by calling:</p>
+<p><code class="docutils literal notranslate"><span class="pre">activate_communication(&lt;MiddlwareCommunicator</span> <span class="pre">instance&gt;.method_of_class_instance,</span> <span class="pre">mode=&lt;Mode&gt;)</span></code></p>
+<p>for each decorated method within the class. This however requires modifying your scripts for each machine or process running
+on YAW. To overcome this limitation, use the <code class="docutils literal notranslate"><span class="pre">ConfigManager</span></code> e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yaw.config.manager</span> <span class="kn">import</span> <span class="n">ConfigManager</span>
+<span class="n">ConfigManager</span><span class="p">(</span><span class="o">&lt;</span><span class="n">Configuration</span> <span class="n">file</span> <span class="n">path</span> <span class="o">*.</span><span class="n">yml</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConfigManager</span></code> is a singleton that must be called once before the initialization of any <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code>. Initializing it
+multiple times has no effect. This limitation was created by design to avoid loading the configuration file multiple times.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;Configuration</span> <span class="pre">file</span> <span class="pre">path</span> <span class="pre">*.yml&gt;</span></code>’s configuration file has a very simple format e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TheClass</span><span class="p">:</span>
+  <span class="n">encapsulated_method</span><span class="p">:</span> <span class="s2">&quot;publish&quot;</span>
+
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">TheClass</span></code> is the class name, <code class="docutils literal notranslate"><span class="pre">encapsulated_method</span></code> is the method’s name, and <code class="docutils literal notranslate"><span class="pre">publish</span></code> is the transmission mode.
+This is useful when running the same script on multiple machines, where one is set to publish and the other listens.
+Multiple instances of the same class’ method can have different modes, which can be set independently using the configuration file. This
+can be achieved by providing the mode as a list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TheClass</span><span class="p">:</span>
+  <span class="n">encapsulated_method</span><span class="p">:</span> 
+        <span class="s2">&quot;publish&quot;</span>
+        <span class="n">null</span>
+        <span class="s2">&quot;listen&quot;</span>
+        <span class="s2">&quot;listen&quot;</span>
+        <span class="s2">&quot;disable&quot;</span>
+        <span class="n">null</span>
+</pre></div>
+</div>
+<p>where the list element index corresponds to the instance index. When providing a list, the number of list elements should correspond to the number
+of instances. If the number of instances exceeds the list length, the script exits and raises an error.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Communication%20Schemes.html" class="btn btn-neutral float-left" title="Communication Schemes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Environment%20Variables.html" class="btn btn-neutral float-right" title="Environment Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

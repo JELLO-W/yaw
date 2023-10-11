@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.listeners.yarp &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+          <li class="breadcrumb-item"><a href="../listeners.html">yaw.listeners</a></li>
+      <li class="breadcrumb-item active">yaw.listeners.yarp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.listeners.yarp</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">yarp</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.listeners</span> <span class="kn">import</span> <span class="n">Listener</span><span class="p">,</span> <span class="n">Listeners</span><span class="p">,</span> <span class="n">ListenerWatchDog</span>
+<span class="kn">from</span> <span class="nn">yaw.middlewares.yarp</span> <span class="kn">import</span> <span class="n">YarpMiddleware</span>
+<span class="kn">from</span> <span class="nn">yaw.encoders</span> <span class="kn">import</span> <span class="n">JsonDecodeHook</span>
+
+
+<span class="n">WATCHDOG_POLL_REPEAT</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="YarpListener">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpListener">[docs]</a>
+<span class="k">class</span> <span class="nc">YarpListener</span><span class="p">(</span><span class="n">Listener</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpListener.__init__">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpListener.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">yarp_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the subscriber.</span>
+
+<span class="sd">        :param name: str: Name of the publisher</span>
+<span class="sd">        :param in_topic: str: Name of the output topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</span>
+<span class="sd">        :param persistent: bool: Whether the subscriber port should remain connected after closure. Default is True</span>
+<span class="sd">        :param yarp_kwargs: dict: Additional kwargs for  the Yarp middleware</span>
+<span class="sd">        :param kwargs: dict: Additional kwargs for the subscriber</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ContactStyle</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">persistent</span> <span class="o">=</span> <span class="n">persistent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">carrier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span>
+
+        <span class="n">YarpMiddleware</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="o">**</span><span class="n">yarp_kwargs</span> <span class="ow">or</span> <span class="p">{})</span></div>
+
+
+<div class="viewcode-block" id="YarpListener.await_connection">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpListener.await_connection">[docs]</a>
+    <span class="k">def</span> <span class="nf">await_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for the publisher to connect to the subscriber.</span>
+
+<span class="sd">        :param in_topic: str: Name of the input topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param repeats: int: Number of times to check for the parameter. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">in_topic</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">in_topic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[YARP] Waiting for input port: </span><span class="si">{</span><span class="n">in_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">repeats</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+                <span class="n">repeats</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">repeats</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="k">while</span> <span class="n">repeats</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">repeats</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">repeats</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">connected</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">in_topic</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">connected</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[YARP] Connected to input port: </span><span class="si">{</span><span class="n">in_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">connected</span></div>
+
+
+<div class="viewcode-block" id="YarpListener.read_port">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpListener.read_port">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the port.</span>
+
+<span class="sd">        :param port: yarp.Port: Port to read from</span>
+<span class="sd">        :return: yarp.Value: Value read from the port</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">port</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">shouldWait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span> <span class="ow">and</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.005</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="YarpListener.close">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpListener.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the subscriber</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_port&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="YarpNativeObjectListener">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener">[docs]</a>
+<span class="nd">@Listeners</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpNativeObjectListener</span><span class="p">(</span><span class="n">YarpListener</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpNativeObjectListener.__init__">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">deserializer_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The NativeObject listener using the BufferedPortBottle string construct assuming the data is serialized as a JSON string.</span>
+<span class="sd">        Deserializes the data (including plugins) using the decoder and parses it to a Python object.</span>
+
+<span class="sd">        :param name: str: Name of the subscriber</span>
+<span class="sd">        :param in_topic: str: Name of the input topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</span>
+<span class="sd">        :param persistent: bool: Whether the subscriber port should remain connected after closure. Default is True</span>
+<span class="sd">        :param deserializer_kwargs: dict: Additional kwargs for the deserializer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_decoder_hook</span> <span class="o">=</span> <span class="n">JsonDecodeHook</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">object_hook</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deserializer_kwargs</span> <span class="o">=</span> <span class="n">deserializer_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+            <span class="n">ListenerWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="YarpNativeObjectListener.establish">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the connection to the publisher.</span>
+
+<span class="sd">        :param repeats: int: Number of repeats to await connection. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">await_connection</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">repeats</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">established</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortBottle</span><span class="p">()</span>
+            <span class="n">rnd_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span> <span class="o">+</span> <span class="s2">&quot;:in&quot;</span> <span class="o">+</span> <span class="n">rnd_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">persistent</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span> <span class="o">+</span> <span class="s2">&quot;:in&quot;</span> <span class="o">+</span> <span class="n">rnd_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span> <span class="o">+</span> <span class="s2">&quot;:in&quot;</span> <span class="o">+</span> <span class="n">rnd_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_establishment</span><span class="p">(</span><span class="n">established</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="YarpNativeObjectListener.listen">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.listen">[docs]</a>
+    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Listen for a message.</span>
+
+<span class="sd">        :return: Any: The received message as a native python object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">obj_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_port</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">obj_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">obj_port</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">asString</span><span class="p">(),</span> <span class="n">object_hook</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_plugin_decoder_hook</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_deserializer_kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="YarpImageListener">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpImageListener">[docs]</a>
+<span class="nd">@Listeners</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpImageListener</span><span class="p">(</span><span class="n">YarpListener</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpImageListener.__init__">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rgb</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">jpg</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The Image listener using the BufferedPortImage construct parsed to a numpy array.</span>
+
+<span class="sd">        :param name: str: Name of the subscriber</span>
+<span class="sd">        :param in_topic: str: Name of the input topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</span>
+<span class="sd">        :param persistent: bool: Whether the subscriber port should remain connected after closure. Default is True</span>
+<span class="sd">        :param width: int: Width of the image. Default is -1 (use the width of the received image)</span>
+<span class="sd">        :param height: int: Height of the image. Default is -1 (use the height of the received image)</span>
+<span class="sd">        :param rgb: bool: True if the image is RGB, False if it is grayscale. Default is True</span>
+<span class="sd">        :param fp: bool: True if the image is floating point, False if it is integer. Default is False</span>
+<span class="sd">        :param jpg: bool: True if the image should be decompressed from JPG. Default is False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jpg</span> <span class="o">=</span> <span class="n">jpg</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+            <span class="n">ListenerWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="YarpImageListener.establish">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the connection to the publisher.</span>
+
+<span class="sd">        :param repeats: int: Number of repeats to await connection. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">await_connection</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">repeats</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">established</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jpg</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortBottle</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortImageRgbFloat</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortImageRgb</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortImageFloat</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">yarp</span><span class="o">.</span><span class="n">BufferedPortImageMono</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span>
+            <span class="n">in_topic_connect</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="si">}</span><span class="s2">:in</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">in_topic_connect</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">persistent</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="n">in_topic_connect</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="n">in_topic_connect</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_establishment</span><span class="p">(</span><span class="n">established</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="YarpImageListener.listen">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.listen">[docs]</a>
+    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Listen for a message.</span>
+
+<span class="sd">        :return: np.ndarray: The received message as a numpy array formatted as a cv2 image np.ndarray[img_height, img_width, channels]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">ret_img_msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_port</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret_img_msg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jpg</span><span class="p">:</span>
+            <span class="n">img_str</span> <span class="o">=</span> <span class="n">ret_img_msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">asString</span><span class="p">()</span>
+            <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">img_str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)))</span> <span class="k">as</span> <span class="n">memfile</span><span class="p">:</span>
+                <span class="n">img_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">memfile</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">img_str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">img_str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="n">ret_img_msg</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="n">ret_img_msg</span><span class="o">.</span><span class="n">height</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect image shape for listener&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ret_img_msg</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span> <span class="n">ret_img_msg</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+                <span class="n">img_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ImageRgbFloat</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ImageRgb</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ret_img_msg</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span> <span class="n">ret_img_msg</span><span class="o">.</span><span class="n">width</span><span class="p">()),</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+                <span class="n">img_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ImageFloat</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="k">else</span> <span class="n">yarp</span><span class="o">.</span><span class="n">ImageMono</span><span class="p">()</span>
+            <span class="n">img_port</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">img_port</span><span class="o">.</span><span class="n">setExternal</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">img_port</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">ret_img_msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">img</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="YarpAudioChunkListener">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener">[docs]</a>
+<span class="nd">@Listeners</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;AudioChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpAudioChunkListener</span><span class="p">(</span><span class="n">YarpListener</span><span class="p">):</span>
+
+<div class="viewcode-block" id="YarpAudioChunkListener.__init__">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">carrier</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="s2">&quot;udp&quot;</span><span class="p">,</span> <span class="s2">&quot;mcast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">persistent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">chunk</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The AudioChunk listener using the Sound construct parsed as a numpy array.</span>
+
+<span class="sd">        :param name: str: Name of the subscriber</span>
+<span class="sd">        :param in_topic: str: Name of the input topic preceded by &#39;/&#39; (e.g. &#39;/topic&#39;)</span>
+<span class="sd">        :param carrier: str: Carrier protocol (e.g. &#39;tcp&#39;). Default is &#39;tcp&#39;</span>
+<span class="sd">        :param should_wait: bool: Whether the subscriber should wait for the publisher to transmit a message. Default is True</span>
+<span class="sd">        :param persistent: bool: Whether the subscriber port should remain connected after closure. Default is True</span>
+<span class="sd">        :param channels: int: Number of channels in the audio. Default is 1</span>
+<span class="sd">        :param rate: int: Sampling rate of the audio. Default is 44100</span>
+<span class="sd">        :param chunk: int: Number of samples in the audio chunk. Default is -1 (use the chunk size of the received audio)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="n">carrier</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="n">should_wait</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="n">persistent</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">should_wait</span><span class="p">:</span>
+            <span class="n">ListenerWatchDog</span><span class="p">()</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="YarpAudioChunkListener.establish">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.establish">[docs]</a>
+    <span class="k">def</span> <span class="nf">establish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish the connection to the publisher.</span>
+
+<span class="sd">        :param repeats: int: Number of repeats to await connection. None for infinite. Default is None</span>
+<span class="sd">        :return: bool: True if connection established, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">await_connection</span><span class="p">(</span><span class="n">in_topic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="n">repeats</span><span class="o">=</span><span class="n">repeats</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">established</span><span class="p">:</span>
+            <span class="n">rnd_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Port</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span> <span class="o">+</span> <span class="s2">&quot;:in&quot;</span> <span class="o">+</span> <span class="n">rnd_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_netconnect</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Network</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_topic</span> <span class="o">+</span> <span class="s2">&quot;:in&quot;</span> <span class="o">+</span> <span class="n">rnd_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span> <span class="o">=</span> <span class="n">yarp</span><span class="o">.</span><span class="n">Sound</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="o">.</span><span class="n">getFrequency</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="o">.</span><span class="n">getSamples</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="o">.</span><span class="n">getChannels</span><span class="p">()</span>
+        <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_establishment</span><span class="p">(</span><span class="n">established</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">established</span></div>
+
+
+<div class="viewcode-block" id="YarpAudioChunkListener.listen">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.listen">[docs]</a>
+    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Listen for a message.</span>
+
+<span class="sd">        :return: Tuple[np.ndarray, int]: The received message as a numpy array formatted as (np.ndarray[audio_chunk, channels], int[samplerate])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">established</span><span class="p">:</span>
+            <span class="n">established</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">establish</span><span class="p">(</span><span class="n">repeats</span><span class="o">=</span><span class="n">WATCHDOG_POLL_REPEAT</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">established</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="p">)</span>
+        <span class="n">aud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sound_msg</span><span class="o">.</span><span class="n">getSamples</span><span class="p">())],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+        <span class="n">aud</span> <span class="o">=</span> <span class="n">aud</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">32767.0</span>
+        <span class="k">return</span> <span class="n">aud</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="YarpPropertiesListener">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpPropertiesListener">[docs]</a>
+<span class="nd">@Listeners</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;Properties&quot;</span><span class="p">,</span> <span class="s2">&quot;yarp&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">YarpPropertiesListener</span><span class="p">(</span><span class="n">YarpListener</span><span class="p">):</span>
+<div class="viewcode-block" id="YarpPropertiesListener.__init__">
+<a class="viewcode-back" href="../../../source/yaw.listeners.html#yaw.listeners.yarp.YarpPropertiesListener.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">in_topic</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.middlewares.zeromq &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+      <li class="breadcrumb-item active">yaw.middlewares.zeromq</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.middlewares.zeromq</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">atexit</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">zmq</span>
+
+<span class="kn">from</span> <span class="nn">yaw.utils</span> <span class="kn">import</span> <span class="n">SingletonOptimized</span>
+<span class="kn">from</span> <span class="nn">yaw.connect.wrapper</span> <span class="kn">import</span> <span class="n">MiddlewareCommunicator</span>
+
+<span class="n">ZEROMQ_POST_OPTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SUBSCRIBE&quot;</span><span class="p">,</span> <span class="s2">&quot;UNSUBSCRIBE&quot;</span><span class="p">,</span> <span class="s2">&quot;LINGER&quot;</span><span class="p">,</span> <span class="s2">&quot;ROUTER_HANDOVER&quot;</span><span class="p">,</span> <span class="s2">&quot;ROUTER_MANDATORY&quot;</span><span class="p">,</span> <span class="s2">&quot;PROBE_ROUTER&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;XPUB_VERBOSE&quot;</span><span class="p">,</span> <span class="s2">&quot;XPUB_VERBOSER&quot;</span><span class="p">,</span> <span class="s2">&quot;REQ_CORRELATE&quot;</span><span class="p">,</span> <span class="s2">&quot;REQ_RELAXED&quot;</span><span class="p">,</span> <span class="s2">&quot;SNDHWM&quot;</span><span class="p">,</span> <span class="s2">&quot;RCVHWM&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub">[docs]</a>
+<span class="k">class</span> <span class="nc">ZeroMQMiddlewarePubSub</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SingletonOptimized</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ZeroMQ PUB/SUB middleware wrapper. This class is a singleton, so it can be instantiated only once. The ``activate``</span>
+<span class="sd">    method should be called to initialize the middleware. The ``deinit`` method should be called to deinitialize the</span>
+<span class="sd">    middleware and destroy all connections. The ``activate`` and ``deinit`` methods are automatically called when the</span>
+<span class="sd">    class is instantiated and when the program exits, respectively.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData">[docs]</a>
+    <span class="k">class</span> <span class="nc">ZeroMQSharedMonitorData</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shared data class for the ZeroMQ PUB/SUB monitor. This class is used to share data between the main process and</span>
+<span class="sd">        the monitor listener process/thread.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.__init__">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.__init__">[docs]</a>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_multiprocessing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Initialize the shared data class.</span>
+
+<span class="sd">            :param use_multiprocessing: bool: Whether to use multiprocessing or threading</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">use_multiprocessing</span> <span class="o">=</span> <span class="n">use_multiprocessing</span>
+            <span class="k">if</span> <span class="n">use_multiprocessing</span><span class="p">:</span>
+                <span class="n">manager</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.add_topic">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.add_topic">[docs]</a>
+        <span class="k">def</span> <span class="nf">add_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Add a topic to the shared data class.</span>
+
+<span class="sd">            :param topic: str: The topic to add</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_topic">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_topic">[docs]</a>
+        <span class="k">def</span> <span class="nf">remove_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Remove a topic from the shared data class.</span>
+
+<span class="sd">            :param topic: str: The topic to remove</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_topics">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_topics">[docs]</a>
+        <span class="k">def</span> <span class="nf">get_topics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get the list of topics in the shared data class.</span>
+
+<span class="sd">            :return: list: The list of topics</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shared_topics</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.update_connection">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.update_connection">[docs]</a>
+        <span class="k">def</span> <span class="nf">update_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Update the connection data for a topic, e.g. the number of subscribers.</span>
+
+<span class="sd">            :param topic: str: The topic to update</span>
+<span class="sd">            :param data: dict: The connection data</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_connection">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.remove_connection">[docs]</a>
+        <span class="k">def</span> <span class="nf">remove_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Remove the connection data for a topic.</span>
+
+<span class="sd">            :param topic: str: The topic to remove</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_connections">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.get_connections">[docs]</a>
+        <span class="k">def</span> <span class="nf">get_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get the connection data for all topics.</span>
+
+<span class="sd">            :return: dict: The connection data for all topics</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.is_connected">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData.is_connected">[docs]</a>
+        <span class="k">def</span> <span class="nf">is_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Check whether a topic is connected.</span>
+
+<span class="sd">            :param topic: str: The topic to check</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shared_connections</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.activate">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.activate">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Activate the ZeroMQ PUB/SUB middleware. This method should be called to initialize the middleware.</span>
+
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">zeromq_post_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">zeromq_pre_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ZEROMQ_POST_OPTS</span><span class="p">:</span>
+                    <span class="n">zeromq_post_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">zeromq_pre_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="n">ZeroMQMiddlewarePubSub</span><span class="p">(</span><span class="n">zeromq_proxy_kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="o">=</span><span class="n">zeromq_post_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">zeromq_pre_kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.__init__">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ PUB/SUB middleware. This method is automatically called when the class is instantiated.</span>
+
+<span class="sd">        :param zeromq_proxy_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</span>
+<span class="sd">        :param zeromq_post_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</span>
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_proxy_kwargs</span> <span class="o">=</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_kwargs</span> <span class="o">=</span> <span class="n">zeromq_post_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialising ZeroMQ PUB/SUB middleware&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">socket_property</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">close_all_instances</span><span class="p">)</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deinit</span><span class="p">)</span>
+
+        <span class="c1"># start the pubsub proxy and monitor</span>
+        <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span>
+            <span class="c1"># start the pubsub monitor listener</span>
+            <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pubsub_monitor_listener_spawn&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">[</span><span class="s2">&quot;pubsub_monitor_listener_spawn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;process&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ZeroMQSharedMonitorData</span><span class="p">(</span><span class="n">use_multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_pubsub_monitor_listener&#39;</span><span class="p">,</span>
+                                                           <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_monitor_listener</span><span class="p">,</span>
+                                                           <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># if threaded</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ZeroMQSharedMonitorData</span><span class="p">(</span><span class="n">use_multiprocessing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;pubsub_monitor_listener_spawn&#39;</span><span class="p">,</span>
+                                                    <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_monitor_listener</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;start_proxy_broker&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">[</span><span class="s2">&quot;proxy_broker_spawn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;process&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_pubsub_broker&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_proxy</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># if threaded</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_pubsub_broker&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_proxy</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">pass</span></div>
+
+                
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.proxy_thread">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.proxy_thread">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">proxy_thread</span><span class="p">(</span><span class="n">socket_pub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5555&quot;</span><span class="p">,</span>
+                     <span class="n">socket_sub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5556&quot;</span><span class="p">,</span>
+                     <span class="n">inproc_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;inproc://monitor&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Proxy thread for the ZeroMQ PUB/SUB proxy.</span>
+
+<span class="sd">        :param socket_pub_address: str: The address of the PUB socket</span>
+<span class="sd">        :param socket_sub_address: str: The address of the SUB socket</span>
+<span class="sd">        :param inproc_address: str: The address of the inproc socket (connections within the same process, for exchanging subscription data between the proxy and the monitor)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="n">xpub</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XPUB</span><span class="p">)</span>
+        <span class="n">xsub</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XSUB</span><span class="p">)</span>
+        <span class="n">xpub</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XPUB_VERBOSE</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">xpub</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">socket_pub_address</span><span class="p">)</span>
+        <span class="n">xsub</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">socket_sub_address</span><span class="p">)</span>
+
+        <span class="n">monitor</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUB</span><span class="p">)</span>
+        <span class="n">monitor</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">inproc_address</span><span class="p">)</span>
+
+        <span class="n">zmq</span><span class="o">.</span><span class="n">proxy</span><span class="p">(</span><span class="n">xpub</span><span class="p">,</span> <span class="n">xsub</span><span class="p">,</span> <span class="n">monitor</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.subscription_monitor_thread">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.subscription_monitor_thread">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">subscription_monitor_thread</span><span class="p">(</span><span class="n">inproc_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;inproc://monitor&quot;</span><span class="p">,</span> <span class="n">socket_sub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5556&quot;</span><span class="p">,</span>
+                                    <span class="n">pubsub_monitor_topic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ZEROMQ/CONNECTIONS&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subscription monitor thread for the ZeroMQ PUB/SUB proxy.</span>
+
+<span class="sd">        :param inproc_address: str: The address of the inproc socket (connections within the same process, for exchanging subscription data between the proxy and the monitor)</span>
+<span class="sd">        :param socket_sub_address: str: The address of the SUB socket</span>
+<span class="sd">        :param pubsub_monitor_topic: str: The topic to use for publishing subscription data</span>
+<span class="sd">        :param verbose: bool: Whether to print debug messages</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="n">subscriber</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUB</span><span class="p">)</span>
+        <span class="n">subscriber</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">inproc_address</span><span class="p">)</span>
+        <span class="n">subscriber</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUBSCRIBE</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c1"># pub socket to publish subscriber counts.</span>
+        <span class="n">publisher</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUB</span><span class="p">)</span>
+        <span class="n">publisher</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">socket_sub_address</span><span class="p">)</span>
+
+        <span class="n">topic_subscriber_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="n">subscriber</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ BROKER] Raw message: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># ensure the message is a subscription/unsubscription message</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="n">event</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">topic</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ BROKER] Received event: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">, topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># avoid processing messages on the monitor topic.</span>
+                    <span class="k">if</span> <span class="n">topic</span> <span class="o">==</span> <span class="n">pubsub_monitor_topic</span><span class="p">:</span>
+                        <span class="k">continue</span>
+
+                    <span class="c1"># update the count of subscribers for the topic</span>
+                    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># subscribe</span>
+                        <span class="n">topic_subscriber_count</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># unsubscribe</span>
+                        <span class="n">topic_subscriber_count</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ BROKER] Current topic subscriber count: </span><span class="si">{</span><span class="nb">dict</span><span class="p">(</span><span class="n">topic_subscriber_count</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># publish the updated counts</span>
+                    <span class="n">publisher</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">(</span>
+                        <span class="p">[</span><span class="n">pubsub_monitor_topic</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">topic_subscriber_count</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">()]</span>
+                    <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ BROKER] An error occurred in the ZeroMQ subscription monitor: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__init_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">socket_pub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5555&quot;</span><span class="p">,</span> <span class="n">socket_sub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5556&quot;</span><span class="p">,</span>
+                     <span class="n">pubsub_monitor_topic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ZEROMQ/CONNECTIONS&quot;</span><span class="p">,</span>
+                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ PUB/SUB proxy and subscription monitor.</span>
+
+<span class="sd">        :param socket_pub_address: str: The address of the PUB socket</span>
+<span class="sd">        :param socket_sub_address: str: The address of the SUB socket</span>
+<span class="sd">        :param pubsub_monitor_topic: str: The topic to use for publishing subscription data</span>
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inproc_address</span> <span class="o">=</span> <span class="s2">&quot;inproc://monitor&quot;</span>
+
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">proxy_thread</span><span class="p">,</span>
+                         <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;socket_pub_address&quot;</span><span class="p">:</span> <span class="n">socket_pub_address</span><span class="p">,</span>
+                                 <span class="s2">&quot;socket_sub_address&quot;</span><span class="p">:</span> <span class="n">socket_sub_address</span><span class="p">,</span>
+                                 <span class="s2">&quot;inproc_address&quot;</span><span class="p">:</span> <span class="n">inproc_address</span><span class="p">})</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span>
+
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">subscription_monitor_thread</span><span class="p">,</span>
+                         <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;socket_sub_address&quot;</span><span class="p">:</span> <span class="n">socket_sub_address</span><span class="p">,</span>
+                                 <span class="s2">&quot;inproc_address&quot;</span><span class="p">:</span> <span class="n">inproc_address</span><span class="p">,</span>
+                                 <span class="s2">&quot;pubsub_monitor_topic&quot;</span><span class="p">:</span> <span class="n">pubsub_monitor_topic</span><span class="p">,</span>
+                                 <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)})</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__init_monitor_listener</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">socket_pub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5555&quot;</span><span class="p">,</span> 
+                                <span class="n">pubsub_monitor_topic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ZEROMQ/CONNECTIONS&quot;</span><span class="p">,</span>
+                                <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ PUB/SUB monitor listener.</span>
+
+<span class="sd">        :param socket_pub_address: str: The address of the PUB socket</span>
+<span class="sd">        :param pubsub_monitor_topic: str: The topic to use for publishing subscription data</span>
+<span class="sd">        :param verbose: bool: Whether to print debug messages</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+            <span class="n">subscriber</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUB</span><span class="p">)</span>
+
+            <span class="n">subscriber</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">socket_pub_address</span><span class="p">)</span>
+            <span class="n">subscriber</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">SUBSCRIBE</span><span class="p">,</span> <span class="n">pubsub_monitor_topic</span><span class="p">)</span>
+
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">subscriber</span><span class="o">.</span><span class="n">recv_multipart</span><span class="p">()</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="n">topic</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">, Data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">get_topics</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">update_connection</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Subscriber disconnected from topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">remove_connection</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Subscriber connected to topic: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">monitored_topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shared_monitor_data</span><span class="o">.</span><span class="n">get_topics</span><span class="p">():</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Monitored topic from main process: </span><span class="si">{</span><span class="n">monitored_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] An error occurred in the ZeroMQ subscription monitor listener: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ZeroMQMiddlewarePubSub.deinit">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.deinit">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">deinit</span><span class="p">():</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Deinitialising ZeroMQ middleware&quot;</span><span class="p">)</span>
+        <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewareReqRep">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep">[docs]</a>
+<span class="k">class</span> <span class="nc">ZeroMQMiddlewareReqRep</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SingletonOptimized</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ZeroMQ REQ/REP middleware wrapper. This class is a singleton, so it can be instantiated only once. The ``activate``</span>
+<span class="sd">    method should be called to initialize the middleware. The ``deinit`` method should be called to deinitialize the</span>
+<span class="sd">    middleware and destroy all connections. The ``activate`` and ``deinit`` methods are automatically called when the</span>
+<span class="sd">    class is instantiated and when the program exits, respectively.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ZeroMQMiddlewareReqRep.activate">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.activate">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Activate the ZeroMQ REQ/REP middleware. This method should be called to initialize the middleware.</span>
+
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">zeromq_post_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">zeromq_pre_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ZEROMQ_POST_OPTS</span><span class="p">:</span>
+                    <span class="n">zeromq_post_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">zeromq_pre_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="n">ZeroMQMiddlewareReqRep</span><span class="p">(</span><span class="n">zeromq_proxy_kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="o">=</span><span class="n">zeromq_post_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">zeromq_pre_kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewareReqRep.__init__">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ REQ/REP middleware. This method is automatically called when the class is instantiated.</span>
+
+<span class="sd">        :param zeromq_proxy_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</span>
+<span class="sd">        :param zeromq_post_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</span>
+<span class="sd">        :param args: list: Positional arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_proxy_kwargs</span> <span class="o">=</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_kwargs</span> <span class="o">=</span> <span class="n">zeromq_post_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialising ZeroMQ REQ/REP middleware&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">socket_property</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">close_all_instances</span><span class="p">)</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deinit</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">[</span><span class="s2">&quot;proxy_broker_spawn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;process&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_reqrep_broker&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_device</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># if threaded</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_reqrep_broker&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_device</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">pass</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__init_device</span><span class="p">(</span><span class="n">socket_rep_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5559&quot;</span><span class="p">,</span> <span class="n">socket_req_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5560&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ REQ/REP device broker.</span>
+
+<span class="sd">        :param socket_rep_address: str: The address of the REP socket</span>
+<span class="sd">        :param socket_req_address: str: The address of the REQ socket</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xrep</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XREP</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">xrep</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">socket_rep_address</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">zmq</span><span class="o">.</span><span class="n">ZMQError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">socket_rep_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">xreq</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XREQ</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">xreq</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">socket_req_address</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">zmq</span><span class="o">.</span><span class="n">ZMQError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">socket_req_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1"># logging.info(f&quot;[ZeroMQ] Intialising REQ/REP device broker&quot;)</span>
+        <span class="n">zmq</span><span class="o">.</span><span class="n">proxy</span><span class="p">(</span><span class="n">xrep</span><span class="p">,</span> <span class="n">xreq</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ZeroMQMiddlewareReqRep.deinit">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.deinit">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">deinit</span><span class="p">():</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Deinitialising ZeroMQ middleware&quot;</span><span class="p">)</span>
+        <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewareParamServer">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer">[docs]</a>
+<span class="k">class</span> <span class="nc">ZeroMQMiddlewareParamServer</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SingletonOptimized</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ZeroMQ parameter server middleware wrapper. This class is a singleton, so it can be instantiated only once. The</span>
+<span class="sd">    ``activate`` method should be called to initialize the middleware. The ``deinit`` method should be called to</span>
+<span class="sd">    deinitialize the middleware and destroy all connections. The ``activate`` and ``deinit`` methods are automatically</span>
+<span class="sd">    called when the class is instantiated and when the program exits, respectively.</span>
+
+<span class="sd">    Note: This parameter server is experimental and not fully tested.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ZeroMQMiddlewareParamServer.activate">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.activate">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">zeromq_post_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">zeromq_pre_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ZEROMQ_POST_OPTS</span><span class="p">:</span>
+                    <span class="n">zeromq_post_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">zeromq_pre_kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="n">ZeroMQMiddlewareParamServer</span><span class="p">(</span><span class="n">zeromq_proxy_kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="o">=</span><span class="n">zeromq_post_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">zeromq_pre_kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ZeroMQMiddlewareParamServer.__init__">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">zeromq_post_kwargs</span><span class="p">:</span> <span class="n">Optional</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ parameter server middleware. This method is automatically called when the class is</span>
+<span class="sd">        instantiated.</span>
+
+<span class="sd">        :param zeromq_proxy_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ proxy initialisation function</span>
+<span class="sd">        :param zeromq_post_kwargs: Optional[dict]: Keyword arguments to be passed to the ZeroMQ initialisation function (these are ZeroMQ options)</span>
+<span class="sd">        :param kwargs: dict: Keyword arguments to be passed to the ZeroMQ initialisation function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_proxy_kwargs</span> <span class="o">=</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeromq_kwargs</span> <span class="o">=</span> <span class="n">zeromq_post_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialising ZeroMQ Parameter Server&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">socket_property</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt_string</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">zmq</span><span class="p">,</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">socket_property</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">close_all_instances</span><span class="p">)</span>
+        <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deinit</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">manager</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;YAW_ACTIVE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;True&quot;</span>
+            <span class="k">if</span> <span class="n">zeromq_proxy_kwargs</span><span class="p">[</span><span class="s2">&quot;proxy_broker_spawn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;process&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_param_broadcaster&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_broadcaster</span><span class="p">,</span>
+                                                            <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_param_server&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_server</span><span class="p">,</span>
+                                                            <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># if threaded</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_param_broadcaster&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_broadcaster</span><span class="p">,</span>
+                                                     <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_broadcaster</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zeromq_param_server&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__init_server</span><span class="p">,</span>
+                                                     <span class="n">kwargs</span><span class="o">=</span><span class="n">zeromq_proxy_kwargs</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">param_server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">pass</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__init_broadcaster</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">param_pub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5655&quot;</span><span class="p">,</span> <span class="n">param_sub_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5656&quot;</span><span class="p">,</span>
+                           <span class="n">param_poll_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ parameter server broadcaster.</span>
+
+<span class="sd">        :param params: dict: The parameters to be broadcasted</span>
+<span class="sd">        :param param_pub_address: str: The address of the PUB socket</span>
+<span class="sd">        :param param_sub_address: str: The address of the SUB socket</span>
+<span class="sd">        :param param_poll_interval: int: The polling interval for the parameter server</span>
+<span class="sd">        :param verbose: bool: Whether to print debug messages</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">update_trigger</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">cached_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">root_topics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+
+        <span class="c1"># create XPUB</span>
+        <span class="n">xpub_socket</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XPUB</span><span class="p">)</span>
+        <span class="n">xpub_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">param_pub_address</span><span class="p">)</span>
+
+        <span class="c1"># create XSUB</span>
+        <span class="n">xsub_socket</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">XSUB</span><span class="p">)</span>
+        <span class="n">xsub_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">param_sub_address</span><span class="p">)</span>
+
+        <span class="c1"># connect a PUB socket to send parameters</span>
+        <span class="n">param_server</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">PUB</span><span class="p">)</span>
+        <span class="n">param_server</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">param_sub_address</span><span class="p">)</span>
+
+        <span class="n">poller</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Poller</span><span class="p">()</span>
+        <span class="n">poller</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">xpub_socket</span><span class="p">,</span> <span class="n">zmq</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+        <span class="n">poller</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">xsub_socket</span><span class="p">,</span> <span class="n">zmq</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ZeroMQ] Intialising PUB/SUB device broker&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># get event</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">poller</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">param_poll_interval</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">xpub_socket</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="n">xpub_socket</span><span class="o">.</span><span class="n">recv_multipart</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;[ZeroMQ BROKER] xpub_socket recv message: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">message</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span><span class="p">):</span>
+                    <span class="n">root_topics</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x01</span><span class="s2">&quot;</span><span class="p">):</span>
+                    <span class="n">root_topics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+                <span class="n">xsub_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">xsub_socket</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="n">xsub_socket</span><span class="o">.</span><span class="n">recv_multipart</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;[ZeroMQ BROKER] xsub_socket recv message: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">message</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x01</span><span class="s2">&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span><span class="p">):</span>
+                    <span class="n">xpub_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fltr_key</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+                    <span class="n">fltr_message</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">fltr_key</span><span class="p">)}</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;[ZeroMQ BROKER] xsub_socket filtered message: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">fltr_message</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">fltr_message</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">prefix</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="n">key</span> <span class="k">else</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                        <span class="n">xpub_socket</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">([</span><span class="n">prefix</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">param</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)])</span>
+                <span class="c1"># xpub_socket.send_multipart(message)</span>
+
+            <span class="k">if</span> <span class="n">event</span><span class="p">:</span>
+                <span class="n">update_trigger</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">if</span> <span class="n">param_server</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">update_trigger</span><span class="p">,</span> <span class="n">cached_params</span> <span class="o">=</span> <span class="n">ZeroMQMiddlewareParamServer</span><span class="o">.</span><span class="n">publish_params</span><span class="p">(</span>
+                    <span class="n">param_server</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cached_params</span><span class="p">,</span> <span class="n">root_topics</span><span class="p">,</span> <span class="n">update_trigger</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ZeroMQMiddlewareParamServer.publish_params">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.publish_params">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">publish_params</span><span class="p">(</span><span class="n">param_server</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">cached_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">root_topics</span><span class="p">:</span> <span class="nb">set</span><span class="p">,</span> <span class="n">update_trigger</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Publish parameters to the parameter server.</span>
+
+<span class="sd">        :param param_server: zmq.Socket: The parameter server socket</span>
+<span class="sd">        :param params: dict: The parameters to be published</span>
+<span class="sd">        :param cached_params: dict: The cached parameters. This is used to check whether the parameters have changed</span>
+<span class="sd">        :param root_topics: set: The root topics. This is used to check whether there are any active subscribers</span>
+<span class="sd">        :param update_trigger: bool: Whether to trigger an update of the parameters</span>
+<span class="sd">        :return: Tuple[bool, dict]: Whether to trigger an update of the parameters and the cached parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check if there are any subscribed clients before publishing updates</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root_topics</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">((</span><span class="n">update_trigger</span><span class="p">,</span> <span class="n">root_topics</span><span class="p">))</span> <span class="ow">and</span> <span class="n">cached_params</span> <span class="o">==</span> <span class="n">params</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+            <span class="n">update_trigger</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">cached_params</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># publish updates for all parameters to subscribed clients</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">prefix</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="n">key</span> <span class="k">else</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="n">param_server</span><span class="o">.</span><span class="n">send_multipart</span><span class="p">([</span><span class="n">prefix</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">param</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)])</span>
+
+        <span class="k">return</span> <span class="n">update_trigger</span><span class="p">,</span> <span class="n">cached_params</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__init_server</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">param_reqrep_address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tcp://127.0.0.1:5659&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the ZeroMQ parameter server.</span>
+
+<span class="sd">        :param params: dict: The parameters to be published</span>
+<span class="sd">        :param param_reqrep_address: str: The address of the REQ/REP socket</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="n">request_server</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">zmq</span><span class="o">.</span><span class="n">REP</span><span class="p">)</span>
+        <span class="n">request_server</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">param_reqrep_address</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">request_server</span><span class="o">.</span><span class="n">recv_string</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># extract the parameter name and namespace prefix from the request</span>
+                    <span class="n">prefix</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">request</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="k">else</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">request</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+                    <span class="c1"># construct the full parameter name with the namespace prefix</span>
+                    <span class="n">full_param</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">prefix</span><span class="p">,</span> <span class="n">param</span><span class="p">])</span> <span class="k">if</span> <span class="n">prefix</span> <span class="k">else</span> <span class="n">param</span>
+                    <span class="k">if</span> <span class="n">full_param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">full_param</span><span class="p">]))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::parameter does not exist&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::malformed request&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;read&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># extract the parameter name and namespace prefix from the request</span>
+                    <span class="n">prefix</span> <span class="o">=</span> <span class="n">request</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
+                    <span class="c1"># construct the full parameter name with the namespace prefix</span>
+                    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;success:::</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::parameter does not exist&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::malformed request&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;set&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># extract the parameter name, namespace prefix and value from the request</span>
+                    <span class="n">prefix</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="c1"># construct the full parameter name with the namespace prefix</span>
+                    <span class="n">full_param</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">prefix</span><span class="p">,</span> <span class="n">param</span><span class="p">])</span> <span class="k">if</span> <span class="n">prefix</span> <span class="k">else</span> <span class="n">param</span>
+                    <span class="n">params</span><span class="p">[</span><span class="n">full_param</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                    <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;success:::</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::malformed request&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;delete&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># extract the parameter name and namespace prefix from the request</span>
+                    <span class="n">prefix</span><span class="p">,</span> <span class="n">param</span> <span class="o">=</span> <span class="n">request</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="c1"># construct the full parameter name with the namespace prefix</span>
+                    <span class="n">full_param</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">prefix</span><span class="p">,</span> <span class="n">param</span><span class="p">])</span> <span class="k">if</span> <span class="n">prefix</span> <span class="k">else</span> <span class="n">param</span>
+                    <span class="k">if</span> <span class="n">full_param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">params</span><span class="p">[</span><span class="n">full_param</span><span class="p">]</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;success:::</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::parameter does not exist&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::malformed request&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">request_server</span><span class="o">.</span><span class="n">send_string</span><span class="p">(</span><span class="s2">&quot;error:::invalid request&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ZeroMQMiddlewareParamServer.deinit">
+<a class="viewcode-back" href="../../../source/yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.deinit">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">deinit</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deinitialize the ZeroMQ parameter server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Deinitialising ZeroMQ Parameter Server&quot;</span><span class="p">)</span>
+        <span class="n">zmq</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

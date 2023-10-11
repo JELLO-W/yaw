@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugins &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Compiling ROS2 interfaces" href="../../ros2_interfaces_lnk.html" />
+    <link rel="prev" title="Environment Variables" href="Environment%20Variables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plugin-example">Plugin Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-structure-types">Data Structure Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#device-mapping-for-tensors">Device Mapping for Tensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialization">Serialization</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Plugins</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/User Guide/Plugins.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plugins">
+<h1>Plugins<a class="headerlink" href="#plugins" title="Link to this heading"></a></h1>
+<p>The <strong>NativeObject</strong> message type supports structures beyond native python objects. YAW already supports a number of non-native objects including numpy arrays and tensors. YAW can be extended to support objects by using the plugin API. All currently supported plugins by YAW can be found in the <a class="reference internal" href="#../yaw/plugins"><span class="xref myst">plugins directory</span></a>. Plugins can be added by:</p>
+<ul class="simple">
+<li><p>Creating a derived class that inherits from the base class <code class="docutils literal notranslate"><span class="pre">yaw.utils.Plugin</span></code></p></li>
+<li><p>Overriding the <code class="docutils literal notranslate"><span class="pre">encode</span></code> method for converting the object to a <code class="docutils literal notranslate"><span class="pre">json</span></code> serializable string. Deserializing the string is performed within the overridden <code class="docutils literal notranslate"><span class="pre">decode</span></code> method</p></li>
+<li><p>Specifying custom object properties by defining keyword arguments for the class constructor. These properties can be passed directly to the YAW decorator</p></li>
+<li><p>Decorating the class with <code class="docutils literal notranslate"><span class="pre">&#64;PluginRegistrar.register</span></code> and appending the plugin to the list of supported objects</p></li>
+<li><p>Appending the script path where the class is defined to the <code class="docutils literal notranslate"><span class="pre">YAW_PLUGINS_PATH</span></code> environment variable</p></li>
+<li><p>Ensure that the plugin resides within a directory named <code class="docutils literal notranslate"><span class="pre">plugins</span></code> nested inside the <code class="docutils literal notranslate"><span class="pre">YAW_PLUGINS_PATH</span></code> and that the directory contains an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file</p></li>
+</ul>
+<section id="plugin-example">
+<h2>Plugin Example<a class="headerlink" href="#plugin-example" title="Link to this heading"></a></h2>
+<p>An example for adding a plugin for a custom <a class="reference external" href="https://www.astropy.org/">Astropy</a> object is provided in the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/encoders/astropy_example.py">astropy_example.py example</a>.
+In the example, we append the example’s directory to the <code class="docutils literal notranslate"><span class="pre">YAW_PLUGINS_PATH</span></code> environment variable and import the plugin.
+The plugin (<a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/encoders/plugins/astropy_tables.py">astropy_tables.py</a>) in the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/encoders/plugins">plugins</a> directory
+is then used to encode and decode the custom object (from within the <code class="docutils literal notranslate"><span class="pre">examples/encoders/</span></code> directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the publisher with default middleware (changed with --mware). The plugin is automatically loaded</span>
+<span class="n">python3</span> <span class="n">astropy_example</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">mode</span> <span class="n">publish</span>
+<span class="c1"># create the listener with default middleware (changed with --mware). The plugin is automatically loaded</span>
+<span class="n">python3</span> <span class="n">astropy_example</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">mode</span> <span class="n">listen</span>
+</pre></div>
+</div>
+<p>from the two terminal outputs, the same object should be printed after typing a random message and pressing enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Method</span> <span class="n">result</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;hello world&#39;</span><span class="p">,</span> <span class="s1">&#39;astropy_table&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Table</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="o">&gt;</span>
+  <span class="n">name</span>     <span class="n">flux</span> 
+ <span class="n">bytes8</span>  <span class="n">float64</span>
+<span class="o">--------</span> <span class="o">-------</span>
+<span class="n">source</span> <span class="mi">1</span>     <span class="mf">1.2</span>
+<span class="n">source</span> <span class="mi">2</span>     <span class="mf">2.2</span>
+<span class="n">source</span> <span class="mi">3</span>     <span class="mf">3.1</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mf">0.4344</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;other&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.32</span><span class="p">)}]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to differences in versions, the decoding may result in inconsitent outcomes, which must be handled for all versions e.g., MXNet plugin differences are handled in the existing plugin.</p>
+</div>
+</section>
+<section id="data-structure-types">
+<h2>Data Structure Types<a class="headerlink" href="#data-structure-types" title="Link to this heading"></a></h2>
+<p>Other than native python objects, the following objects are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy.generic</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> (pandas v1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensorflow.Tensor</span></code> and <code class="docutils literal notranslate"><span class="pre">tensorflow.EagerTensor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mxnet.nd.NDArray</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jax.numpy.DeviceArray</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paddle.Tensor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIL.Image</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyarrow.StructArray</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask.array.Array</span></code> and <code class="docutils literal notranslate"><span class="pre">dask.dataframe.DataFrame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zarr.core.Array</span></code> and <code class="docutils literal notranslate"><span class="pre">zarr.core.Group</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pint.Quantity</span></code></p></li>
+</ul>
+</section>
+<section id="device-mapping-for-tensors">
+<h2>Device Mapping for Tensors<a class="headerlink" href="#device-mapping-for-tensors" title="Link to this heading"></a></h2>
+<p>To map tensor listener decoders to specific devices (CPUs/GPUs), add an argument to tensor data structures with direct GPU/TPU mapping to support re-mapping on mirrored nodes e.g.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@PluginRegistrar</span><span class="o">.</span><span class="n">register</span>
+<span class="k">class</span> <span class="nc">MXNetTensor</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_mxnet_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">map_mxnet_devices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">map_mxnet_devices</span></code> should be <code class="docutils literal notranslate"><span class="pre">{'default':</span> <span class="pre">mxnet.gpu(0)}</span></code> when <code class="docutils literal notranslate"><span class="pre">load_mxnet_device=mxnet.gpu(0)</span></code> and <code class="docutils literal notranslate"><span class="pre">map_mxnet_devices=None</span></code>.
+For instance, when <code class="docutils literal notranslate"><span class="pre">load_mxnet_device=mxnet.gpu(0)</span></code> or <code class="docutils literal notranslate"><span class="pre">load_mxnet_device=&quot;cuda:0&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">map_mxnet_devices</span></code> can be set manually as a dictionary representing the source device as key and the target device as value for non-default device maps.</p>
+<p>Suppose we have the following YAWed method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">mware</span><span class="p">,</span> <span class="s2">&quot;Notify&quot;</span><span class="p">,</span> <span class="s2">&quot;/notify/test_native_exchange&quot;</span><span class="p">,</span>
+                                     <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">load_mxnet_device</span><span class="o">=</span><span class="n">mxnet</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> 
+                                     <span class="n">map_mxnet_devices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cuda:0&quot;</span><span class="p">:</span> <span class="s2">&quot;cuda:1&quot;</span><span class="p">,</span> 
+                                                         <span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="s2">&quot;cuda:0&quot;</span><span class="p">,</span> 
+                                                         <span class="s2">&quot;cuda:3&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu:0&quot;</span><span class="p">,</span> 
+                                                         <span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)})</span>
+    <span class="k">def</span> <span class="nf">exchange_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Type your message: &quot;</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">,</span>
+               <span class="s2">&quot;mx_ones&quot;</span><span class="p">:</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+               <span class="s2">&quot;mxnet_zeros_cuda1&quot;</span><span class="p">:</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span>
+               <span class="s2">&quot;mxnet_zeros_cuda0&quot;</span><span class="p">:</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>
+               <span class="s2">&quot;mxnet_zeros_cuda2&quot;</span><span class="p">:</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+               <span class="s2">&quot;mxnet_zeros_cuda3&quot;</span><span class="p">:</span> <span class="n">mxnet</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mxnet</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="mi">3</span><span class="p">))}</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>then the source and target gpus 1 &amp; 0 would be flipped, gpu 3 would be placed on cpu 0, and gpu 2 would be placed on gpu 0. Defining <code class="docutils literal notranslate"><span class="pre">mxnet.gpu(1):</span> <span class="pre">mxnet.gpu(0)</span></code> and <code class="docutils literal notranslate"><span class="pre">cuda:1</span></code>: <code class="docutils literal notranslate"><span class="pre">cuda:2</span></code> in the same mapping should raise an error since the same device is mapped to two different targets.</p>
+<p>The plugins supporting remapping are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mxnet.nd.NDArray</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paddle.Tensor</span></code></p></li>
+</ul>
+</section>
+<section id="serialization">
+<h2>Serialization<a class="headerlink" href="#serialization" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When encoding dictionaries, <code class="docutils literal notranslate"><span class="pre">json</span></code> supports string keys only and converts any instances of <code class="docutils literal notranslate"><span class="pre">int</span></code> keys to string, causing a difference between the publisher and subscriber returns. It is best to avoid using <code class="docutils literal notranslate"><span class="pre">int</span></code> keys, otherwise handle the difference on the receiving end.</p>
+</div>
+<p>YAW currently supports JSON as the only serializer. This introduces a number of limitations (beyond serializing native python objects only by default), including:</p>
+<ul class="simple">
+<li><p>dictionary keys cannot be integers. Integers are automatically converted to strings</p></li>
+<li><p>Tuples are converted to lists. Sets are not serializable. Tuples and sets are encoded as strings and restored on listening, which resolves this limitation but adds to the encoding overhead. This conversion is supported in YAW</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Environment%20Variables.html" class="btn btn-neutral float-left" title="Environment Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../ros2_interfaces_lnk.html" class="btn btn-neutral float-right" title="Compiling ROS2 interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

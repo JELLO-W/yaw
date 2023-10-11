@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compiling ROS2 interfaces &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compiling ROS interfaces" href="ros_interfaces_lnk.html" />
+    <link rel="prev" title="Plugins" href="usage/User%20Guide/Plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compiling ROS2 interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiling">Compiling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Compiling ROS2 interfaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ros2_interfaces_lnk.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compiling-ros2-interfaces">
+<h1>Compiling ROS2 interfaces<a class="headerlink" href="#compiling-ros2-interfaces" title="Link to this heading"></a></h1>
+<p><strong>WARNING</strong>: These instructions are located in
+https://github.com/JELLO-W/yaw/blob/master/yaw_extensions/yaw_ros2_interfaces</p>
+<p>To run the YAW ROS2 services and transmit audio messages, you need to compile the ROS2 interfaces.
+ROS2 must already be installed on your system, with all its build dependencies.
+You can find the installation instructions <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">here</a>
+or install using <a class="reference external" href="https://robostack.github.io/GettingStarted.html">Robostack</a>.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>ROS2 Galactic/Humble</p></li>
+<li><p>Python 3.6</p></li>
+</ul>
+</section>
+<section id="compiling">
+<h2>Compiling<a class="headerlink" href="#compiling" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">yaw_ros2_interfaces</span></code> folder to your ROS2 workspace (assumed to be <code class="docutils literal notranslate"><span class="pre">~/ros2_ws</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from the current directory </span>
+<span class="nb">cd</span><span class="w"> </span>../
+cp<span class="w"> </span>-r<span class="w"> </span>yaw_ros2_interfaces<span class="w"> </span>~/ros2_ws/src
+</pre></div>
+</div>
+</li>
+<li><p>Compile the ROS2 interfaces:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>yaw_ros2_interfaces
+</pre></div>
+</div>
+<p><strong>Note</strong>: If the wrong version of Python is used, the compilation will fail. Make sure that the correct version of cmake
+is used by modifying the <code class="docutils literal notranslate"><span class="pre">cmake_minimum_required</span></code> version in the <code class="docutils literal notranslate"><span class="pre">~/ros2_ws/src/yaw_ros2_interfaces/CMakeLists.txt</span></code> file:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># CMakeLists.txt</span>
+<span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.5</span><span class="p">)</span>
+<span class="c"># ...</span>
+</pre></div>
+</div>
+<p>Replacing VERSION 3.5 with the correct version of cmake.</p>
+</li>
+<li><p>Source the ROS2 workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the ROS2 Native object service interface is compiled:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>yaw_ros2_interfaces/srv/ROS2NativeObjectService
+</pre></div>
+</div>
+<p>Which should output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>string<span class="w"> </span>request
+---
+string<span class="w"> </span>response
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the ROS2 Image service interface is compiled:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>yaw_ros2_interfaces/srv/ROS2ImageService
+</pre></div>
+</div>
+<p>Which should output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>string<span class="w"> </span>request
+---
+sensor_msgs/Image<span class="w"> </span>response
+<span class="w">    </span>std_msgs/Header<span class="w"> </span>header
+<span class="w">        </span>builtin_interfaces/Time<span class="w"> </span>stamp
+<span class="w">            </span>int32<span class="w"> </span>sec
+<span class="w">            </span>uint32<span class="w"> </span>nanosec
+<span class="w">        </span>string<span class="w"> </span>frame_id
+<span class="w">                                 </span><span class="c1"># Header frame_id should be optical frame of camera</span>
+<span class="w">                                 </span><span class="c1"># origin of frame should be optical center of cameara</span>
+<span class="w">                                 </span><span class="c1"># +x should point to the right in the image</span>
+<span class="w">                                 </span><span class="c1"># +y should point down in the image</span>
+<span class="w">                                 </span><span class="c1"># +z should point into to plane of the image</span>
+<span class="w">                                 </span><span class="c1"># If the frame_id here and the frame_id of the CameraInfo</span>
+<span class="w">                                 </span><span class="c1"># message associated with the image conflict</span>
+<span class="w">                                 </span><span class="c1"># the behavior is undefined</span>
+<span class="w">    </span>uint32<span class="w"> </span>height
+<span class="w">    </span>uint32<span class="w"> </span>width
+<span class="w">    </span>string<span class="w"> </span>encoding
+<span class="w">                          </span><span class="c1"># taken from the list of strings in include/sensor_msgs/image_encodings.hpp</span>
+<span class="w">    </span>uint8<span class="w"> </span>is_bigendian
+<span class="w">    </span>uint32<span class="w"> </span>step
+<span class="w">    </span>uint8<span class="o">[]</span><span class="w"> </span>data
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the ROS2 Audio service interface is compiled:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>yaw_ros2_interfaces/srv/ROS2AudioService
+</pre></div>
+</div>
+<p>Which should output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>string<span class="w"> </span>request
+---
+yaw_ros2_interfaces/ROS2AudioMessage<span class="w"> </span>response
+<span class="w">   </span>std_msgs/Header<span class="w"> </span>header
+<span class="w">       </span>builtin_interfaces/Time<span class="w"> </span>stamp
+<span class="w">           </span>int32<span class="w"> </span>sec
+<span class="w">           </span>uint32<span class="w"> </span>nanosec
+<span class="w">       </span>string<span class="w"> </span>frame_id
+<span class="w">   </span>uint32<span class="w"> </span>chunk_size
+<span class="w">   </span>uint8<span class="w"> </span>channels
+<span class="w">   </span>uint32<span class="w"> </span>sample_rate
+<span class="w">   </span>string<span class="w"> </span>encoding
+<span class="w">   </span>uint8<span class="w"> </span>is_bigendian
+<span class="w">   </span>uint32<span class="w"> </span>bitrate
+<span class="w">   </span>string<span class="w"> </span>coding_format
+<span class="w">   </span>uint32<span class="w"> </span>step
+<span class="w">   </span>uint8<span class="o">[]</span><span class="w"> </span>data
+</pre></div>
+</div>
+<p>Run your YAW enabled script from the same terminal. Now you can use the REQ/REP pattern (server/client) in YAW, and transmit ROS2 audio messages.</p>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage/User%20Guide/Plugins.html" class="btn btn-neutral float-left" title="Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_interfaces_lnk.html" class="btn btn-neutral float-right" title="Compiling ROS interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

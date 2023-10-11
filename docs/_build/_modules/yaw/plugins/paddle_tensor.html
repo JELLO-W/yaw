@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.plugins.paddle_tensor &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+      <li class="breadcrumb-item active">yaw.plugins.paddle_tensor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.plugins.paddle_tensor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Encoder and Decoder for PaddlePaddle Tensor Data via YAW.</span>
+
+<span class="sd">This script provides mechanisms to encode and decode PaddlePaddle tensor data using YAW.</span>
+<span class="sd">It utilizes base64 encoding to convert binary data into ASCII strings.</span>
+
+<span class="sd">The script contains a class, `PaddleTensor`, registered as a plugin to manage the</span>
+<span class="sd">conversion of PaddlePaddle tensor data (if available) between its original and encoded forms.</span>
+
+<span class="sd">Requirements:</span>
+<span class="sd">    - YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - PaddlePaddle: An open-source deep learning platform developed by Baidu (refer to https://www.paddlepaddle.org.cn/en/install/quick for installation instructions)</span>
+<span class="sd">        Note: If PaddlePaddle is not available, HAVE_PADDLE will be set to False and</span>
+<span class="sd">        the plugin will be registered with no types.</span>
+
+<span class="sd">    You can install the necessary packages using pip:</span>
+<span class="sd">        ``pip install paddlepaddle``  # Basic installation of PaddlePaddle</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">yaw.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">paddle</span>
+    <span class="kn">from</span> <span class="nn">paddle</span> <span class="kn">import</span> <span class="n">Tensor</span>
+    <span class="n">HAVE_PADDLE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAVE_PADDLE</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="paddle_device_to_str">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.paddle_device_to_str">[docs]</a>
+<span class="k">def</span> <span class="nf">paddle_device_to_str</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a PaddlePaddle device to a string representation.</span>
+
+<span class="sd">    :param device: Union[str, paddle.fluid.libpaddle.Place, dict]: Various possible types representing a PaddlePaddle device</span>
+<span class="sd">    :return: Union[str, dict]: A string or dictionary representing the PaddlePaddle device</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">paddle</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">device_rets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">device</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">device_rets</span><span class="p">[</span><span class="n">paddle_device_to_str</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">paddle_device_to_str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">device_rets</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">paddle</span><span class="o">.</span><span class="n">fluid</span><span class="o">.</span><span class="n">libpaddle</span><span class="o">.</span><span class="n">Place</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)[</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span> <span class="s2">&quot;gpu&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">device</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span> <span class="s2">&quot;gpu&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown device type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="paddle_str_to_device">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.paddle_str_to_device">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">paddle_str_to_device</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a string to a PaddlePaddle device.</span>
+
+<span class="sd">    :param device: str: A string representing a PaddlePaddle device</span>
+<span class="sd">    :return: paddle.fluid.libpaddle.Place: A PaddlePaddle place representing the device</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">paddle</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">paddle</span><span class="o">.</span><span class="n">fluid</span><span class="o">.</span><span class="n">libpaddle</span><span class="o">.</span><span class="n">Place</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">device</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">device_type</span><span class="p">,</span> <span class="n">device_id</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">device_type</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="k">return</span> <span class="n">paddle</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">_convert_to_place</span><span class="p">(</span><span class="n">device_type</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span> <span class="s2">&quot;gpu&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unknown device type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="PaddleTensor">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor">[docs]</a>
+<span class="nd">@PluginRegistrar</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">types</span><span class="o">=</span><span class="kc">None</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">HAVE_PADDLE</span> <span class="k">else</span> <span class="n">paddle</span><span class="o">.</span><span class="n">Tensor</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">PaddleTensor</span><span class="p">(</span><span class="n">Plugin</span><span class="p">):</span>
+<div class="viewcode-block" id="PaddleTensor.__init__">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_paddle_device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">map_paddle_devices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the PaddleTensor plugin.</span>
+
+<span class="sd">        :param load_paddle_device: Union[paddle.fluid.libpaddle.Place, str]: Default PaddlePaddle device to load tensors onto</span>
+<span class="sd">        :param map_paddle_devices: dict: A dictionary mapping encoded device strings to decoding devices</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span> <span class="o">=</span> <span class="n">map_paddle_devices</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">load_paddle_device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_paddle_device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span> <span class="o">=</span> <span class="n">paddle_device_to_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PaddleTensor.encode">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.encode">[docs]</a>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Encode PaddlePaddle tensor data into a base64 ASCII string.</span>
+
+<span class="sd">        :param obj: paddle.Tensor: The PaddlePaddle tensor data to encode</span>
+<span class="sd">        :param args: tuple: Additional arguments (not used)</span>
+<span class="sd">        :param kwargs: dict: Additional keyword arguments (not used)</span>
+<span class="sd">        :return: Tuple[bool, dict]: A tuple containing:</span>
+<span class="sd">            - bool: Always True, indicating that the encoding was successful</span>
+<span class="sd">            - dict: A dictionary containing:</span>
+<span class="sd">                - &#39;__yaw__&#39;: A tuple containing the class name, encoded data string, and device string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">memfile</span><span class="p">:</span>
+            <span class="n">paddle</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">memfile</span><span class="p">)</span>
+            <span class="n">obj_data</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">memfile</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+        <span class="n">obj_device</span> <span class="o">=</span> <span class="n">paddle_device_to_str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">place</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__yaw__</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">),</span> <span class="n">obj_data</span><span class="p">,</span> <span class="n">obj_device</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PaddleTensor.decode">
+<a class="viewcode-back" href="../../../source/yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.decode">[docs]</a>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_type</span><span class="p">,</span> <span class="n">obj_full</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode a base64 ASCII string back into PaddlePaddle tensor data.</span>
+
+<span class="sd">        :param obj_type: type: The expected type of the decoded object (not used)</span>
+<span class="sd">        :param obj_full: tuple: A tuple containing the encoded data string and device string</span>
+<span class="sd">        :param args: tuple: Additional arguments (not used)</span>
+<span class="sd">        :param kwargs: dict: Additional keyword arguments (not used)</span>
+<span class="sd">        :return: Tuple[bool, paddle.Tensor]: A tuple containing:</span>
+<span class="sd">            - bool: Always True, indicating that the decoding was successful</span>
+<span class="sd">            - paddle.Tensor: The decoded PaddlePaddle tensor data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">obj_full</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)))</span> <span class="k">as</span> <span class="n">memfile</span><span class="p">:</span>
+            <span class="n">obj_device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">obj_full</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_paddle_devices</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">obj_device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">obj_device</span> <span class="o">=</span> <span class="n">paddle_str_to_device</span><span class="p">(</span><span class="n">obj_device</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">paddle</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">paddle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">memfile</span><span class="p">),</span> <span class="n">place</span><span class="o">=</span><span class="n">obj_device</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">paddle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">memfile</span><span class="p">)</span></div>
+</div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

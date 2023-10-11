@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw.connect.wrapper &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../../yaw.html">yaw</a></li>
+      <li class="breadcrumb-item active">yaw.connect.wrapper</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yaw.connect.wrapper</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">yaw.connect.publishers</span> <span class="k">as</span> <span class="nn">pub</span>
+<span class="kn">import</span> <span class="nn">yaw.connect.listeners</span> <span class="k">as</span> <span class="nn">lsn</span>
+<span class="kn">import</span> <span class="nn">yaw.connect.servers</span> <span class="k">as</span> <span class="nn">srv</span>
+<span class="kn">import</span> <span class="nn">yaw.connect.clients</span> <span class="k">as</span> <span class="nn">clt</span>
+
+<span class="kn">from</span> <span class="nn">yaw.utils</span> <span class="kn">import</span> <span class="n">get_default_args</span><span class="p">,</span> <span class="n">match_args</span><span class="p">,</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">yaw.config.manager</span> <span class="kn">import</span> <span class="n">ConfigManager</span>
+
+
+<span class="n">DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_DEFAULT_COMMUNICATOR&quot;</span><span class="p">,</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">)</span>
+<span class="n">DEFAULT_COMMUNICATOR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YAW_DEFAULT_MWARE&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator">[docs]</a>
+<span class="k">class</span> <span class="nc">MiddlewareCommunicator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">__registry</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="MiddlewareCommunicator.__init__">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialises the middleware communicator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigManager</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">config</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__trigger_publish</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">instance_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kwd</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Triggers the publish mode of the middleware communicator.</span>
+
+<span class="sd">        :param func: Callable[..., Any]: The function to be triggered and whose return values are to be published</span>
+<span class="sd">        :param instance_id: str: The unique identifier of the function instance, utilized to access the middleware communicator registry and manage different instances of communications</span>
+<span class="sd">        :param kwd: dict: A dictionary containing keyword arguments to be matched and potentially utilized during the publisher instantiation and function invocation</span>
+<span class="sd">        :param wds: tuple: Variable positional arguments to be passed to the function</span>
+<span class="sd">        :param kwds: dict: Additional keyword arguments to be passed to the function</span>
+<span class="sd">        :return: Any: The return values of the triggered function (`func`). The data type and structure depend on the output of `func`</span>
+
+<span class="sd">        :raises: KeyError: If the intended publisher type and middleware are unavailable, resorting to a fallback publisher</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;wrapped_executor&quot;</span> <span class="ow">not</span> <span class="ow">in</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># instantiate the publishers</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">communicator</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span>
+                <span class="s2">&quot;communicator&quot;</span><span class="p">]:</span>
+                <span class="c1"># single element</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">return_func_pub_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">])</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">],</span> <span class="n">return_func_pub_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kwd</span><span class="p">)</span>
+                    <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span>
+                    <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pub</span><span class="o">.</span><span class="n">Publishers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pub</span><span class="o">.</span><span class="n">Publishers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                            <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+                <span class="c1"># list for single return</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">comm_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">])):</span>
+                        <span class="n">return_func_pub_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">])</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">],</span> <span class="n">return_func_pub_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kwd</span><span class="p">)</span>
+                        <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span>
+                        <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">pub</span><span class="o">.</span><span class="n">Publishers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                                                                                   <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">pub</span><span class="o">.</span><span class="n">Publishers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                                    <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                                    <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                                    <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+        <span class="n">returns</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ret_idx</span><span class="p">,</span> <span class="n">ret</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
+            <span class="n">wrp_exec</span> <span class="o">=</span> \
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="n">ret_idx</span><span class="p">][</span>
+                <span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span>
+            <span class="c1"># single element</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="n">pub</span><span class="o">.</span><span class="n">Publisher</span><span class="p">):</span>
+                <span class="n">wrp_exec</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+            <span class="c1"># list for single return</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">wrp_idx</span><span class="p">,</span> <span class="n">wrp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">):</span>
+                    <span class="n">wrp</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="n">wrp_idx</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">returns</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__trigger_listen</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">instance_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kwd</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Triggers the listen mode of the middleware communicator.</span>
+
+<span class="sd">        :param func: Callable[..., Any]: The function associated with the listener and whose return values might be utilized</span>
+<span class="sd">        :param instance_id: str: The unique identifier of the function instance, utilized to access the middleware communicator registry and manage different instances of communications</span>
+<span class="sd">        :param kwd: dict: A dictionary containing keyword arguments to be matched and potentially utilized during the listener instantiation and function invocation</span>
+<span class="sd">        :param wds: tuple: Variable positional arguments to be passed to the function</span>
+<span class="sd">        :param kwds: dict: Additional keyword arguments to be passed to the function (not used since the listener does not accept any additional arguments, given that it does not execute any function or transmit any arguments)</span>
+<span class="sd">        :return: Any: The return values obtained from the listeners. The data type and structure depend on the output of the listener</span>
+
+<span class="sd">        :raises: KeyError: If the intended listener type and middleware are unavailable, resorting to a fallback listener</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;wrapped_executor&quot;</span> <span class="ow">not</span> <span class="ow">in</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># instantiate the listeners</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">communicator</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]:</span>
+                <span class="c1"># single element</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">return_func_lsn_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">])</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">],</span> <span class="n">return_func_lsn_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                                                      <span class="n">kwd</span><span class="p">)</span>
+                    <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span>
+                    <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lsn</span><span class="o">.</span><span class="n">Listeners</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lsn</span><span class="o">.</span><span class="n">Listeners</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                            <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+                <span class="c1"># list for single return</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">comm_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">])):</span>
+                        <span class="n">return_func_lsn_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">])</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">],</span>
+                                                          <span class="n">return_func_lsn_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kwd</span><span class="p">)</span>
+                        <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span>
+                        <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">lsn</span><span class="o">.</span><span class="n">Listeners</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">lsn</span><span class="o">.</span><span class="n">Listeners</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                                    <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                                    <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                                    <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+        <span class="n">returns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ret_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">])):</span>
+            <span class="n">wrp_exec</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="n">ret_idx</span><span class="p">][</span>
+                <span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span>
+            <span class="c1"># single element</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="n">lsn</span><span class="o">.</span><span class="n">Listener</span><span class="p">):</span>
+                <span class="n">returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wrp_exec</span><span class="o">.</span><span class="n">listen</span><span class="p">())</span>
+                <span class="c1"># list for single return</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">subreturns</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">wrp_idx</span><span class="p">,</span> <span class="n">wrp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">):</span>
+                    <span class="n">subreturns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wrp</span><span class="o">.</span><span class="n">listen</span><span class="p">())</span>
+                <span class="n">returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subreturns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">returns</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__trigger_reply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">instance_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Triggers the reply mode of the middleware communicator.</span>
+
+<span class="sd">        :param func: Callable[..., Any]: The function to be triggered and whose return values may be used in replies</span>
+<span class="sd">        :param instance_id: str: The unique identifier of the function instance, utilized to access the middleware communicator registry and manage different instances of communications</span>
+<span class="sd">        :param kwd: dict: A dictionary containing keyword arguments to be matched and potentially utilized during the server instantiation and function invocation</span>
+<span class="sd">        :param wds: tuple: Variable positional arguments to be passed to the function</span>
+<span class="sd">        :param kwds: dict: Additional keyword arguments to be passed to the function</span>
+<span class="sd">        :return: Any: The return values of the triggered function (`func`). The data type and structure depend on the output of `func`</span>
+
+<span class="sd">        :raises: KeyError: If the intended server type and middleware are unavailable, resorting to a fallback server</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;wrapped_executor&quot;</span> <span class="ow">not</span> <span class="ow">in</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># instantiate the publishers</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">communicator</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]:</span>
+                <span class="c1"># single element</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">return_func_pub_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">])</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">],</span> <span class="n">return_func_pub_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kwd</span><span class="p">)</span>
+                    <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span>
+                    <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">Servers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">Servers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                            <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+                <span class="c1"># list for single return</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">comm_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">])):</span>
+                        <span class="n">return_func_pub_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">])</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                            <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">return_func_pub_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">],</span> <span class="n">return_func_pub_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                            <span class="n">kwd</span><span class="p">)</span>
+                        <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span>
+                        <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">srv</span><span class="o">.</span><span class="n">Servers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span>
+                                    <span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">srv</span><span class="o">.</span><span class="n">Servers</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                                    <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                                    <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                                    <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+        <span class="n">returns</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">ret_idx</span><span class="p">,</span> <span class="n">functor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]):</span>
+            <span class="n">wrp_exec</span> <span class="o">=</span> <span class="n">functor</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span>
+            <span class="c1"># single element</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="n">srv</span><span class="o">.</span><span class="n">Server</span><span class="p">):</span>
+                <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">wrp_exec</span><span class="o">.</span><span class="n">await_request</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">returns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">returns</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">wds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">returns</span><span class="p">[</span><span class="n">ret_idx</span><span class="p">]</span>
+                <span class="n">wrp_exec</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+            <span class="c1"># list for single return</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">wrp_idx</span><span class="p">,</span> <span class="n">wrp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">):</span>
+                    <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">wrp</span><span class="o">.</span><span class="n">await_request</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">returns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">returns</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">wds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">returns</span><span class="p">[</span><span class="n">ret_idx</span><span class="p">][</span><span class="n">wrp_idx</span><span class="p">]</span>
+                    <span class="n">wrp</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">returns</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__trigger_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">instance_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Triggers the request mode of the middleware communicator.</span>
+
+<span class="sd">        :param func: Callable[..., Any]: The function associated with the client requests and might utilize the request results</span>
+<span class="sd">        :param instance_id: str: The unique identifier of the function instance, utilized to access the middleware communicator registry and manage different instances of communications</span>
+<span class="sd">        :param kwd: dict: A dictionary containing keyword arguments to be matched and potentially utilized during the client instantiation and function invocation</span>
+<span class="sd">        :param wds: tuple: Variable positional arguments to be passed to the function</span>
+<span class="sd">        :param kwds: dict: Additional keyword arguments to be passed to the function</span>
+<span class="sd">        :return: Any: The return values obtained from the clients&#39; requests. The data type and structure depend on the output of the client requests</span>
+
+<span class="sd">        :raises: KeyError: If the intended client type and middleware are unavailable, resorting to a fallback client</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;wrapped_executor&quot;</span> <span class="ow">not</span> <span class="ow">in</span> \
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># instantiate the listeners</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">communicator</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]:</span>
+                <span class="c1"># single element</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">return_func_lsn_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">])</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">],</span> <span class="n">return_func_lsn_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                                                      <span class="n">kwd</span><span class="p">)</span>
+                    <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span>
+                    <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clt</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clt</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                            <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                            <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">new_kwargs</span><span class="p">)</span>
+                        <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+                <span class="c1"># list for single return</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">comm_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">])):</span>
+                        <span class="n">return_func_lsn_kwargs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">])</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;listener_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">return_func_lsn_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher_kwargs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="n">new_args</span><span class="p">,</span> <span class="n">new_kwargs</span> <span class="o">=</span> <span class="n">match_args</span><span class="p">(</span><span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_args&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">],</span>
+                                                          <span class="n">return_func_lsn_kwargs</span><span class="p">,</span> <span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">kwd</span><span class="p">)</span>
+                        <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span>
+                        <span class="n">return_func_middleware</span> <span class="o">=</span> <span class="n">new_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;middleware&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">clt</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span> <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">clt</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span>
+                                    <span class="s2">&quot;MMO:fallback&quot;</span><span class="p">](</span><span class="o">*</span><span class="n">new_args</span><span class="p">,</span>
+                                                    <span class="n">missing_middleware_object</span><span class="o">=</span><span class="n">return_func_type</span> <span class="o">+</span> <span class="n">return_func_middleware</span><span class="p">,</span>
+                                                    <span class="o">**</span><span class="n">new_kwargs</span><span class="p">))</span>
+                            <span class="n">communicator</span><span class="p">[</span><span class="s2">&quot;return_func_type&quot;</span><span class="p">][</span><span class="n">comm_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MMO:&quot;</span>
+
+        <span class="n">returns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ret_idx</span><span class="p">,</span> <span class="n">functor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]):</span>
+            <span class="n">wrp_exec</span> <span class="o">=</span> <span class="n">functor</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">]</span>
+            <span class="c1"># single element</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="n">clt</span><span class="o">.</span><span class="n">Client</span><span class="p">):</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">wrp_exec</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+                <span class="n">returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+            <span class="c1"># list for single return</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">subreturns</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">wrp_idx</span><span class="p">,</span> <span class="n">wrp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wrp_exec</span><span class="p">):</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">wrp</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+                    <span class="n">subreturns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="n">wrp_idx</span><span class="p">])</span>
+                <span class="n">returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subreturns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">returns</span>
+
+<div class="viewcode-block" id="MiddlewareCommunicator.register">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.register">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="n">middleware</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_COMMUNICATOR</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Registers a function to the middleware communicator, defining its communication message type and associated</span>
+<span class="sd">        middleware. Note that the function returned is a wrapper that can alter the behavior of the registered function</span>
+<span class="sd">        based on the communication mode set in the middleware communicator registry.</span>
+
+<span class="sd">        :param data_type: Union[str, List[Any]]: Specifies the communication message type, either as a string or a list containing specifications of the data type and middleware</span>
+<span class="sd">        :param middleware: str: Specifies the middleware to be used for the communication, defaults to DEFAULT_COMMUNICATOR</span>
+<span class="sd">        :param args: tuple: Variable positional arguments to be passed to the function</span>
+<span class="sd">        :param kwargs: dict: Additional keyword arguments to be passed to the function</span>
+<span class="sd">        :return: Callable[..., Any]: A wrapper function that triggers specific communication modes (e.g., publish, listen, reply, request) based on the registered function and middleware settings</span>
+
+<span class="sd">        :raises: NotImplementedError: If `data_type` is a dictionary or an unsupported type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">encapsulate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+            <span class="c1"># define the communication message type (single element)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">return_func_type</span> <span class="o">=</span> <span class="n">data_type</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+                <span class="n">return_func_args</span> <span class="o">=</span> <span class="n">args</span>
+                <span class="n">return_func_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+                <span class="n">return_func_kwargs</span><span class="p">[</span><span class="s2">&quot;middleware&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">middleware</span><span class="p">)</span>
+
+            <span class="c1"># define the communication message type (list for single return). NOTE: supports 1 layer depth only</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">return_func_args</span><span class="p">,</span> <span class="n">return_func_kwargs</span><span class="p">,</span> <span class="n">return_func_type</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">data_type</span><span class="p">:</span>
+                    <span class="n">data_spec</span> <span class="o">=</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+                    <span class="n">return_func_args</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)])</span>
+                    <span class="n">return_func_kwargs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)])</span>
+                    <span class="n">return_func_kwargs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;middleware&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">return_func_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_spec</span><span class="p">)</span>
+
+            <span class="c1"># define the communication message type (dict for single return). NOTE: supports 1 layer depth only</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Dictionaries are not yet supported as a return type&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return data type not supported: </span><span class="si">{</span><span class="n">data_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">func_qualname</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span>
+            <span class="k">if</span> <span class="n">func_qualname</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__registry</span><span class="p">:</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">func_qualname</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;return_func_args&quot;</span><span class="p">:</span> <span class="n">return_func_args</span><span class="p">,</span>
+                    <span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">:</span> <span class="n">return_func_kwargs</span><span class="p">,</span>
+                    <span class="s2">&quot;return_func_type&quot;</span><span class="p">:</span> <span class="n">return_func_type</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">func_qualname</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;communicator&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="s2">&quot;return_func_args&quot;</span><span class="p">:</span> <span class="n">return_func_args</span><span class="p">,</span>
+                    <span class="s2">&quot;return_func_kwargs&quot;</span><span class="p">:</span> <span class="n">return_func_kwargs</span><span class="p">,</span>
+                    <span class="s2">&quot;return_func_type&quot;</span><span class="p">:</span> <span class="n">return_func_type</span><span class="p">}]}</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">func_qualname</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+            <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>  <span class="c1"># triggers on calling the method</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s2">&quot;__wrapped__&quot;</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="n">instance_address</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">wds</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">instance_id</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="p">][</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">instance_address</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">instance_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">instance_id</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">instance_id</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">instance_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+                <span class="c1"># execute the method as usual</span>
+                <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="n">kwd</span> <span class="o">=</span> <span class="n">get_default_args</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                <span class="n">kwd</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;args&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wds</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;kwargs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwd</span>
+
+                <span class="c1"># publishes the method returns</span>
+                <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;publish&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__trigger_publish</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">instance_id</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="c1"># listens to the publisher and returns the messages</span>
+                <span class="k">elif</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;listen&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__trigger_listen</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">instance_id</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="c1"># server awaits request from client and replies with method returns</span>
+                <span class="k">elif</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;reply&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__trigger_reply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">instance_id</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="c1"># client requests with args from server and awaits reply</span>
+                <span class="k">elif</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__trigger_request</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">instance_id</span><span class="p">,</span> <span class="n">kwd</span><span class="p">,</span> <span class="o">*</span><span class="n">wds</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="c1"># WARNING: use with caution. This produces &quot;None&quot; for all the method&#39;s returns</span>
+                <span class="k">elif</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;disable&quot;</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;last_results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">ret_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">])):</span>
+                        <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;last_results&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span> <span class="o">+</span> <span class="n">instance_id</span><span class="p">][</span><span class="s2">&quot;last_results&quot;</span><span class="p">]</span>
+
+            <span class="k">return</span> <span class="n">wrapper</span>
+        <span class="k">return</span> <span class="n">encapsulate</span></div>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator.activate_communication">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.activate_communication">[docs]</a>
+    <span class="k">def</span> <span class="nf">activate_communication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Activates the communication mode for a registered function in the middleware communicator.</span>
+<span class="sd">        The mode determines how the function will interact with the middleware communicator upon invocation,</span>
+<span class="sd">        e.g., whether it should publish its return values, listen for values, etc.</span>
+<span class="sd">        The communication mode can be set for all instances of the function or individually per instance.</span>
+
+<span class="sd">        :param func: Union[str, Callable[..., Any]]: The function or the name of the function for which the communication mode should be activated</span>
+<span class="sd">        :param mode: Union[str, List[str]]: Specifies the communication mode to be activated, either as a single mode (string) applicable to all instances, or as a list of modes (strings) per instance</span>
+
+<span class="sd">        :raises: IndexError: If mode is a list and the number of elements does not match the number of instances</span>
+<span class="sd">        :raises: ValueError: If the instance address cannot be found in the registry</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">instance_addr</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+            <span class="n">yaw_instances</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">yaw_instances</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">instance_addr</span><span class="p">]</span>
+                <span class="n">instance_id</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">instance_id</span> <span class="o">=</span> <span class="n">yaw_instances</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">instance_addr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">yaw_instances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">instance_addr</span><span class="p">)</span>
+                    <span class="n">instance_id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">yaw_instances</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">instance_id</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">instance_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">exclude_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">])</span>
+
+            <span class="n">instance_qualname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">instance_id</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">instance_id</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">instance_qualname</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mode</span><span class="p">[</span><span class="n">instance_id</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;When mode (publish|listen|disable|null) specified in configuration file is a &quot;</span>
+                                     <span class="s2">&quot;list, No. of elements in the list should match the number of instances&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">instance_qualname</span><span class="p">][</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__registry</span><span class="p">[</span><span class="n">instance_qualname</span><span class="p">][</span><span class="s2">&quot;instance_addr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance_addr</span></div>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator.close">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closes this middleware communicator instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close_instance</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator.get_communicators">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.get_communicators">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_communicators</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the available middleware communicators.</span>
+
+<span class="sd">        :return: Set[str]: The available middleware communicators (excluding the fallback communicator)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">Publishers</span><span class="o">.</span><span class="n">mwares</span> <span class="o">|</span> <span class="n">lsn</span><span class="o">.</span><span class="n">Listeners</span><span class="o">.</span><span class="n">mwares</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s2">&quot;fallback&quot;</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator.close_all_instances">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close_all_instances">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">close_all_instances</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closes all instances of the middleware communicator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">close_instance_idxs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">instance_addr</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;instance_addr&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">close_instance_idxs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">instance_addr</span><span class="p">)</span> <span class="k">if</span> <span class="n">instance_addr</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">close_instance_idx</span> <span class="ow">in</span> <span class="n">close_instance_idxs</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">close_instance</span><span class="p">(</span><span class="n">close_instance_idx</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MiddlewareCommunicator.close_instance">
+<a class="viewcode-back" href="../../../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close_instance">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">close_instance</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instance_addr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closes a specific instance of the middleware communicator.</span>
+
+<span class="sd">        :param instance_addr: str: The unique identifier of the instance to be closed, defaults to None</span>
+
+<span class="sd">        :raises: ValueError: If the instance address cannot be found in the registry</span>
+
+<span class="sd">        Note that the instance address is the hex representation of the instance&#39;s id. If no instance address is provided, all instances will be closed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">del_entry</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">del_entry_name</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">del_entry_idx</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">other_entry_keys</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># find self in registry and remove id from instances</span>
+            <span class="k">for</span> <span class="n">entry_key</span><span class="p">,</span> <span class="n">entry_val</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">instance_addr</span> <span class="ow">in</span> <span class="n">entry_val</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">del_entry</span><span class="p">:</span>
+                        <span class="n">del_entry_idx</span> <span class="o">=</span> <span class="n">entry_val</span><span class="p">[</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">instance_addr</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">del_entry_idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">del_entry</span> <span class="o">=</span> <span class="n">entry_key</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">del_entry</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\.\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;\.&quot;</span><span class="p">,</span> <span class="n">entry_key</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">del_entry_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                        <span class="n">del_entry_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\.\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;\.&quot;</span><span class="p">,</span> <span class="n">entry_key</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">del_entry_name</span> <span class="ow">in</span> <span class="n">entry_key</span><span class="p">:</span>
+                            <span class="n">other_entry_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry_key</span><span class="p">)</span>
+                    <span class="n">entry_val</span><span class="p">[</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">instance_addr</span><span class="p">)</span>
+
+            <span class="c1"># delete registry entry and all its publishers/listeners/servers/clients</span>
+            <span class="k">if</span> <span class="n">del_entry</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">communicator</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">del_entry</span><span class="p">][</span><span class="s2">&quot;communicator&quot;</span><span class="p">]:</span>
+                    <span class="n">wrapped_executor</span> <span class="o">=</span> <span class="n">communicator</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">wrapped_executor</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrapped_executor</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                            <span class="k">for</span> <span class="n">single_wrapped_executor</span> <span class="ow">in</span> <span class="n">wrapped_executor</span><span class="p">:</span>
+                                <span class="n">single_wrapped_executor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">wrapped_executor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                        <span class="n">communicator</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;wrapped_executor&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">other_entry_keys</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">del_entry</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">del_entry</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;__YAW_INSTANCES&quot;</span><span class="p">)</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">del_entry</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">del_entry</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;instance_addr&quot;</span><span class="p">)</span>
+
+                <span class="c1"># shift all entries backwards following the deleted one</span>
+                <span class="k">if</span> <span class="n">del_entry_idx</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">other_entry_keys</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">other_entry_key</span> <span class="ow">in</span> <span class="n">other_entry_keys</span><span class="p">[</span><span class="n">del_entry_idx</span><span class="p">:]:</span>
+                            <span class="n">new_key</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\.(\d+)&quot;</span><span class="p">,</span> <span class="n">other_entry_key</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_key</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                                <span class="n">new_key</span> <span class="o">=</span> <span class="n">new_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">new_key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+                                <span class="n">new_key</span> <span class="o">=</span> <span class="n">new_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">new_key</span> <span class="o">=</span> <span class="n">new_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">new_key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                            <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="p">[</span><span class="n">new_key</span><span class="p">]</span> <span class="o">=</span> \
+                                <span class="bp">cls</span><span class="o">.</span><span class="n">_MiddlewareCommunicator__registry</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">other_entry_key</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

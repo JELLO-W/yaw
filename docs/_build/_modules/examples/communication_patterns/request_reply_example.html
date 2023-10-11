@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.communication_patterns.request_reply_example &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">examples.communication_patterns.request_reply_example</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for examples.communication_patterns.request_reply_example</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A message requester and replier for native Python objects, and images using OpenCV.</span>
+
+<span class="sd">This script demonstrates the capability to transmit native Python objects and images using</span>
+<span class="sd">the MiddlewareCommunicator within the YAW library. The communication follows the REQ/REP pattern</span>
+<span class="sd">allowing message requesting and replying functionalities between processes or machines.</span>
+
+<span class="sd">Demonstrations:</span>
+<span class="sd">    - Using the NativeObject, Image and AudioChunk messages</span>
+<span class="sd">    - Transmitting a Python object, an image, and audio chunk</span>
+<span class="sd">    - Applying the REQ/REP pattern with persistence</span>
+<span class="sd">    - Reading and transmitting an OpenCV image which can be loaded, resized, and displayed on the client and server ends</span>
+<span class="sd">    - Reading and transmitting a sounddevice (PortAudio with NumPy) audio chunk which can be played back on the client and server ends</span>
+
+<span class="sd">Requirements:</span>
+<span class="sd">    - YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</span>
+<span class="sd">    - OpenCV: Used for handling and creating images (installed with YAW)</span>
+<span class="sd">    - sounddevice, soundfile: Used for handling audio</span>
+
+<span class="sd">    Install using pip:</span>
+<span class="sd">        ``pip install sounddevice soundfile``</span>
+
+<span class="sd">Run:</span>
+<span class="sd">    # Alternative 1: Image and NativeObject transmission</span>
+<span class="sd">        # On machine 1 (or process 1): Requester sends a message and awaits a reply (image and native object)</span>
+
+<span class="sd">        ``python3 request_reply_example.py --mode request --stream image``</span>
+
+<span class="sd">        # On machine 2 (or process 2): Replier waits for a message and sends a reply (image and native object)</span>
+
+<span class="sd">        ``python3 request_reply_example.py --mode reply --stream image``</span>
+
+<span class="sd">    # Alternative 2: AudioChunk and NativeObject transmission</span>
+<span class="sd">        # On machine 1 (or process 1): Requester sends a message and awaits a reply (audio chunk and native object)</span>
+
+<span class="sd">        ``python3 request_reply_example.py --mode request --stream audio``</span>
+
+<span class="sd">        # On machine 2 (or process 2): Replier waits for a message and sends a reply (audio chunk and native object)</span>
+
+<span class="sd">        ``python3 request_reply_example.py --mode reply --stream audio``</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">sounddevice</span> <span class="k">as</span> <span class="nn">sd</span>
+<span class="kn">import</span> <span class="nn">soundfile</span> <span class="k">as</span> <span class="nn">sf</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">yaw.connect.wrapper</span> <span class="kn">import</span> <span class="n">MiddlewareCommunicator</span><span class="p">,</span> <span class="n">DEFAULT_COMMUNICATOR</span>
+
+
+<div class="viewcode-block" id="ReqRep">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep">[docs]</a>
+<span class="k">class</span> <span class="nc">ReqRep</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ReqRep.send_img_message">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep.send_img_message">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span> <span class="s2">&quot;ReqRep&quot;</span><span class="p">,</span> <span class="s2">&quot;/req_rep/my_message&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span> <span class="s2">&quot;ReqRep&quot;</span><span class="p">,</span> <span class="s2">&quot;/req_rep/my_image_message&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;$img_width&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;$img_height&quot;</span><span class="p">,</span> <span class="n">rgb</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">jpg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">persistent</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">send_img_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">img_width</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">img_height</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span>
+                         <span class="n">mware</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Exchange messages with OpenCV images and other native Python objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="n">args</span><span class="p">,</span> <span class="s2">&quot;kwargs&quot;</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">}</span>
+
+        <span class="c1"># read image from file</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../resources/yaw.png&quot;</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_AREA</span><span class="p">)</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span>
+                    <span class="p">((</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
+                     <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">img</span></div>
+
+
+<div class="viewcode-block" id="ReqRep.send_aud_message">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.ReqRep.send_aud_message">[docs]</a>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;NativeObject&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span> <span class="s2">&quot;ReqRep&quot;</span><span class="p">,</span> <span class="s2">&quot;/req_rep/my_message&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span><span class="p">,</span> <span class="n">persistent</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="s2">&quot;AudioChunk&quot;</span><span class="p">,</span> <span class="s2">&quot;$mware&quot;</span><span class="p">,</span> <span class="s2">&quot;ReqRep&quot;</span><span class="p">,</span> <span class="s2">&quot;/req_rep/my_audio_message&quot;</span><span class="p">,</span>
+        <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="s2">&quot;$aud_rate&quot;</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="s2">&quot;$aud_chunk&quot;</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="s2">&quot;$aud_channels&quot;</span><span class="p">,</span>
+        <span class="n">persistent</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">send_aud_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">aud_rate</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">aud_chunk</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">aud_channels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                     <span class="n">mware</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Exchange messages with sounddevice audio chunks and other native Python objects.&quot;&quot;&quot;</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="n">args</span><span class="p">,</span> <span class="s2">&quot;kwargs&quot;</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">}</span>
+        <span class="c1"># read audio from file</span>
+        <span class="n">aud</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;../../resources/sound_test.wav&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+        <span class="c1"># aud = (np.mean(aud[0], axis=1), aud[1])</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="p">,</span> <span class="n">aud</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="parse_args">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.parse_args">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command line arguments.&quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;A message requester and replier for native Python objects, images using OpenCV, and sound using PortAudio.&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mode&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;request&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;request&quot;</span><span class="p">,</span> <span class="s2">&quot;reply&quot;</span><span class="p">},</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The mode of communication, either &#39;request&#39; or &#39;reply&#39;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--mware&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_COMMUNICATOR</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="n">MiddlewareCommunicator</span><span class="o">.</span><span class="n">get_communicators</span><span class="p">(),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The middleware to use for transmission&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--sound_device&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The sound device to use for audio playback&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--list_sound_devices&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;List all available sound devices and exit&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--stream&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">},</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The streamed data as either &#39;image&#39; or &#39;audio&#39;&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="sound_play">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.sound_play">[docs]</a>
+<span class="k">def</span> <span class="nf">sound_play</span><span class="p">(</span><span class="n">my_aud</span><span class="p">,</span> <span class="n">blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Play audio using sounddevice.</span>
+
+<span class="sd">    :param my_aud: Tuple[np.ndarray, int]: The audio chunk and sampling rate to play</span>
+<span class="sd">    :param blocking: bool: Whether to block the execution until the audio is played</span>
+<span class="sd">    :param device: int: The sound device to use for audio playback</span>
+<span class="sd">    :return: bool: Whether the audio was played successfully</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sd</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="o">*</span><span class="n">my_aud</span><span class="p">,</span> <span class="n">blocking</span><span class="o">=</span><span class="n">blocking</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="n">sd</span><span class="o">.</span><span class="n">PortAudioError</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;PortAudioError: No device is found or the device is already in use. Will try again in 3 seconds.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../examples_docs/examples.communication_patterns.html#examples.communication_patterns.request_reply_example.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">list_sound_devices</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">query_devices</span><span class="p">())</span>
+        <span class="k">return</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function to initiate ReqRep class and communication.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;request&quot;</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">mware</span> <span class="o">==</span> <span class="s2">&quot;zeromq&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WE INTENTIONALLY WAIT 5 SECONDS TO ALLOW THE REPLIER ENOUGH TIME TO START UP. &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;THIS IS NEEDED WHEN USING ZEROMQ AS THE COMMUNICATION MIDDLEWARE IF THE SERVER &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IS SET TO SPAWN A PROXY BROKER (DEFAULT).&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">req_rep</span> <span class="o">=</span> <span class="n">ReqRep</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">stream</span> <span class="o">==</span> <span class="s2">&quot;image&quot;</span><span class="p">:</span>
+        <span class="n">req_rep</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">ReqRep</span><span class="o">.</span><span class="n">send_img_message</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+        <span class="n">req_rep</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">ReqRep</span><span class="o">.</span><span class="n">send_aud_message</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">stream</span> <span class="o">==</span> <span class="s2">&quot;audio&quot;</span><span class="p">:</span>
+        <span class="n">req_rep</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">ReqRep</span><span class="o">.</span><span class="n">send_aud_message</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+        <span class="n">req_rep</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">ReqRep</span><span class="o">.</span><span class="n">send_img_message</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># We separate the request and reply to show that messages are passed from the requester,</span>
+        <span class="c1"># but this separation is NOT necessary for the method to work</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Type your message: &quot;</span><span class="p">)</span>
+            <span class="n">my_message</span><span class="p">,</span> <span class="n">my_image</span> <span class="o">=</span> <span class="n">req_rep</span><span class="o">.</span><span class="n">send_img_message</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="p">,</span> <span class="n">mware</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware</span><span class="p">)</span>
+            <span class="n">my_message2</span><span class="p">,</span> <span class="n">my_aud</span><span class="p">,</span> <span class="o">=</span> <span class="n">req_rep</span><span class="o">.</span><span class="n">send_aud_message</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="p">,</span> <span class="n">mware</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware</span><span class="p">)</span>
+            <span class="n">my_message</span> <span class="o">=</span> <span class="n">my_message2</span> <span class="k">if</span> <span class="n">my_message2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">my_message</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">my_message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request: counter:&quot;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request: received reply:&quot;</span><span class="p">,</span> <span class="n">my_message</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">my_image</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Received image&quot;</span><span class="p">,</span> <span class="n">my_image</span><span class="p">)</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">getWindowProperty</span><span class="p">(</span><span class="s2">&quot;Received image&quot;</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">WND_PROP_VISIBLE</span><span class="p">)):</span>
+                        <span class="k">break</span>
+
+                    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
+                        <span class="k">break</span>  <span class="c1"># esc to quit</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">my_aud</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request: received audio:&quot;</span><span class="p">,</span> <span class="n">my_aud</span><span class="p">)</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">played</span> <span class="o">=</span> <span class="n">sound_play</span><span class="p">(</span><span class="n">my_aud</span><span class="p">,</span> <span class="n">blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">sound_device</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">played</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;reply&quot;</span><span class="p">:</span>
+            <span class="c1"># The send_message() only executes in &quot;reply&quot; mode,</span>
+            <span class="c1"># meaning, the method is only accessible from this code block</span>
+            <span class="n">my_message</span><span class="p">,</span> <span class="n">my_image</span> <span class="o">=</span> <span class="n">req_rep</span><span class="o">.</span><span class="n">send_img_message</span><span class="p">(</span><span class="n">mware</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware</span><span class="p">)</span>
+            <span class="n">my_message2</span><span class="p">,</span> <span class="n">my_aud</span><span class="p">,</span> <span class="o">=</span> <span class="n">req_rep</span><span class="o">.</span><span class="n">send_aud_message</span><span class="p">(</span><span class="n">mware</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">mware</span><span class="p">)</span>
+            <span class="n">my_message</span> <span class="o">=</span> <span class="n">my_message2</span> <span class="k">if</span> <span class="n">my_message2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">my_message</span>
+            <span class="k">if</span> <span class="n">my_message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reply: received reply:&quot;</span><span class="p">,</span> <span class="n">my_message</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">my_image</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="n">my_image</span><span class="p">)</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">k</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">getWindowProperty</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">WND_PROP_VISIBLE</span><span class="p">)):</span>
+                        <span class="k">break</span>
+
+                    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
+                        <span class="k">break</span>  <span class="c1"># esc to quit</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">my_aud</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">played</span> <span class="o">=</span> <span class="n">sound_play</span><span class="p">(</span><span class="n">my_aud</span><span class="p">,</span> <span class="n">blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">sound_device</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">played</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YARP + iCub Setup and Instructions &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="examples package" href="examples_docs/examples.html" />
+    <link rel="prev" title="Compiling ROS interfaces" href="ros_interfaces_lnk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">YARP + iCub Setup and Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-yarp">Installing YARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-icub">Installing iCub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-interface-in-simulation">Running the Interface (in Simulation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facial-expressions-in-simulation">Facial Expressions in Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-yarp-on-multiple-machines">Running YARP on multiple machines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">YARP + iCub Setup and Instructions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/yarp_install_lnk.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yarp-icub-setup-and-instructions">
+<h1>YARP + iCub Setup and Instructions<a class="headerlink" href="#yarp-icub-setup-and-instructions" title="Link to this heading"></a></h1>
+<p>To run the iCub simulator, the YARP framework as well as the iCub simulator need to be installed. Before cloning YARP and iCub, checkout the <a class="reference external" href="http://wiki.icub.org/wiki/Software_Versioning_Table">compatible versions</a>.
+For this guide, we install YARP v3.3.2 and iCub (icub-main) v1.16.0.</p>
+<section id="installing-yarp">
+<h2>Installing YARP<a class="headerlink" href="#installing-yarp" title="Link to this heading"></a></h2>
+<p>Several instructional tutorials are available for installing YARP and its python bindings.
+The installation process described here works on Ubuntu 20.04 and Python 3.8.
+Download the YARP source and install following the <a class="reference external" href="https://www.yarp.it/install_yarp_linux.html">official installation documentation</a> (do not use the precompiled binaries).
+Set the environment variable <code class="docutils literal notranslate"><span class="pre">YARP_ROOT</span></code> to the YARP source location:</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">YARP_ROOT=&lt;YOUR</span> <span class="pre">YARP</span> <span class="pre">LOCATION&gt;</span></code></p>
+<p>Once YARP has been successfully installed, we proceed by installing the python bindings</p>
+<ol class="arabic">
+<li><p>Go to the YARP directory <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$YARP_ROOT/bindings</span></code></p></li>
+<li><p>Create a build directory <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">build</span></code></p></li>
+<li><p>Compile the Python bindings (Assuming Python3.8 is installed):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DYARP_COMPILE_BINDINGS</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">ON</span> <span class="o">-</span><span class="n">DCREATE_PYTHON</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">ON</span> <span class="o">-</span><span class="n">DYARP_USE_PYTHON_VERSION</span><span class="o">=</span><span class="mf">3.8</span> <span class="o">-</span><span class="n">DPYTHON_INCLUDE_DIR</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span> <span class="o">-</span><span class="n">DPYTHON_LIBRARY</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libpython3</span><span class="mf">.8</span><span class="o">.</span><span class="n">so</span> <span class="o">-</span><span class="n">DCMAKE_INSTALL_PYTHONDIR</span><span class="o">=</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span> <span class="o">-</span><span class="n">DPYTHON_EXECUTABLE</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: Specify the following env. vars if Python3 libraries cannot be found (make sure that the locations exist):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTHON_INCLUDE_DIR</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span>
+<span class="n">export</span> <span class="n">PYTHON_LIBRARY</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libpython3</span><span class="mf">.8</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the Python bindings</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+<li><p>Per <a class="reference external" href="https://www.yarp.it/yarp_swig.html">official instructions</a>, the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> and <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>
+should be set to the following (assuming you are in the build directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PYTHONPATH=$PWD:$PYTHONPATH
+setenv LD_LIBRARY_PATH $PWD:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
+</pre></div>
+</div>
+<p>however, setting <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> to the directory where the <code class="docutils literal notranslate"><span class="pre">.so</span></code> file exists only seemed to work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PYTHONPATH=$YARP_ROOT/bindings/build/lib/python:$PYTHONPATH
+</pre></div>
+</div>
+<p>You can add the <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PYTHON</span></code>… command to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> to avoid setting it again for a new session.</p>
+</li>
+</ol>
+</section>
+<section id="installing-icub">
+<h2>Installing iCub<a class="headerlink" href="#installing-icub" title="Link to this heading"></a></h2>
+<p>Install from the source by following the <a class="reference external" href="http://wiki.icub.org/wiki/Linux:Installation_from_sources">official installation documentation</a>.</p>
+</section>
+<section id="running-the-interface-in-simulation">
+<h2>Running the Interface (in Simulation)<a class="headerlink" href="#running-the-interface-in-simulation" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Start the YARP server from the console</p>
+<p><code class="docutils literal notranslate"><span class="pre">yarpserver</span></code></p>
+</li>
+<li><p>Start the iCub simulator in another console</p>
+<p><code class="docutils literal notranslate"><span class="pre">iCub_SIM</span></code></p>
+</li>
+<li><p>To issue instructions for controlling the iCub’s head from this Python-based interface, simply start the following script from this repository’s root directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">examples</span><span class="o">/</span><span class="n">robots</span><span class="o">/</span><span class="n">icub_head</span><span class="o">.</span><span class="n">py</span> \
+<span class="o">--</span><span class="n">simulation</span> <span class="o">--</span><span class="n">get_cam_feed</span> <span class="o">--</span><span class="n">control_head</span> \
+<span class="o">--</span><span class="n">set_head_eye_coordinates</span> \
+<span class="o">--</span><span class="n">head_eye_coordinates_port</span> <span class="s2">&quot;/control_interface/head_eye_coordinates&quot;</span> \
+<span class="o">--</span><span class="n">control_expressions</span> <span class="o">--</span><span class="n">set_facial_expressions</span> \
+<span class="o">--</span><span class="n">facial_expressions_port</span> <span class="s2">&quot;/emotion_interface/facial_expression&quot;</span>
+</pre></div>
+</div>
+<p>You can also manually control the joints by using the YARP’s built-in motor controller GUI</p>
+<p><code class="docutils literal notranslate"><span class="pre">yarpmotorgui</span></code></p>
+<p>This interface uses YARP for controlling the iCub, however, communicating control from other devices is
+limited to YARP. The default communcation (set to yarp) middleware can be overridden through environment variables set
+before running the <code class="docutils literal notranslate"><span class="pre">interface.py</span></code> file e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ICUB_DEFAULT_MWARE</span><span class="o">=</span><span class="n">ros</span>
+</pre></div>
+</div>
+<p>or passing <code class="docutils literal notranslate"><span class="pre">--mware</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">interface.py</span></code> file e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">python3</span> <span class="n">yaw</span><span class="o">/</span><span class="n">robots</span><span class="o">/</span><span class="n">icub_head</span><span class="o">/</span><span class="n">interface</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">mware</span> <span class="n">ros</span> <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="facial-expressions-in-simulation">
+<h2>Facial Expressions in Simulation<a class="headerlink" href="#facial-expressions-in-simulation" title="Link to this heading"></a></h2>
+<p>The facial expressions do not run out-of-the-box. For compatibility with the <code class="docutils literal notranslate"><span class="pre">icub_head.py</span></code>, the following scripts need to
+be executed after starting the <code class="docutils literal notranslate"><span class="pre">iCub_SIM</span></code>:</p>
+<ol class="arabic">
+<li><p>Start the simulator face expression interface:</p>
+<p><code class="docutils literal notranslate"><span class="pre">simFaceExpressions</span></code></p>
+</li>
+<li><p>Start the emotion interface:</p>
+<p><code class="docutils literal notranslate"><span class="pre">emotionInterface</span> <span class="pre">--name</span> <span class="pre">/icubSim/face/emotions</span> <span class="pre">--context</span> <span class="pre">faceExpressions</span> <span class="pre">--from</span> <span class="pre">emotions.ini</span></code></p>
+</li>
+<li><p>Connect the emotion interface ports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yarp</span> <span class="n">connect</span> <span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">eyelids</span> <span class="o">/</span><span class="n">icubSim</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">eyelids</span>
+<span class="n">yarp</span> <span class="n">connect</span> <span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">image</span><span class="o">/</span><span class="n">out</span> <span class="o">/</span><span class="n">icubSim</span><span class="o">/</span><span class="n">texture</span><span class="o">/</span><span class="n">face</span>
+<span class="n">yarp</span> <span class="n">connect</span> <span class="o">/</span><span class="n">icubSim</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">emotions</span><span class="o">/</span><span class="n">out</span> <span class="o">/</span><span class="n">icubSim</span><span class="o">/</span><span class="n">face</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="ow">in</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="running-yarp-on-multiple-machines">
+<h2>Running YARP on multiple machines<a class="headerlink" href="#running-yarp-on-multiple-machines" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Run the YARP server on the host machine:</p>
+<p><code class="docutils literal notranslate"><span class="pre">yarpserver</span> <span class="pre">--ip</span> <span class="pre">&lt;YOUR</span> <span class="pre">NETWORK</span> <span class="pre">IP&gt;</span> <span class="pre">--socket</span> <span class="pre">10000</span></code></p>
+</li>
+<li><p>Detect the YARP server on the client machine(s):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yarp</span> <span class="n">conf</span> <span class="o">&lt;</span><span class="n">YOUR</span> <span class="n">NETWORK</span> <span class="n">IP</span><span class="o">&gt;</span> <span class="mi">10000</span>
+<span class="c1"># alternatively</span>
+<span class="c1"># yarp detect --write</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ros_interfaces_lnk.html" class="btn btn-neutral float-left" title="Compiling ROS interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples_docs/examples.html" class="btn btn-neutral float-right" title="examples package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

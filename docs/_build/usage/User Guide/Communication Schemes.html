@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication Schemes &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configuration" href="Configuration.html" />
+    <link rel="prev" title="Communication Patterns" href="Communication%20Patterns.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Communication Schemes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mirroring">Mirroring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mirroring-example">Mirroring Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#forwarding">Forwarding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#forwarding-example">Forwarding Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#channeling">Channeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channeling-example">Channeling Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Communication Schemes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/User Guide/Communication Schemes.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communication-schemes">
+<h1>Communication Schemes<a class="headerlink" href="#communication-schemes" title="Link to this heading"></a></h1>
+<p>We introduce three communication schemes: <strong>Mirroring</strong>, <strong>Channeling</strong>, and <strong>Forwarding</strong>.
+These schemes are communication forms that can be useful in different scenarios.</p>
+<section id="mirroring">
+<h2>Mirroring<a class="headerlink" href="#mirroring" title="Link to this heading"></a></h2>
+<p>For the REQ/REP pattern, mirroring is a communication scheme that allows a client to send arguments to a server,
+and receive the method returns back from the server. As for the PUB/SUB pattern, mirroring allows a publisher to
+send the returns of a method to a subscriber based on the publisher’s method arguments. Following both patterns,
+the returns of a method are mirrored on the receiver and the sender side. This is useful when the pipeline for each
+receiver is identical, but we would like to delegate the processing to different publishers when processing requires
+more resources than a single publisher can provide.</p>
+<section id="mirroring-example">
+<h3>Mirroring Example<a class="headerlink" href="#mirroring-example" title="Link to this heading"></a></h3>
+<p>In the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes/mirroring_example.py">mirroring_example.py</a>,
+the module transmits a user input message from the publisher to a listener (PUB/SUB pattern), and displays the message along with other native
+objects on the listener and publisher side. Similarly, we transmit a user input message from the server to a client (REQ/REP pattern),
+when the client requests the message from the server. The example can be run from the
+<a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes">examples/communication_schemes/</a> directory.</p>
+</section>
+</section>
+<section id="forwarding">
+<h2>Forwarding<a class="headerlink" href="#forwarding" title="Link to this heading"></a></h2>
+<p>Forwarding is a communication scheme that allows a server or publisher to forward the method arguments to another server or publisher (acting as a client or listener),
+and in return, forwards the received messages to another client or listener. This is useful when the server or publisher is not able to communicate with the client or listener
+directly due to limited middleware support on the client or listener side. The middle server or publisher can then act as a bridge between the two, and forward the messages
+between them, effectively chaining the communication. The chain can be extended and is not limited to two servers or publishers.</p>
+<section id="forwarding-example">
+<h3>Forwarding Example<a class="headerlink" href="#forwarding-example" title="Link to this heading"></a></h3>
+<p>In the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes/forwarding_example.py">forwarding_example.py</a>,
+the module constantly publishes a string from <code class="docutils literal notranslate"><span class="pre">chain_A</span></code> to a listener on <code class="docutils literal notranslate"><span class="pre">chain_A</span></code>. The <code class="docutils literal notranslate"><span class="pre">chain_A</span></code> listener then forwards the message by publishing to <code class="docutils literal notranslate"><span class="pre">chain_B</span></code>.
+The string is then forwarded to a third instances which listens exclusively to <code class="docutils literal notranslate"><span class="pre">chain_B</span></code>, without needing to support the middleware used by <code class="docutils literal notranslate"><span class="pre">chain_A</span></code>.
+The example can be run from the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes">examples/communication_schemes/</a> directory.</p>
+</section>
+</section>
+<section id="channeling">
+<h2>Channeling<a class="headerlink" href="#channeling" title="Link to this heading"></a></h2>
+<p>Channeling differs from mirroring, in that there are multiple returns from a method. Disabling one or more of these returns
+is possible, allowing the server or publisher to transmit the message to multiple channels, each with a different topic, and
+potentially, a different middleware. This is useful for transmitting messages using the same method, but to different receivers
+based on what they choose to receive. Not all clients or subscribers require all the messages from a method, and can therefore
+selectively filter out what is needed and operate on that partial return.</p>
+<section id="channeling-example">
+<h3>Channeling Example<a class="headerlink" href="#channeling-example" title="Link to this heading"></a></h3>
+<p>In the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes/channeling_example.py">channeling_example.py</a>,
+the module constantly publishes three data types (<strong>NativeObject</strong>, <strong>Image</strong>, and <strong>AudioChunk</strong>) over one or more middlware. The listeners
+can then choose to receive one or more of these data types, depending on the middleware they support. When <code class="docutils literal notranslate"><span class="pre">--mware_...</span></code> for one of the
+channels is not provided, it automatically disables the topic for that channel/s and returns a <code class="docutils literal notranslate"><span class="pre">None</span></code> type value.
+The example can be run from the <a class="reference external" href="https://github.com/JELLO-W/yaw/blob/master/examples/communication_schemes">examples/communication_schemes/</a> directory.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Communication%20Patterns.html" class="btn btn-neutral float-left" title="Communication Patterns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

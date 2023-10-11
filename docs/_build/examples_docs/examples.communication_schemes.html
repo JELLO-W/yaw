@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.communication_schemes package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples.custom_msgs package" href="examples.custom_msgs.html" />
+    <link rel="prev" title="examples.communication_patterns package" href="examples.communication_patterns.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples.communication_schemes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.communication_schemes.channeling_example">examples.communication_schemes.channeling_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.channeling_example.ChannelingCls"><code class="docutils literal notranslate"><span class="pre">ChannelingCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.communication_schemes.channeling_example.ChannelingCls.read_mulret_mulmware"><code class="docutils literal notranslate"><span class="pre">ChannelingCls.read_mulret_mulmware()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.channeling_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.channeling_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.communication_schemes.forwarding_example">examples.communication_schemes.forwarding_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.forwarding_example.ForwardCls"><code class="docutils literal notranslate"><span class="pre">ForwardCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_A"><code class="docutils literal notranslate"><span class="pre">ForwardCls.read_chain_A()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_B"><code class="docutils literal notranslate"><span class="pre">ForwardCls.read_chain_B()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.forwarding_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.forwarding_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.communication_schemes.mirroring_example">examples.communication_schemes.mirroring_example module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.mirroring_example.MirrorCls"><code class="docutils literal notranslate"><span class="pre">MirrorCls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.communication_schemes.mirroring_example.MirrorCls.read_msg"><code class="docutils literal notranslate"><span class="pre">MirrorCls.read_msg()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.mirroring_example.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.communication_schemes.mirroring_example.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.communication_schemes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html">examples package</a></li>
+      <li class="breadcrumb-item active">examples.communication_schemes package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.communication_schemes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-communication-schemes-package">
+<h1>examples.communication_schemes package<a class="headerlink" href="#examples-communication-schemes-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.communication_schemes.channeling_example">
+<span id="examples-communication-schemes-channeling-example-module"></span><h2>examples.communication_schemes.channeling_example module<a class="headerlink" href="#module-examples.communication_schemes.channeling_example" title="Link to this heading"></a></h2>
+<p>Channeling Example using YAW.</p>
+<p>This script demonstrates message channeling through three different middleware (A, B, and C) using
+the MiddlewareCommunicator within the YAW library. It allows message publishing and listening
+functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using NativeObject, Image, and AudioChunk messages</p></li>
+<li><p>Transmitting messages through different middlewares (e.g., ROS, YARP, ZeroMQ)</p></li>
+<li><p>Applying the PUB/SUB pattern with channeling</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>NumPy: Used for creating arrays (installed with YAW)</p></li>
+</ul>
+<dl class="simple">
+<dt>Install using pip:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Run:</dt><dd><dl class="simple">
+<dt># On machine 1 (or process 1): Mode: Publisher sends messages through channels A [ZeroMQ], B [ROS2], and C [YARP]</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">channeling_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span> <span class="pre">--mware_A</span> <span class="pre">zeromq</span> <span class="pre">--mware_B</span> <span class="pre">ros2</span> <span class="pre">--mware_C</span> <span class="pre">yarp</span></code></p>
+</dd>
+<dt># On machine 2 (or process 2): Mode: Listener waits for message from channels A [ZeroMQ], B [ROS2], and C [YARP]</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">channeling_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--mware_A</span> <span class="pre">zeromq</span> <span class="pre">--mware_B</span> <span class="pre">ros2</span> <span class="pre">--mware_C</span> <span class="pre">yarp</span></code></p>
+</dd>
+<dt># On machine 3 (or process 3): Mode: Listener waits for message from channel C [YARP]</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">channeling_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--mware_C</span> <span class="pre">yarp</span></code></p>
+</dd>
+<dt># On machine 4 (or process 4) [OPTIONAL]: Mode: Listener waits for message from channel B [ROS2]</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">channeling_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span> <span class="pre">--mware_B</span> <span class="pre">ros2</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.communication_schemes.channeling_example.ChannelingCls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.channeling_example.</span></span><span class="sig-name descname"><span class="pre">ChannelingCls</span></span><a class="reference internal" href="../_modules/examples/communication_schemes/channeling_example.html#ChannelingCls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.channeling_example.ChannelingCls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.communication_schemes.channeling_example.ChannelingCls.read_mulret_mulmware">
+<span class="sig-name descname"><span class="pre">read_mulret_mulmware</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aud_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aud_chunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8820</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aud_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware_A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware_B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware_C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/channeling_example.html#ChannelingCls.read_mulret_mulmware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.channeling_example.ChannelingCls.read_mulret_mulmware" title="Link to this definition"></a></dt>
+<dd><p>Read and forward messages through channels A, B, and C.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.channeling_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.channeling_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/channeling_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.channeling_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.channeling_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.channeling_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/channeling_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.channeling_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate ChannelingCls class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.communication_schemes.forwarding_example">
+<span id="examples-communication-schemes-forwarding-example-module"></span><h2>examples.communication_schemes.forwarding_example module<a class="headerlink" href="#module-examples.communication_schemes.forwarding_example" title="Link to this heading"></a></h2>
+<p>Forwarding Example using YAW.</p>
+<p>This script demonstrates message forwarding using the MiddlewareCommunicator within the YAW library.
+The communication follows chained forwarding through two methods, enabling PUB/SUB pattern
+that allows message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a Python object with predefined message</p></li>
+<li><p>Applying the PUB/SUB pattern with forwarding through two communication methods</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+</ul>
+</dd>
+<dt>Run:</dt><dd><p># On machine 1 (or process 1): Mode Chain A: Publisher [ZeroMQ], Chain B: Disabled (chain A &amp; B can have different middleware
+by setting the –<a href="#id1"><span class="problematic" id="id2">mware_</span></a>… argument but it should be consistent on all machines or processes)</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">forwarding_example.py</span> <span class="pre">--mware_chain_A</span> <span class="pre">zeromq</span> <span class="pre">--mode_chain_A</span> <span class="pre">publish</span> <span class="pre">--mode_chain_B</span> <span class="pre">disable</span></code></p>
+</div></blockquote>
+<p># On machine 2 (or process 2): Mode Chain A: Listener [ZeroMQ], Chain B: Publisher [ROS2] (chain A &amp; B can have different middleware
+by setting the –<a href="#id3"><span class="problematic" id="id4">mware_</span></a>… argument but it should be consistent on all machines or processes)</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">forwarding_example.py</span> <span class="pre">--mware_chain_A</span> <span class="pre">zeromq</span> <span class="pre">--mode_chain_A</span> <span class="pre">listen</span> <span class="pre">--mware_chain_B</span> <span class="pre">ros2</span> <span class="pre">--mode_chain_B</span> <span class="pre">publish</span></code></p>
+</div></blockquote>
+<p># On machine 3 (or process 3): Mode Chain A: Disabled, Chain B: Listener [ROS2] (chain A &amp; B can have different middleware
+by setting the –<a href="#id5"><span class="problematic" id="id6">mware_</span></a>… argument but it should be consistent on all machines or processes)</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">forwarding_example.py</span> <span class="pre">--mode_chain_A</span> <span class="pre">disable</span> <span class="pre">--mware_chain_B</span> <span class="pre">ros2</span> <span class="pre">--mode_chain_B</span> <span class="pre">listen</span></code></p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.communication_schemes.forwarding_example.ForwardCls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.forwarding_example.</span></span><span class="sig-name descname"><span class="pre">ForwardCls</span></span><a class="reference internal" href="../_modules/examples/communication_schemes/forwarding_example.html#ForwardCls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.forwarding_example.ForwardCls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.communication_schemes.forwarding_example.ForwardCls.read_chain_A">
+<span class="sig-name descname"><span class="pre">read_chain_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware_chain_A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/forwarding_example.html#ForwardCls.read_chain_A"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_A" title="Link to this definition"></a></dt>
+<dd><p>Read and forward message from chain A.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.communication_schemes.forwarding_example.ForwardCls.read_chain_B">
+<span class="sig-name descname"><span class="pre">read_chain_B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware_chain_B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/forwarding_example.html#ForwardCls.read_chain_B"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.forwarding_example.ForwardCls.read_chain_B" title="Link to this definition"></a></dt>
+<dd><p>Read and forward message from chain B.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.forwarding_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.forwarding_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/forwarding_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.forwarding_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.forwarding_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.forwarding_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/forwarding_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.forwarding_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate ForwardCls class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.communication_schemes.mirroring_example">
+<span id="examples-communication-schemes-mirroring-example-module"></span><h2>examples.communication_schemes.mirroring_example module<a class="headerlink" href="#module-examples.communication_schemes.mirroring_example" title="Link to this heading"></a></h2>
+<p>Mirroring Example using YAW.</p>
+<p>This script demonstrates the capability to mirror messages using the MiddlewareCommunicator within the YAW library.
+The communication follows the PUB/SUB and REQ/REP patterns, allowing message publishing, listening, requesting, and replying
+functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using the NativeObject message</p></li>
+<li><p>Transmitting a Python object with user input and predefined message</p></li>
+<li><p>Applying the PUB/SUB and REQ/REP patterns with mirroring</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+</ul>
+</dd>
+<dt>Run:</dt><dd><dl>
+<dt># Alternative 1: PUB/SUB</dt><dd><p># On machine 1 (or process 1): Publishing mode - Publisher waits for keyboard input and transmits message</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mirroring_example.py</span> <span class="pre">--mode</span> <span class="pre">publish</span></code></p>
+<p># On machine 2 (or process 2): Listening mode - Listener waits for message and prints the received object</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mirroring_example.py</span> <span class="pre">--mode</span> <span class="pre">listen</span></code></p>
+</dd>
+<dt># Alternative 2: REQ/REP</dt><dd><p># On machine 1 (or process 1): Replying mode - Replier waits for a message, sends a reply, and prints the received object</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mirroring_example.py</span> <span class="pre">--mode</span> <span class="pre">reply</span></code></p>
+<p># On machine 2 (or process 2): Requesting mode - Requester sends a predefined message and waits for a reply</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mirroring_example.py</span> <span class="pre">--mode</span> <span class="pre">request</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.communication_schemes.mirroring_example.MirrorCls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.mirroring_example.</span></span><span class="sig-name descname"><span class="pre">MirrorCls</span></span><a class="reference internal" href="../_modules/examples/communication_schemes/mirroring_example.html#MirrorCls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.mirroring_example.MirrorCls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.communication_schemes.mirroring_example.MirrorCls.read_msg">
+<span class="sig-name descname"><span class="pre">read_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/mirroring_example.html#MirrorCls.read_msg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.mirroring_example.MirrorCls.read_msg" title="Link to this definition"></a></dt>
+<dd><p>Exchange messages and mirror user input.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.mirroring_example.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.mirroring_example.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/mirroring_example.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.mirroring_example.parse_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command line arguments.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.communication_schemes.mirroring_example.main">
+<span class="sig-prename descclassname"><span class="pre">examples.communication_schemes.mirroring_example.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/communication_schemes/mirroring_example.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.communication_schemes.mirroring_example.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initiate MirrorCls class and communication.</p>
+</dd></dl>
+
+</section>
+<section id="module-examples.communication_schemes">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples.communication_schemes" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.communication_patterns.html" class="btn btn-neutral float-left" title="examples.communication_patterns package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.custom_msgs.html" class="btn btn-neutral float-right" title="examples.custom_msgs package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yaw package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">yaw package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/yaw.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yaw-package">
+<h1>yaw package<a class="headerlink" href="#yaw-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yaw.clients.html">yaw.clients package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.ros">yaw.clients.ros module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.ros2">yaw.clients.ros2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2Client"><code class="docutils literal notranslate"><span class="pre">ROS2Client</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2Client.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2Client.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2Client.close"><code class="docutils literal notranslate"><span class="pre">ROS2Client.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2NativeObjectClient"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2NativeObjectClient.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2NativeObjectClient.establish"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2NativeObjectClient.request"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectClient.request()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2ImageClient"><code class="docutils literal notranslate"><span class="pre">ROS2ImageClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2ImageClient.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2ImageClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2ImageClient.establish"><code class="docutils literal notranslate"><span class="pre">ROS2ImageClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2ImageClient.request"><code class="docutils literal notranslate"><span class="pre">ROS2ImageClient.request()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2AudioChunkClient"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2AudioChunkClient.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2AudioChunkClient.establish"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.ros2.ROS2AudioChunkClient.request"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkClient.request()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.yarp">yaw.clients.yarp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpClient"><code class="docutils literal notranslate"><span class="pre">YarpClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpClient.__init__"><code class="docutils literal notranslate"><span class="pre">YarpClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpClient.close"><code class="docutils literal notranslate"><span class="pre">YarpClient.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpNativeObjectClient"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpNativeObjectClient.__init__"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpNativeObjectClient.establish"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpNativeObjectClient.request"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectClient.request()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpImageClient"><code class="docutils literal notranslate"><span class="pre">YarpImageClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpImageClient.__init__"><code class="docutils literal notranslate"><span class="pre">YarpImageClient.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpAudioChunkClient"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.yarp.YarpAudioChunkClient.__init__"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkClient.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#module-yaw.clients.zeromq">yaw.clients.zeromq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQClient"><code class="docutils literal notranslate"><span class="pre">ZeroMQClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQClient.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQClient.close"><code class="docutils literal notranslate"><span class="pre">ZeroMQClient.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQNativeObjectClient"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQNativeObjectClient.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQNativeObjectClient.establish"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQNativeObjectClient.request"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectClient.request()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQImageClient"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQImageClient.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageClient.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQAudioChunkClient"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.zeromq.ZeroMQAudioChunkClient.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkClient.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.clients.html#module-yaw.clients">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.clients.html#yaw.clients.FallbackClient"><code class="docutils literal notranslate"><span class="pre">FallbackClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.FallbackClient.__init__"><code class="docutils literal notranslate"><span class="pre">FallbackClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.FallbackClient.establish"><code class="docutils literal notranslate"><span class="pre">FallbackClient.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.FallbackClient.request"><code class="docutils literal notranslate"><span class="pre">FallbackClient.request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.clients.html#yaw.clients.FallbackClient.close"><code class="docutils literal notranslate"><span class="pre">FallbackClient.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.config.html">yaw.config package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.config.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.config.html#module-yaw.config.manager">yaw.config.manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.config.html#yaw.config.manager.ConfigManager"><code class="docutils literal notranslate"><span class="pre">ConfigManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.config.html#yaw.config.manager.ConfigManager.__init__"><code class="docutils literal notranslate"><span class="pre">ConfigManager.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.config.html#module-yaw.config">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.connect.html">yaw.connect package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.clients">yaw.connect.clients module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Clients"><code class="docutils literal notranslate"><span class="pre">Clients</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Clients.registry"><code class="docutils literal notranslate"><span class="pre">Clients.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Clients.mwares"><code class="docutils literal notranslate"><span class="pre">Clients.mwares</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Clients.register"><code class="docutils literal notranslate"><span class="pre">Clients.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Clients.scan"><code class="docutils literal notranslate"><span class="pre">Clients.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Client"><code class="docutils literal notranslate"><span class="pre">Client</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Client.__init__"><code class="docutils literal notranslate"><span class="pre">Client.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Client.establish"><code class="docutils literal notranslate"><span class="pre">Client.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.clients.Client.request"><code class="docutils literal notranslate"><span class="pre">Client.request()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.listeners">yaw.connect.listeners module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.ListenerWatchDog"><code class="docutils literal notranslate"><span class="pre">ListenerWatchDog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.ListenerWatchDog.__init__"><code class="docutils literal notranslate"><span class="pre">ListenerWatchDog.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.ListenerWatchDog.add_listener"><code class="docutils literal notranslate"><span class="pre">ListenerWatchDog.add_listener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.ListenerWatchDog.remove_listener"><code class="docutils literal notranslate"><span class="pre">ListenerWatchDog.remove_listener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.ListenerWatchDog.scan"><code class="docutils literal notranslate"><span class="pre">ListenerWatchDog.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listeners"><code class="docutils literal notranslate"><span class="pre">Listeners</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listeners.registry"><code class="docutils literal notranslate"><span class="pre">Listeners.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listeners.mwares"><code class="docutils literal notranslate"><span class="pre">Listeners.mwares</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listeners.register"><code class="docutils literal notranslate"><span class="pre">Listeners.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listeners.scan"><code class="docutils literal notranslate"><span class="pre">Listeners.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener"><code class="docutils literal notranslate"><span class="pre">Listener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener.__init__"><code class="docutils literal notranslate"><span class="pre">Listener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener.check_establishment"><code class="docutils literal notranslate"><span class="pre">Listener.check_establishment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener.establish"><code class="docutils literal notranslate"><span class="pre">Listener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.listeners.Listener.listen"><code class="docutils literal notranslate"><span class="pre">Listener.listen()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.publishers">yaw.connect.publishers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.PublisherWatchDog"><code class="docutils literal notranslate"><span class="pre">PublisherWatchDog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.__init__"><code class="docutils literal notranslate"><span class="pre">PublisherWatchDog.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.add_publisher"><code class="docutils literal notranslate"><span class="pre">PublisherWatchDog.add_publisher()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.remove_publisher"><code class="docutils literal notranslate"><span class="pre">PublisherWatchDog.remove_publisher()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.PublisherWatchDog.scan"><code class="docutils literal notranslate"><span class="pre">PublisherWatchDog.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publishers"><code class="docutils literal notranslate"><span class="pre">Publishers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publishers.registry"><code class="docutils literal notranslate"><span class="pre">Publishers.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publishers.mwares"><code class="docutils literal notranslate"><span class="pre">Publishers.mwares</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publishers.register"><code class="docutils literal notranslate"><span class="pre">Publishers.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publishers.scan"><code class="docutils literal notranslate"><span class="pre">Publishers.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publisher"><code class="docutils literal notranslate"><span class="pre">Publisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publisher.__init__"><code class="docutils literal notranslate"><span class="pre">Publisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publisher.check_establishment"><code class="docutils literal notranslate"><span class="pre">Publisher.check_establishment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publisher.establish"><code class="docutils literal notranslate"><span class="pre">Publisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.publishers.Publisher.publish"><code class="docutils literal notranslate"><span class="pre">Publisher.publish()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.servers">yaw.connect.servers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Servers"><code class="docutils literal notranslate"><span class="pre">Servers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Servers.registry"><code class="docutils literal notranslate"><span class="pre">Servers.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Servers.mwares"><code class="docutils literal notranslate"><span class="pre">Servers.mwares</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Servers.register"><code class="docutils literal notranslate"><span class="pre">Servers.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Servers.scan"><code class="docutils literal notranslate"><span class="pre">Servers.scan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Server"><code class="docutils literal notranslate"><span class="pre">Server</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Server.__init__"><code class="docutils literal notranslate"><span class="pre">Server.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Server.establish"><code class="docutils literal notranslate"><span class="pre">Server.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Server.await_request"><code class="docutils literal notranslate"><span class="pre">Server.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.servers.Server.reply"><code class="docutils literal notranslate"><span class="pre">Server.reply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect.wrapper">yaw.connect.wrapper module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.__init__"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.register"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.activate_communication"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.activate_communication()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.get_communicators"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.get_communicators()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close_all_instances"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.close_all_instances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator.close_instance"><code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator.close_instance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.connect.html#module-yaw.connect">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.listeners.html">yaw.listeners package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.ros">yaw.listeners.ros module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.ros2">yaw.listeners.ros2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2Listener"><code class="docutils literal notranslate"><span class="pre">ROS2Listener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2Listener.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2Listener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2Listener.close"><code class="docutils literal notranslate"><span class="pre">ROS2Listener.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2NativeObjectListener"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2NativeObjectListener.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2NativeObjectListener.establish"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2NativeObjectListener.listen"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2ImageListener"><code class="docutils literal notranslate"><span class="pre">ROS2ImageListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2ImageListener.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2ImageListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2ImageListener.establish"><code class="docutils literal notranslate"><span class="pre">ROS2ImageListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2ImageListener.listen"><code class="docutils literal notranslate"><span class="pre">ROS2ImageListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2AudioChunkListener"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2AudioChunkListener.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2AudioChunkListener.establish"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2AudioChunkListener.listen"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2PropertiesListener"><code class="docutils literal notranslate"><span class="pre">ROS2PropertiesListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.ros2.ROS2PropertiesListener.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2PropertiesListener.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.yarp">yaw.listeners.yarp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpListener"><code class="docutils literal notranslate"><span class="pre">YarpListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpListener.__init__"><code class="docutils literal notranslate"><span class="pre">YarpListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpListener.await_connection"><code class="docutils literal notranslate"><span class="pre">YarpListener.await_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpListener.read_port"><code class="docutils literal notranslate"><span class="pre">YarpListener.read_port()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpListener.close"><code class="docutils literal notranslate"><span class="pre">YarpListener.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.__init__"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.establish"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpNativeObjectListener.listen"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpImageListener"><code class="docutils literal notranslate"><span class="pre">YarpImageListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.__init__"><code class="docutils literal notranslate"><span class="pre">YarpImageListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.establish"><code class="docutils literal notranslate"><span class="pre">YarpImageListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpImageListener.listen"><code class="docutils literal notranslate"><span class="pre">YarpImageListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.__init__"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.establish"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpAudioChunkListener.listen"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpPropertiesListener"><code class="docutils literal notranslate"><span class="pre">YarpPropertiesListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.yarp.YarpPropertiesListener.__init__"><code class="docutils literal notranslate"><span class="pre">YarpPropertiesListener.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners.zeromq">yaw.listeners.zeromq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQListener"><code class="docutils literal notranslate"><span class="pre">ZeroMQListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQListener.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQListener.await_connection"><code class="docutils literal notranslate"><span class="pre">ZeroMQListener.await_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQListener.read_socket"><code class="docutils literal notranslate"><span class="pre">ZeroMQListener.read_socket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQListener.close"><code class="docutils literal notranslate"><span class="pre">ZeroMQListener.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQNativeObjectListener"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQNativeObjectListener.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQNativeObjectListener.establish"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQNativeObjectListener.listen"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQImageListener"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQImageListener.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQImageListener.listen"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQAudioChunkListener"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQAudioChunkListener.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQAudioChunkListener.listen"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkListener.listen()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQPropertiesListener"><code class="docutils literal notranslate"><span class="pre">ZeroMQPropertiesListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.zeromq.ZeroMQPropertiesListener.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQPropertiesListener.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.listeners.html#module-yaw.listeners">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.FallbackListener"><code class="docutils literal notranslate"><span class="pre">FallbackListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.FallbackListener.__init__"><code class="docutils literal notranslate"><span class="pre">FallbackListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.FallbackListener.establish"><code class="docutils literal notranslate"><span class="pre">FallbackListener.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.FallbackListener.listen"><code class="docutils literal notranslate"><span class="pre">FallbackListener.listen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.listeners.html#yaw.listeners.FallbackListener.close"><code class="docutils literal notranslate"><span class="pre">FallbackListener.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.middlewares.html">yaw.middlewares package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.ros">yaw.middlewares.ros module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.ros2">yaw.middlewares.ros2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.ros2.ROS2Middleware"><code class="docutils literal notranslate"><span class="pre">ROS2Middleware</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.ros2.ROS2Middleware.activate"><code class="docutils literal notranslate"><span class="pre">ROS2Middleware.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.ros2.ROS2Middleware.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2Middleware.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.ros2.ROS2Middleware.deinit"><code class="docutils literal notranslate"><span class="pre">ROS2Middleware.deinit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.yarp">yaw.middlewares.yarp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.yarp.YarpMiddleware"><code class="docutils literal notranslate"><span class="pre">YarpMiddleware</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.yarp.YarpMiddleware.activate"><code class="docutils literal notranslate"><span class="pre">YarpMiddleware.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.yarp.YarpMiddleware.__init__"><code class="docutils literal notranslate"><span class="pre">YarpMiddleware.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.yarp.YarpMiddleware.deinit"><code class="docutils literal notranslate"><span class="pre">YarpMiddleware.deinit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares.zeromq">yaw.middlewares.zeromq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.ZeroMQSharedMonitorData</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.activate"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.proxy_thread"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.proxy_thread()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.subscription_monitor_thread"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.subscription_monitor_thread()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewarePubSub.deinit"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewarePubSub.deinit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareReqRep</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.activate"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareReqRep.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareReqRep.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareReqRep.deinit"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareReqRep.deinit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareParamServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.activate"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareParamServer.activate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareParamServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.publish_params"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareParamServer.publish_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.middlewares.html#yaw.middlewares.zeromq.ZeroMQMiddlewareParamServer.deinit"><code class="docutils literal notranslate"><span class="pre">ZeroMQMiddlewareParamServer.deinit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.middlewares.html#module-yaw.middlewares">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.plugins.html">yaw.plugins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.dask_data">yaw.plugins.dask_data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.dask_data.DaskData"><code class="docutils literal notranslate"><span class="pre">DaskData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.dask_data.DaskData.__init__"><code class="docutils literal notranslate"><span class="pre">DaskData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.dask_data.DaskData.encode"><code class="docutils literal notranslate"><span class="pre">DaskData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.dask_data.DaskData.decode"><code class="docutils literal notranslate"><span class="pre">DaskData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.jax_tensor">yaw.plugins.jax_tensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.jax_tensor.JAXTensor"><code class="docutils literal notranslate"><span class="pre">JAXTensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.jax_tensor.JAXTensor.__init__"><code class="docutils literal notranslate"><span class="pre">JAXTensor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.jax_tensor.JAXTensor.encode"><code class="docutils literal notranslate"><span class="pre">JAXTensor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.jax_tensor.JAXTensor.decode"><code class="docutils literal notranslate"><span class="pre">JAXTensor.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.mxnet_tensor">yaw.plugins.mxnet_tensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.mxnet_device_to_str"><code class="docutils literal notranslate"><span class="pre">mxnet_device_to_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.mxnet_str_to_device"><code class="docutils literal notranslate"><span class="pre">mxnet_str_to_device()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.MXNetTensor"><code class="docutils literal notranslate"><span class="pre">MXNetTensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.MXNetTensor.__init__"><code class="docutils literal notranslate"><span class="pre">MXNetTensor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.MXNetTensor.encode"><code class="docutils literal notranslate"><span class="pre">MXNetTensor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.mxnet_tensor.MXNetTensor.decode"><code class="docutils literal notranslate"><span class="pre">MXNetTensor.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.paddle_tensor">yaw.plugins.paddle_tensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.paddle_device_to_str"><code class="docutils literal notranslate"><span class="pre">paddle_device_to_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.paddle_str_to_device"><code class="docutils literal notranslate"><span class="pre">paddle_str_to_device()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor"><code class="docutils literal notranslate"><span class="pre">PaddleTensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.__init__"><code class="docutils literal notranslate"><span class="pre">PaddleTensor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.encode"><code class="docutils literal notranslate"><span class="pre">PaddleTensor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.paddle_tensor.PaddleTensor.decode"><code class="docutils literal notranslate"><span class="pre">PaddleTensor.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pandas_data">yaw.plugins.pandas_data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pandas_data.PandasData"><code class="docutils literal notranslate"><span class="pre">PandasData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pandas_data.PandasData.__init__"><code class="docutils literal notranslate"><span class="pre">PandasData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pandas_data.PandasData.encode"><code class="docutils literal notranslate"><span class="pre">PandasData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pandas_data.PandasData.decode"><code class="docutils literal notranslate"><span class="pre">PandasData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pillow_image">yaw.plugins.pillow_image module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pillow_image.PILImage"><code class="docutils literal notranslate"><span class="pre">PILImage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pillow_image.PILImage.__init__"><code class="docutils literal notranslate"><span class="pre">PILImage.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pillow_image.PILImage.encode"><code class="docutils literal notranslate"><span class="pre">PILImage.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pillow_image.PILImage.decode"><code class="docutils literal notranslate"><span class="pre">PILImage.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pint_quantities">yaw.plugins.pint_quantities module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pint_quantities.PintData"><code class="docutils literal notranslate"><span class="pre">PintData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pint_quantities.PintData.__init__"><code class="docutils literal notranslate"><span class="pre">PintData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pint_quantities.PintData.encode"><code class="docutils literal notranslate"><span class="pre">PintData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pint_quantities.PintData.decode"><code class="docutils literal notranslate"><span class="pre">PintData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pyarrow_array">yaw.plugins.pyarrow_array module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pyarrow_array.PyArrowArray"><code class="docutils literal notranslate"><span class="pre">PyArrowArray</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pyarrow_array.PyArrowArray.__init__"><code class="docutils literal notranslate"><span class="pre">PyArrowArray.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pyarrow_array.PyArrowArray.encode"><code class="docutils literal notranslate"><span class="pre">PyArrowArray.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pyarrow_array.PyArrowArray.decode"><code class="docutils literal notranslate"><span class="pre">PyArrowArray.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.pytorch_tensor">yaw.plugins.pytorch_tensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pytorch_tensor.PytorchTensor"><code class="docutils literal notranslate"><span class="pre">PytorchTensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pytorch_tensor.PytorchTensor.__init__"><code class="docutils literal notranslate"><span class="pre">PytorchTensor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pytorch_tensor.PytorchTensor.encode"><code class="docutils literal notranslate"><span class="pre">PytorchTensor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.pytorch_tensor.PytorchTensor.decode"><code class="docutils literal notranslate"><span class="pre">PytorchTensor.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.tensorflow_tensor">yaw.plugins.tensorflow_tensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.tensorflow_tensor.TensorflowTensor"><code class="docutils literal notranslate"><span class="pre">TensorflowTensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.tensorflow_tensor.TensorflowTensor.__init__"><code class="docutils literal notranslate"><span class="pre">TensorflowTensor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.tensorflow_tensor.TensorflowTensor.encode"><code class="docutils literal notranslate"><span class="pre">TensorflowTensor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.tensorflow_tensor.TensorflowTensor.decode"><code class="docutils literal notranslate"><span class="pre">TensorflowTensor.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.xarray_data">yaw.plugins.xarray_data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.xarray_data.XArrayData"><code class="docutils literal notranslate"><span class="pre">XArrayData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.xarray_data.XArrayData.__init__"><code class="docutils literal notranslate"><span class="pre">XArrayData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.xarray_data.XArrayData.encode"><code class="docutils literal notranslate"><span class="pre">XArrayData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.xarray_data.XArrayData.decode"><code class="docutils literal notranslate"><span class="pre">XArrayData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins.zarr_array">yaw.plugins.zarr_array module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.zarr_array.ZarrData"><code class="docutils literal notranslate"><span class="pre">ZarrData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.zarr_array.ZarrData.__init__"><code class="docutils literal notranslate"><span class="pre">ZarrData.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.zarr_array.ZarrData.encode"><code class="docutils literal notranslate"><span class="pre">ZarrData.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.plugins.html#yaw.plugins.zarr_array.ZarrData.decode"><code class="docutils literal notranslate"><span class="pre">ZarrData.decode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.plugins.html#module-yaw.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.publishers.html">yaw.publishers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.ros">yaw.publishers.ros module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.ros2">yaw.publishers.ros2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2Publisher"><code class="docutils literal notranslate"><span class="pre">ROS2Publisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2Publisher.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2Publisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2Publisher.await_connection"><code class="docutils literal notranslate"><span class="pre">ROS2Publisher.await_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2Publisher.close"><code class="docutils literal notranslate"><span class="pre">ROS2Publisher.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2NativeObjectPublisher"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2NativeObjectPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2NativeObjectPublisher.establish"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2NativeObjectPublisher.publish"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2ImagePublisher"><code class="docutils literal notranslate"><span class="pre">ROS2ImagePublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2ImagePublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2ImagePublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2ImagePublisher.establish"><code class="docutils literal notranslate"><span class="pre">ROS2ImagePublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2ImagePublisher.publish"><code class="docutils literal notranslate"><span class="pre">ROS2ImagePublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2AudioChunkPublisher"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2AudioChunkPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2AudioChunkPublisher.establish"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2AudioChunkPublisher.publish"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2PropertiesPublisher"><code class="docutils literal notranslate"><span class="pre">ROS2PropertiesPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.ros2.ROS2PropertiesPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2PropertiesPublisher.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.yarp">yaw.publishers.yarp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPublisher"><code class="docutils literal notranslate"><span class="pre">YarpPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">YarpPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPublisher.await_connection"><code class="docutils literal notranslate"><span class="pre">YarpPublisher.await_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPublisher.close"><code class="docutils literal notranslate"><span class="pre">YarpPublisher.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpNativeObjectPublisher"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpNativeObjectPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpNativeObjectPublisher.establish"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpNativeObjectPublisher.publish"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpImagePublisher"><code class="docutils literal notranslate"><span class="pre">YarpImagePublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpImagePublisher.__init__"><code class="docutils literal notranslate"><span class="pre">YarpImagePublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpImagePublisher.establish"><code class="docutils literal notranslate"><span class="pre">YarpImagePublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpImagePublisher.publish"><code class="docutils literal notranslate"><span class="pre">YarpImagePublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpAudioChunkPublisher"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpAudioChunkPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpAudioChunkPublisher.establish"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpAudioChunkPublisher.publish"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPropertiesPublisher"><code class="docutils literal notranslate"><span class="pre">YarpPropertiesPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.yarp.YarpPropertiesPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">YarpPropertiesPublisher.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers.zeromq">yaw.publishers.zeromq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher"><code class="docutils literal notranslate"><span class="pre">ZeroMQPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.await_connection"><code class="docutils literal notranslate"><span class="pre">ZeroMQPublisher.await_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPublisher.close"><code class="docutils literal notranslate"><span class="pre">ZeroMQPublisher.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.establish"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQNativeObjectPublisher.publish"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher"><code class="docutils literal notranslate"><span class="pre">ZeroMQImagePublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQImagePublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQImagePublisher.publish"><code class="docutils literal notranslate"><span class="pre">ZeroMQImagePublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQAudioChunkPublisher.publish"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkPublisher.publish()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPropertiesPublisher"><code class="docutils literal notranslate"><span class="pre">ZeroMQPropertiesPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.zeromq.ZeroMQPropertiesPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQPropertiesPublisher.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.publishers.html#module-yaw.publishers">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.FallbackPublisher"><code class="docutils literal notranslate"><span class="pre">FallbackPublisher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.FallbackPublisher.__init__"><code class="docutils literal notranslate"><span class="pre">FallbackPublisher.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.FallbackPublisher.establish"><code class="docutils literal notranslate"><span class="pre">FallbackPublisher.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.FallbackPublisher.publish"><code class="docutils literal notranslate"><span class="pre">FallbackPublisher.publish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.publishers.html#yaw.publishers.FallbackPublisher.close"><code class="docutils literal notranslate"><span class="pre">FallbackPublisher.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.servers.html">yaw.servers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.ros">yaw.servers.ros module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.ros2">yaw.servers.ros2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2Server"><code class="docutils literal notranslate"><span class="pre">ROS2Server</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2Server.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2Server.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2Server.close"><code class="docutils literal notranslate"><span class="pre">ROS2Server.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.SEND_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.SEND_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.RECEIVE_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.RECEIVE_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.establish"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.await_request"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2NativeObjectServer.reply"><code class="docutils literal notranslate"><span class="pre">ROS2NativeObjectServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.SEND_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.SEND_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.RECEIVE_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.RECEIVE_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.establish"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.await_request"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2ImageServer.reply"><code class="docutils literal notranslate"><span class="pre">ROS2ImageServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.SEND_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.SEND_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.RECEIVE_QUEUE"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.RECEIVE_QUEUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.__init__"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.establish"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.await_request"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.ros2.ROS2AudioChunkServer.reply"><code class="docutils literal notranslate"><span class="pre">ROS2AudioChunkServer.reply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.yarp">yaw.servers.yarp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpServer"><code class="docutils literal notranslate"><span class="pre">YarpServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpServer.__init__"><code class="docutils literal notranslate"><span class="pre">YarpServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpServer.close"><code class="docutils literal notranslate"><span class="pre">YarpServer.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.__init__"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.establish"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.await_request"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpNativeObjectServer.reply"><code class="docutils literal notranslate"><span class="pre">YarpNativeObjectServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpImageServer"><code class="docutils literal notranslate"><span class="pre">YarpImageServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpImageServer.__init__"><code class="docutils literal notranslate"><span class="pre">YarpImageServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpImageServer.reply"><code class="docutils literal notranslate"><span class="pre">YarpImageServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer.__init__"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.yarp.YarpAudioChunkServer.reply"><code class="docutils literal notranslate"><span class="pre">YarpAudioChunkServer.reply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#module-yaw.servers.zeromq">yaw.servers.zeromq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQServer"><code class="docutils literal notranslate"><span class="pre">ZeroMQServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQServer.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQServer.close"><code class="docutils literal notranslate"><span class="pre">ZeroMQServer.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQNativeObjectServer"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQNativeObjectServer.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQNativeObjectServer.establish"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQNativeObjectServer.await_request"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQNativeObjectServer.reply"><code class="docutils literal notranslate"><span class="pre">ZeroMQNativeObjectServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQImageServer"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQImageServer.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQImageServer.reply"><code class="docutils literal notranslate"><span class="pre">ZeroMQImageServer.reply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQAudioChunkServer"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQAudioChunkServer.__init__"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.zeromq.ZeroMQAudioChunkServer.reply"><code class="docutils literal notranslate"><span class="pre">ZeroMQAudioChunkServer.reply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.servers.html#module-yaw.servers">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer"><code class="docutils literal notranslate"><span class="pre">FallbackServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer.__init__"><code class="docutils literal notranslate"><span class="pre">FallbackServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer.establish"><code class="docutils literal notranslate"><span class="pre">FallbackServer.establish()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer.await_request"><code class="docutils literal notranslate"><span class="pre">FallbackServer.await_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer.reply"><code class="docutils literal notranslate"><span class="pre">FallbackServer.reply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.servers.html#yaw.servers.FallbackServer.close"><code class="docutils literal notranslate"><span class="pre">FallbackServer.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.standalone.html">yaw.standalone package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.standalone.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_param_server">yaw.standalone.zeromq_param_server module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_proxy_broker">yaw.standalone.zeromq_proxy_broker module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone.zeromq_pubsub_topic_monitor">yaw.standalone.zeromq_pubsub_topic_monitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.standalone.html#module-yaw.standalone">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaw.tests.html">yaw.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaw.tests.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaw.tests.tools.html">yaw.tests.tools package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.tools.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.tools.html#module-yaw.tests.tools.benchmarking_native_object">yaw.tests.tools.benchmarking_native_object module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.tools.html#module-yaw.tests.tools.class_test">yaw.tests.tools.class_test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yaw.tests.tools.html#module-yaw.tests.tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.tests.html#module-yaw.tests.test_middleware">yaw.tests.test_middleware module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.tests.html#module-yaw.tests.test_wrapper">yaw.tests.test_wrapper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaw.tests.html#module-yaw.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-yaw.encoders">
+<span id="yaw-encoders-module"></span><h2>yaw.encoders module<a class="headerlink" href="#module-yaw.encoders" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.encoders.JsonEncoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.encoders.</span></span><span class="sig-name descname"><span class="pre">JsonEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonEncoder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code></p>
+<p>A custom JSON encoder that can encode:
+- Sets
+- Datetime objects
+- Numpy datetime64 objects
+- Numpy ndarray objects
+- Objects registered with the PluginRegistrar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonEncoder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonEncoder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonEncoder.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the JsonEncoder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Additional keyword arguments extracting values from the ‘serializer_kwargs’ key and passing them to the base class. All other keyword arguments are passed to the corresponding Plugin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonEncoder.find_plugin">
+<span class="sig-name descname"><span class="pre">find_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonEncoder.find_plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonEncoder.find_plugin" title="Link to this definition"></a></dt>
+<dd><p>Find the plugin for a given object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – Any: The object to find the plugin for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plugin: The plugin for the given object if its type is registered, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonEncoder.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonEncoder.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonEncoder.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode an object into a JSON string and ensure that tuples are not encoded as lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – Any: The object to encode</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str: The JSON string representation of the object returned by the base class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonEncoder.default">
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonEncoder.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonEncoder.default" title="Link to this definition"></a></dt>
+<dd><p>The default method for the JSON encoder. This method pre-processes the object before encoding it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – Any: The object to encode</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: A dictionary containing the class name and encoded data string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.encoders.JsonDecodeHook">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.encoders.</span></span><span class="sig-name descname"><span class="pre">JsonDecodeHook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonDecodeHook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonDecodeHook" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A custom JSON decoder hook that can decode:
+- Tuples
+- Sets
+- Datetime objects
+- Numpy datetime64 objects
+- Numpy ndarray objects
+- Objects registered with the PluginRegistrar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonDecodeHook.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonDecodeHook.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonDecodeHook.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the JsonDecodeHook.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – dict: Additional keyword arguments are passed to the corresponding Plugin.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.encoders.JsonDecodeHook.object_hook">
+<span class="sig-name descname"><span class="pre">object_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/encoders.html#JsonDecodeHook.object_hook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.encoders.JsonDecodeHook.object_hook" title="Link to this definition"></a></dt>
+<dd><p>The object hook for the JSON decoder. This method post-processes the object after decoding it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – Any: The object to decode if the object is a dictionary containing the class name and encoded data string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any: The decoded object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw.utils">
+<span id="yaw-utils-module"></span><h2>yaw.utils module<a class="headerlink" href="#module-yaw.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.utils.deepcopy">
+<span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">deepcopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shallow_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#deepcopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.deepcopy" title="Link to this definition"></a></dt>
+<dd><p>Deep copy an object, excluding specified keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – Any: The object to deep copy</p></li>
+<li><p><strong>exclude_keys</strong> – Union[list, tuple]: A list of keys to exclude from the deep copy</p></li>
+<li><p><strong>shallow_keys</strong> – Union[list, tuple]: A list of keys to shallow copy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.utils.get_default_args">
+<span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">get_default_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#get_default_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.get_default_args" title="Link to this definition"></a></dt>
+<dd><p>Get the default arguments for a function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fnc</strong> – Callable[…, Any]: The function to get the default arguments for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.utils.match_args">
+<span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">match_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#match_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.match_args" title="Link to this definition"></a></dt>
+<dd><p>Match and Substitute Arguments and Keyword Arguments using Specified Source Values.</p>
+<p>Navigate through the provided <cite>args</cite> and <cite>kwargs</cite>, identifying entries prefixed with “$” and substituting
+them with values from <cite>src_args</cite> and <cite>src_kwargs</cite> respectively, to dynamically modify the function call
+parameters using the source values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – <p>Union[list, tuple]: A list of arguments, potentially containing strings that indicate substitutable entries.
+Substitutable entries are prefixed with “$” and followed by either:</p>
+<blockquote>
+<div><ul>
+<li><p>A digit (indicating an index to reference a value from <cite>src_args</cite>), or</p></li>
+<li><p>Non-digit characters (indicating a key to reference a value from <cite>src_kwargs</cite>).</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>kwargs</strong> – dict:
+A dictionary of keyword arguments, where values might be strings indicating substitutable entries,
+similar to the entries in <cite>args</cite>.</p></li>
+<li><p><strong>src_args</strong> – Union[list, tuple]:
+A list of source arguments, intended to be referenced by substitutable entries within <cite>args</cite>.</p></li>
+<li><p><strong>src_kwargs</strong> – dict:
+A dictionary of source keyword arguments, intended to be referenced by substitutable entries within <cite>args</cite>
+and <cite>kwargs</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[list, dict]: A tuple containing:
+- list: The new arguments, formed by substituting specified entries from <cite>args</cite> using <cite>src_args</cite> and <cite>src_kwargs</cite>.
+- dict: The new keyword arguments, formed by substituting specified entries from <cite>kwargs</cite> using <cite>src_args</cite> and <cite>src_kwargs</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.utils.dynamic_module_import">
+<span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">dynamic_module_import</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#dynamic_module_import"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.dynamic_module_import" title="Link to this definition"></a></dt>
+<dd><p>Dynamically import modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modules</strong> – List[str]: A list of module names to import</p></li>
+<li><p><strong>globals</strong> – dict: The globals dictionary to update</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.utils.SingletonOptimized">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">SingletonOptimized</span></span><a class="reference internal" href="../_modules/yaw/utils.html#SingletonOptimized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.SingletonOptimized" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></p>
+<p>A singleton metaclass that is thread-safe and optimized for speed.</p>
+<p>Source: <a class="reference external" href="https://stackoverflow.com/a/6798042">https://stackoverflow.com/a/6798042</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.utils.Plugin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">Plugin</span></span><a class="reference internal" href="../_modules/yaw/utils.html#Plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.Plugin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for encoding and decoding plugins.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.utils.Plugin.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#Plugin.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.Plugin.encode" title="Link to this definition"></a></dt>
+<dd><p>Encode data into a base64 string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – tuple: Additional arguments</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple[bool, dict]: A tuple containing:
+- bool: True if the encoding was successful, False otherwise
+- dict: A dictionary containing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’__yaw__’: A tuple containing the class name and encoded data string</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.utils.Plugin.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#Plugin.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.Plugin.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode a base64 string back into data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – tuple: Additional arguments</p></li>
+<li><p><strong>kwargs</strong> – dict: Additional keyword arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[bool, object]: A tuple containing:
+- bool: True if the decoding was successful, False otherwise
+- object: The decoded data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yaw.utils.PluginRegistrar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yaw.utils.</span></span><span class="sig-name descname"><span class="pre">PluginRegistrar</span></span><a class="reference internal" href="../_modules/yaw/utils.html#PluginRegistrar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.PluginRegistrar" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for registering encoding and decoding plugins.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.utils.PluginRegistrar.encoder_registry">
+<span class="sig-name descname"><span class="pre">encoder_registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'PIL.Image.Image'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.pillow_image.PILImage'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.Collection'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.Container'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.Iterable'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.Mapping'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.MutableMapping'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'collections.abc.Sized'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'mxnet._ctypes.ndarray.NDArrayBase'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.mxnet_tensor.MXNetTensor'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'mxnet.ndarray.ndarray.NDArray'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.mxnet_tensor.MXNetTensor'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'zarr.core.Array'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'zarr.hierarchy.Group'&gt;:</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;}</span></em><a class="headerlink" href="#yaw.utils.PluginRegistrar.encoder_registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yaw.utils.PluginRegistrar.decoder_registry">
+<span class="sig-name descname"><span class="pre">decoder_registry</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'AstropyData':</span> <span class="pre">&lt;class</span> <span class="pre">'examples.encoders.plugins.astropy_tables.AstropyData'&gt;,</span> <span class="pre">'MXNetTensor':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.mxnet_tensor.MXNetTensor'&gt;,</span> <span class="pre">'PILImage':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.pillow_image.PILImage'&gt;,</span> <span class="pre">'ZarrData':</span> <span class="pre">&lt;class</span> <span class="pre">'yaw.plugins.zarr_array.ZarrData'&gt;}</span></em><a class="headerlink" href="#yaw.utils.PluginRegistrar.decoder_registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.utils.PluginRegistrar.register">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#PluginRegistrar.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.PluginRegistrar.register" title="Link to this definition"></a></dt>
+<dd><p>Register a plugin for encoding and decoding a specific type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>types</strong> – tuple: The type(s) to register the plugin for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yaw.utils.PluginRegistrar.scan">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw/utils.html#PluginRegistrar.scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.utils.PluginRegistrar.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan the plugins directory (YAW builtin and external) for plugins to register.
+This method is called automatically when the module is imported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-yaw">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yaw" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yaw.get_project_info_from_setup">
+<span class="sig-prename descclassname"><span class="pre">yaw.</span></span><span class="sig-name descname"><span class="pre">get_project_info_from_setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yaw.html#get_project_info_from_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yaw.get_project_info_from_setup" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>examples.robots package &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="examples.sensors package" href="examples.sensors.html" />
+    <link rel="prev" title="examples.encoders.plugins package" href="examples.encoders.plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">examples.robots package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.robots.icub_head">examples.robots.icub_head module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples.robots.icub_head.cartesian_to_spherical"><code class="docutils literal notranslate"><span class="pre">cartesian_to_spherical()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.robots.icub_head.mode_smoothing_filter"><code class="docutils literal notranslate"><span class="pre">mode_smoothing_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.robots.icub_head.ICub"><code class="docutils literal notranslate"><span class="pre">ICub</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.__init__"><code class="docutils literal notranslate"><span class="pre">ICub.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.MWARE"><code class="docutils literal notranslate"><span class="pre">ICub.MWARE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.FACIAL_EXPRESSIONS_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.GAZE_PLANE_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.GAZE_PLANE_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.HEAD_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.HEAD_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.EYE_COORDINATES_PORT"><code class="docutils literal notranslate"><span class="pre">ICub.EYE_COORDINATES_PORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.CAP_PROP_FRAME_WIDTH"><code class="docutils literal notranslate"><span class="pre">ICub.CAP_PROP_FRAME_WIDTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.CAP_PROP_FRAME_HEIGHT"><code class="docutils literal notranslate"><span class="pre">ICub.CAP_PROP_FRAME_HEIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.build"><code class="docutils literal notranslate"><span class="pre">ICub.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.acquire_head_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_head_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.acquire_eye_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_eye_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.receive_gaze_plane_coordinates"><code class="docutils literal notranslate"><span class="pre">ICub.receive_gaze_plane_coordinates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.wait_for_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.wait_for_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.reset_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.reset_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.update_head_gaze_speed"><code class="docutils literal notranslate"><span class="pre">ICub.update_head_gaze_speed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.update_eye_gaze_speed"><code class="docutils literal notranslate"><span class="pre">ICub.update_eye_gaze_speed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.control_head_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.control_head_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.control_eye_gaze"><code class="docutils literal notranslate"><span class="pre">ICub.control_eye_gaze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.control_gaze_at_plane"><code class="docutils literal notranslate"><span class="pre">ICub.control_gaze_at_plane()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.acquire_facial_expressions"><code class="docutils literal notranslate"><span class="pre">ICub.acquire_facial_expressions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.update_facial_expressions"><code class="docutils literal notranslate"><span class="pre">ICub.update_facial_expressions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.receive_images"><code class="docutils literal notranslate"><span class="pre">ICub.receive_images()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.getPeriod"><code class="docutils literal notranslate"><span class="pre">ICub.getPeriod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples.robots.icub_head.ICub.updateModule"><code class="docutils literal notranslate"><span class="pre">ICub.updateModule()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples.robots.icub_head.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-examples.robots">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html">examples package</a></li>
+      <li class="breadcrumb-item active">examples.robots package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples_docs/examples.robots.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples-robots-package">
+<h1>examples.robots package<a class="headerlink" href="#examples-robots-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-examples.robots.icub_head">
+<span id="examples-robots-icub-head-module"></span><h2>examples.robots.icub_head module<a class="headerlink" href="#module-examples.robots.icub_head" title="Link to this heading"></a></h2>
+<p>iCub Head Controller and Camera Viewer using YAW for Communication</p>
+<p>This script demonstrates the capability to control the iCub robot’s head and view its camera feed using
+the MiddlewareCommunicator within the YAW library. The communication follows the PUB/SUB pattern,
+allowing for message publishing and listening functionalities between processes or machines.</p>
+<dl>
+<dt>Demonstrations:</dt><dd><ul class="simple">
+<li><p>Using Image messages for camera feed transmission.</p></li>
+<li><p>Running publishers and listeners concurrently with the yarp.RFModule.</p></li>
+<li><p>Using YAW for creating a port listener only.</p></li>
+</ul>
+</dd>
+<dt>Requirements:</dt><dd><ul class="simple">
+<li><p>YAW: Middleware communication wrapper (refer to the YAW documentation for installation instructions)</p></li>
+<li><p>YARP, ROS, ROS2, ZeroMQ (refer to the YAW documentation for installation instructions)</p></li>
+<li><dl class="simple">
+<dt>iCub Robot and Simulator: Ensure the robot and its simulator are installed and configured.</dt><dd><p>When running in simulation mode, the <cite>iCub_SIM</cite> must be running in a standalone terminal
+(refer to the YAW documentation for installation instructions)</p>
+</dd>
+</dl>
+</li>
+<li><p>NumPy: Used for creating arrays (installed with YAW)</p></li>
+<li><p>SciPy: For applying smoothing filters to the facial expressions (refer to <a class="reference external" href="https://www.scipy.org/install.html">https://www.scipy.org/install.html</a> for installation instructions)</p></li>
+<li><p>Pexpect: To control the facial expressions using RPC</p></li>
+</ul>
+<p>Install using pip:
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scipy</span> <span class="pre">pexpect</span></code></p>
+</dd>
+<dt>Run:</dt><dd><p># For the list of keyboard controls, refer to the comments in Keyboard Controls.</p>
+<dl>
+<dt># Alternative 1: Simulation Mode</dt><dd><p># Ensure that the <cite>iCub_SIM</cite> is running in a standalone terminal.</p>
+<p># The listener displays images, and coordinates are published without utilizing YAW’s utilities.</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">icub_head.py</span> <span class="pre">--simulation</span> <span class="pre">--get_cam_feed</span> <span class="pre">--control_head</span> <span class="pre">--control_expressions</span></code></p>
+</dd>
+<dt># Alternative 2: Physical Robot</dt><dd><p># The listener displays images, and coordinates are published without utilizing YAW’s utilities.</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">icub_head.py</span> <span class="pre">--get_cam_feed</span> <span class="pre">--control_head</span> <span class="pre">--control_expressions</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt>Keyboard Controls:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Head Control:</dt><dd><ul>
+<li><p>Up/Down: Control the head pitch</p></li>
+<li><p>Right/Left: Control the head yaw</p></li>
+<li><p>A/D: Control the head roll (right/left)</p></li>
+<li><p>R: Reset the head to the initial position</p></li>
+<li><p>Esc: Quit the application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Eye Control:</dt><dd><ul>
+<li><p>W/S: Control the eye pitch (up/down)</p></li>
+<li><p>C/Z: Control the eye yaw (right/left)</p></li>
+<li><p>R: Reset the eye to the initial position</p></li>
+<li><p>Esc: Quit the application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Facial Expressions:</dt><dd><ul>
+<li><p>0: Neutral</p></li>
+<li><p>1: Happy</p></li>
+<li><p>2: Sad</p></li>
+<li><p>3: Surprise</p></li>
+<li><p>4: Fear</p></li>
+<li><p>5: Disgust</p></li>
+<li><p>6: Anger</p></li>
+<li><p>7: Contempt</p></li>
+<li><p>8: Cunning</p></li>
+<li><p>9: Shy</p></li>
+<li><p>Esc: Quit the application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Camera Feed:</dt><dd><ul>
+<li><p>Esc: Quit the application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.robots.icub_head.cartesian_to_spherical">
+<span class="sig-prename descclassname"><span class="pre">examples.robots.icub_head.</span></span><span class="sig-name descname"><span class="pre">cartesian_to_spherical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_return</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#cartesian_to_spherical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.cartesian_to_spherical" title="Link to this definition"></a></dt>
+<dd><p>Convert cartesian coordinates to spherical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xyz</strong> – tuple: Cartesian coordinates (x, y, z)</p></li>
+<li><p><strong>x</strong> – float: Cartesian coordinate x</p></li>
+<li><p><strong>y</strong> – float: Cartesian coordinate y</p></li>
+<li><p><strong>z</strong> – float: Cartesian coordinate z</p></li>
+<li><p><strong>expand_return</strong> – bool: Whether to return the spherical coordinates as a dictionary or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple: Spherical coordinates (p, t, r) or dictionary: Spherical coordinates {“p”: p, “t”: t, “r”: r}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.robots.icub_head.mode_smoothing_filter">
+<span class="sig-prename descclassname"><span class="pre">examples.robots.icub_head.</span></span><span class="sig-name descname"><span class="pre">mode_smoothing_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#mode_smoothing_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.mode_smoothing_filter" title="Link to this definition"></a></dt>
+<dd><p>Apply a smoothing filter to the time series using the mode of the last <cite>window_length</cite> values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_series</strong> – list: Time series to apply the smoothing filter to</p></li>
+<li><p><strong>default</strong> – object: Default value to return if the mode count is less than <cite>min_count</cite></p></li>
+<li><p><strong>window_length</strong> – int: Length of the window to apply the smoothing filter to</p></li>
+<li><p><strong>min_count</strong> – int: Minimum number of values in the window to apply the smoothing filter</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">examples.robots.icub_head.</span></span><span class="sig-name descname"><span class="pre">ICub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headless</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_cam_feed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_head</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_head_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/head_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_eyes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_eye_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eye_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/eye_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ikingaze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gaze_plane_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/gaze_plane_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_expressions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_facial_expressions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facial_expressions_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/facial_expressions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../source/yaw.connect.html#yaw.connect.wrapper.MiddlewareCommunicator" title="yaw.connect.wrapper.MiddlewareCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RFModule</span></code></p>
+<p>ICub head controller, facial expression transmitter and camera viewer. Head control can be achieved following two methods:
+1. Using the <cite>control_head_gaze</cite> method, which controls the head gaze in the spherical coordinate system.
+2. Using the <cite>control_gaze_at_plane</cite> method, which controls the head gaze in the cartesian coordinate system.
+Emotions can be controlled using the <cite>update_facial_expressions</cite> method.
+Camera feed can be viewed using the <cite>receive_images</cite> method.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE">
+<span class="sig-name descname"><span class="pre">FACIAL_EXPRESSIONS_QUEUE_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_QUEUE_SIZE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW">
+<span class="sig-name descname"><span class="pre">FACIAL_EXPRESSION_SMOOTHING_WINDOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSION_SMOOTHING_WINDOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headless</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_cam_feed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_head</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_head_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/head_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_eyes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_eye_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eye_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/eye_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ikingaze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gaze_plane_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/gaze_plane_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_expressions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_facial_expressions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facial_expressions_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/facial_expressions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the ICub head controller, facial expression transmitter and camera viewer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simulation</strong> – bool: Whether to run the simulation or not</p></li>
+<li><p><strong>headless</strong> – bool: Whether to run the headless mode or not</p></li>
+<li><p><strong>get_cam_feed</strong> – bool: Whether to get (listen) the camera feed or not</p></li>
+<li><p><strong>img_width</strong> – int: Width of the image</p></li>
+<li><p><strong>img_height</strong> – int: Height of the image</p></li>
+<li><p><strong>control_head</strong> – bool: Whether to control the head</p></li>
+<li><p><strong>set_head_coordinates</strong> – bool: Whether to set (publish) the head coordinates</p></li>
+<li><p><strong>head_coordinates_port</strong> – str: Port to receive the head coordinates for controlling the head</p></li>
+<li><p><strong>control_eyes</strong> – bool: Whether to control the eyes</p></li>
+<li><p><strong>set_eye_coordinates</strong> – bool: Whether to set (publish) the eye coordinates</p></li>
+<li><p><strong>eye_coordinates_port</strong> – str: Port to receive the eye coordinates for controlling the eyes</p></li>
+<li><p><strong>ikingaze</strong> – bool: Whether to use the iKinGazeCtrl</p></li>
+<li><p><strong>gaze_plane_coordinates_port</strong> – str: Port to receive the gaze plane coordinates for controlling the head/eyes</p></li>
+<li><p><strong>control_expressions</strong> – bool: Whether to control the facial expressions</p></li>
+<li><p><strong>set_facial_expressions</strong> – bool: Whether to set (publish) the facial expressions</p></li>
+<li><p><strong>facial_expressions_port</strong> – str: Port to receive the facial expressions for controlling the facial expressions</p></li>
+<li><p><strong>mware</strong> – str: Middleware to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.MWARE">
+<span class="sig-name descname"><span class="pre">MWARE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'yarp'</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.MWARE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_PORT">
+<span class="sig-name descname"><span class="pre">FACIAL_EXPRESSIONS_PORT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/control_interface/facial_expressions'</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.FACIAL_EXPRESSIONS_PORT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.GAZE_PLANE_COORDINATES_PORT">
+<span class="sig-name descname"><span class="pre">GAZE_PLANE_COORDINATES_PORT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/control_interface/gaze_plane_coordinates'</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.GAZE_PLANE_COORDINATES_PORT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.HEAD_COORDINATES_PORT">
+<span class="sig-name descname"><span class="pre">HEAD_COORDINATES_PORT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/control_interface/head_coordinates'</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.HEAD_COORDINATES_PORT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.EYE_COORDINATES_PORT">
+<span class="sig-name descname"><span class="pre">EYE_COORDINATES_PORT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/control_interface/eye_coordinates'</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.EYE_COORDINATES_PORT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.CAP_PROP_FRAME_WIDTH">
+<span class="sig-name descname"><span class="pre">CAP_PROP_FRAME_WIDTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">320</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.CAP_PROP_FRAME_WIDTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.CAP_PROP_FRAME_HEIGHT">
+<span class="sig-name descname"><span class="pre">CAP_PROP_FRAME_HEIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">240</span></em><a class="headerlink" href="#examples.robots.icub_head.ICub.CAP_PROP_FRAME_HEIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.build" title="Link to this definition"></a></dt>
+<dd><p>Updates the default method arguments according to constructor arguments. This method is called by the module constructor.
+It is not necessary to call it manually.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.acquire_head_coordinates">
+<span class="sig-name descname"><span class="pre">acquire_head_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">head_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/head_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv2_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.acquire_head_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.acquire_head_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Acquire head coordinates for controlling the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>head_coordinates_port</strong> – str: Port to receive head coordinates</p></li>
+<li><p><strong>cv2_key</strong> – int: Key pressed by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Head orientation coordinates</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.acquire_eye_coordinates">
+<span class="sig-name descname"><span class="pre">acquire_eye_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eye_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/eye_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv2_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.acquire_eye_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.acquire_eye_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Acquire eye coordinates for controlling the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eye_coordinates_port</strong> – str: Port to receive eye coordinates</p></li>
+<li><p><strong>cv2_key</strong> – int: Key pressed by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Eye oreintation coordinates</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.receive_gaze_plane_coordinates">
+<span class="sig-name descname"><span class="pre">receive_gaze_plane_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gaze_plane_coordinates_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/gaze_plane_coordinates'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.receive_gaze_plane_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.receive_gaze_plane_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Receive gaze plane (normalized x,y) coordinates for controlling the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gaze_plane_coordinates_port</strong> – str: Port to receive gaze plane coordinates</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Gaze plane coordinates</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.wait_for_gaze">
+<span class="sig-name descname"><span class="pre">wait_for_gaze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.wait_for_gaze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.wait_for_gaze" title="Link to this definition"></a></dt>
+<dd><p>Wait for the gaze actuation to complete.
+:param reset: bool: Whether to reset the gaze location (centre)
+:param _mware: str: Middleware to use
+:return: dict: Gaze waiting log for a given time step</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.reset_gaze">
+<span class="sig-name descname"><span class="pre">reset_gaze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.reset_gaze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.reset_gaze" title="Link to this definition"></a></dt>
+<dd><p>Reset the eyes and head to their original position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_mware</strong> – str: Middleware to use</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Gaze reset log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.update_head_gaze_speed">
+<span class="sig-name descname"><span class="pre">update_head_gaze_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pitch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.update_head_gaze_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.update_head_gaze_speed" title="Link to this definition"></a></dt>
+<dd><p>Control the iCub head speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pitch</strong> – float-&gt;pitch[deg/s]: Pitch speed</p></li>
+<li><p><strong>roll</strong> – float-&gt;roll[deg/s]: Roll speed</p></li>
+<li><p><strong>yaw</strong> – float-&gt;yaw[deg/s]: Yaw speed</p></li>
+<li><p><strong>head</strong> – float-&gt;speed[0,1]: Neck trajectory speed in normalized units (only when using iKinGazeCtrl)</p></li>
+<li><p><strong>_mware</strong> – str: Middleware to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Head orientation speed log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.update_eye_gaze_speed">
+<span class="sig-name descname"><span class="pre">update_eye_gaze_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pitch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vergence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.update_eye_gaze_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.update_eye_gaze_speed" title="Link to this definition"></a></dt>
+<dd><p>Control the iCub eye speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pitch</strong> – float-&gt;pitch[deg/s]: Pitch speed</p></li>
+<li><p><strong>yaw</strong> – float-&gt;yaw[deg/s]: Yaw speed</p></li>
+<li><p><strong>vergence</strong> – float-&gt;vergence[deg/s]: Speed of vergence shift between the eyes</p></li>
+<li><p><strong>eye</strong> – float-&gt;speed[0,1]: Eye trajectory speed in normalized units (only when using iKinGazeCtrl)</p></li>
+<li><p><strong>_mware</strong> – str: Middleware to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Eye orientation speed log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.control_head_gaze">
+<span class="sig-name descname"><span class="pre">control_head_gaze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pitch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xyz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.control_head_gaze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.control_head_gaze" title="Link to this definition"></a></dt>
+<dd><p>Control the iCub head relative to previous coordinates following the roll,pitch,yaw convention (order=xyz)
+(initialized at 0 looking straight ahead).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pitch</strong> – float-&gt;pitch[deg]: Pitch angle</p></li>
+<li><p><strong>roll</strong> – float-&gt;roll[deg]: Roll angle</p></li>
+<li><p><strong>yaw</strong> – float-&gt;yaw[deg]: Yaw angle</p></li>
+<li><p><strong>order</strong> – str: Euler axis order. Only accepts xyz (roll, pitch, yaw)</p></li>
+<li><p><strong>_mware</strong> – str: Middleware to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Head orientation coordinates log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.control_eye_gaze">
+<span class="sig-name descname"><span class="pre">control_eye_gaze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pitch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vergence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.control_eye_gaze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.control_eye_gaze" title="Link to this definition"></a></dt>
+<dd><p>Control the iCub eyes relative to previous coordinates (initialized at 0 looking straight ahead).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pitch</strong> – float-&gt;pitch[deg]: Pitch angle</p></li>
+<li><p><strong>yaw</strong> – float-&gt;yaw[deg]: Yaw (version) angle</p></li>
+<li><p><strong>vergence</strong> – float-&gt;yaw[deg]: Vergence angle between the eyes</p></li>
+<li><p><strong>_mware</strong> – str: Middleware to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Eye orientation coordinates log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.control_gaze_at_plane">
+<span class="sig-name descname"><span class="pre">control_gaze_at_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_eyes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_head</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.control_gaze_at_plane"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.control_gaze_at_plane" title="Link to this definition"></a></dt>
+<dd><p>Gaze at specific point in a normalized plane in front of the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – float-&gt;x[-1,1]: x coordinate in the plane limited to the range of -1 (left) and 1 (right)</p></li>
+<li><p><strong>y</strong> – float-&gt;y[-1,1]: y coordinate in the plane limited to the range of -1 (bottom) and 1 (top)</p></li>
+<li><p><strong>limit_x</strong> – float-&gt;limit_x[0,1]: x coordinate limit in the plane</p></li>
+<li><p><strong>limit_y</strong> – float-&gt;limit_y[0,1]: y coordinate limit in the plane</p></li>
+<li><p><strong>control_eyes</strong> – bool: Whether to control the eyes of the robot directly</p></li>
+<li><p><strong>control_head</strong> – bool: Whether to control the head of the robot directly</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Gaze coordinates log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.acquire_facial_expressions">
+<span class="sig-name descname"><span class="pre">acquire_facial_expressions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_expressions_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/control_interface/facial_expressions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv2_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.acquire_facial_expressions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.acquire_facial_expressions" title="Link to this definition"></a></dt>
+<dd><p>Acquire facial expressions from the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>facial_expressions_port</strong> – str: Port to acquire facial expressions from</p></li>
+<li><p><strong>cv2_key</strong> – int: Key to press to set the facial expression</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict: Facial expressions log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.update_facial_expressions">
+<span class="sig-name descname"><span class="pre">update_facial_expressions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expression</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">part</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mode'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mware</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yarp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.update_facial_expressions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.update_facial_expressions" title="Link to this definition"></a></dt>
+<dd><p>Control facial expressions of the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expression</strong> – str: Expression to be controlled</p></li>
+<li><p><strong>expression</strong> – str or tuple(str-&gt;part, str-&gt;emotion) or list[str] or list[tuple(str-&gt;part, str-&gt;emotion)]:
+Expression/s abbreviation or matching lookup table entry.
+If a list is provided, the actions are executed in sequence</p></li>
+<li><p><strong>part</strong> – str: Abbreviation describing parts to control (refer to iCub documentation) ( mou, eli, leb, reb, all, raw, LIGHTS)</p></li>
+<li><p><strong>smoothing</strong> – str: Name of smoothing filter to avoid abrupt changes in emotional expressions</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Emotion log for a given time step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.receive_images">
+<span class="sig-name descname"><span class="pre">receive_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cam_world_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_left_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_right_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_rgb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.receive_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.receive_images" title="Link to this definition"></a></dt>
+<dd><p>Receive images from the iCub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cam_world_port</strong> – str: Port to receive images from the world camera</p></li>
+<li><p><strong>cam_left_port</strong> – str: Port to receive images from the left camera</p></li>
+<li><p><strong>cam_right_port</strong> – str: Port to receive images from the right camera</p></li>
+<li><p><strong>img_width</strong> – int: Width of the image</p></li>
+<li><p><strong>img_height</strong> – int: Height of the image</p></li>
+<li><p><strong>_rgb</strong> – bool: Whether the image is RGB or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Images from the iCub</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.getPeriod">
+<span class="sig-name descname"><span class="pre">getPeriod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.getPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.getPeriod" title="Link to this definition"></a></dt>
+<dd><p>Get the period of the module.
+:return: float: Period of the module</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="examples.robots.icub_head.ICub.updateModule">
+<span class="sig-name descname"><span class="pre">updateModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">RFModule</span> <span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#ICub.updateModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.ICub.updateModule" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="examples.robots.icub_head.parse_args">
+<span class="sig-prename descclassname"><span class="pre">examples.robots.icub_head.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/examples/robots/icub_head.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#examples.robots.icub_head.parse_args" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-examples.robots">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-examples.robots" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.encoders.plugins.html" class="btn btn-neutral float-left" title="examples.encoders.plugins package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.sensors.html" class="btn btn-neutral float-right" title="examples.sensors package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

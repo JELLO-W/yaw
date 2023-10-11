@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Communication Patterns" href="User%20Guide/Communication%20Patterns.html" />
+    <link rel="prev" title="Getting Started" href="../readme_lnk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#argument-passing">Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closing-and-deleting-classes">Closing and Deleting Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="User%20Guide/Communication%20Patterns.html">Communication Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%20Guide/Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%20Guide/Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%20Guide/Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User%20Guide/Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/User Guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading"></a></h1>
+<p>To YAW your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yaw.connect.wrapper</span> <span class="kn">import</span> <span class="n">MiddlewareCommunicator</span>
+
+<span class="k">class</span> <span class="nc">TheClass</span><span class="p">(</span><span class="n">MiddlewareCommunicator</span><span class="p">)</span>
+        <span class="o">...</span>
+           
+        <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">encapsulated_method</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+            <span class="o">...</span>
+            <span class="k">return</span> <span class="n">encapsulated_a</span><span class="p">,</span> <span class="n">encapsulated_b</span>
+        
+        <span class="k">def</span> <span class="nf">encapsulating_method</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+            <span class="o">...</span>
+            <span class="n">encapsulated_a</span><span class="p">,</span> <span class="n">encapsulated_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encapsulated_method</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+            <span class="o">...</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">,</span>
+
+
+<span class="n">the_class</span> <span class="o">=</span> <span class="n">TheClass</span><span class="p">()</span>
+<span class="n">the_class</span><span class="o">.</span><span class="n">activate_communication</span><span class="p">(</span><span class="n">the_class</span><span class="o">.</span><span class="n">encapsulated_method</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;publish&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">the_class</span><span class="o">.</span><span class="n">encapsulating_method</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The primary component for facilitating communication is the <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code>. To register the
+methods for a given class, the class should inherit the <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code>. Any method decorated with
+<code class="docutils literal notranslate"><span class="pre">&#64;MiddlewareCommunicator.register(&lt;Data</span> <span class="pre">structure</span> <span class="pre">type&gt;,</span> <span class="pre">&lt;Communicator&gt;,</span> <span class="pre">&lt;Class</span> <span class="pre">name&gt;,</span> <span class="pre">&lt;Topic</span> <span class="pre">name&gt;)</span></code> is automatically registered by YAW.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;Data</span> <span class="pre">structure</span> <span class="pre">type&gt;</span></code> is the publisher/listener type for a given method’s return. The supported data
+types are listed <a class="reference internal" href="User%20Guide/Plugins.html#data-structure-types"><span class="std std-ref">here</span></a> section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;Communicator&gt;</span></code> defines the communication medium e.g.: <code class="docutils literal notranslate"><span class="pre">yarp</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>, <code class="docutils literal notranslate"><span class="pre">ros</span></code>, or <code class="docutils literal notranslate"><span class="pre">zeromq</span></code>. The default communicator is <code class="docutils literal notranslate"><span class="pre">zeromq</span></code> but can be replaced by setting the environment variables <code class="docutils literal notranslate"><span class="pre">YAW_DEFAULT_COMMUNICATOR</span></code> or <code class="docutils literal notranslate"><span class="pre">YAW_DEFAULT_MWARE</span></code> (<code class="docutils literal notranslate"><span class="pre">YAW_DEFAULT_MWARE</span></code> overrides <code class="docutils literal notranslate"><span class="pre">YAW_DEFAULT_COMMUNICATOR</span></code> when both are provided) to the middleware of choice e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">export</span> <span class="n">YAW_DEFAULT_COMMUNICATOR</span><span class="o">=</span><span class="n">yarp</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;Class</span> <span class="pre">name&gt;</span></code> serves no purpose in the current YAW version, but has been left for future support of module-level decoration,
+where the methods don’t belong to a class, and must therefore have a unique identifier for declaration in the
+<a class="reference internal" href="User%20Guide/Configuration.html#configuration"><span class="std std-ref">configuration files</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;Topic</span> <span class="pre">name&gt;</span></code> is the name used for the connected topic and is dependent on the middleware platform. The listener and publisher receive
+the same topic name.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;MiddlewareCommunicator.register</span></code> decorator is defined for each of the method’s returns in the
+same order. As shown in the example above, the first decorator defines the properties of <code class="docutils literal notranslate"><span class="pre">encapsulated_a</span></code>’s
+publisher and listener, whereas the second decorator belongs to <code class="docutils literal notranslate"><span class="pre">encapsulated_b</span></code>. A decorated method must always return a tuple which can easily
+be enforced by adding a <code class="docutils literal notranslate"><span class="pre">comma</span></code> after the return in case a single variable is returned. Lists are also supported for
+single returns e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">([</span><span class="o">...</span><span class="p">,</span> <span class="p">{</span><span class="o">...</span><span class="p">}],</span> <span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">{</span><span class="o">...</span><span class="p">}],</span> <span class="p">[</span><span class="o">...</span><span class="p">])</span>
+        <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">encapsulated_method</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+            <span class="o">...</span>
+            <span class="n">encapsulated_a</span> <span class="o">=</span> <span class="p">[[</span><span class="o">...</span><span class="p">],</span> <span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="p">[</span><span class="o">...</span><span class="p">]]</span>
+            <span class="o">...</span>
+            <span class="k">return</span> <span class="n">encapsulated_a</span><span class="p">,</span> <span class="n">encapsulated_b</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Methods with a single return should be followed by a comma e.g., return encapsulated a, . This explicitly casts the return as a tuple to avoid confusion with list returns as single return element/s</p>
+</div>
+<p>Each of the list’s returns is encapsulated with its own publisher and listener, with the named arguments transmitted as
+a single dictionary within the list. Notice that <code class="docutils literal notranslate"><span class="pre">encapsulated_a</span></code> returns a list of length 3, therefore, the first decorator contains
+3 list configurations as well. This is useful especially when transmitting multiple images or audio chunks over YARP, ROS, and ROS2.
+Note that by using a single <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> as a <code class="docutils literal notranslate"><span class="pre">&lt;Data</span> <span class="pre">structure</span> <span class="pre">type&gt;</span></code>, the same
+can be achieved. However, the implementation of the <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> for most middleware serializes the
+objects as strings before transmission. The <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> may result in a greater overhead and should only be used when multiple nesting depths are
+required or the objects within a list are not within the <a class="reference internal" href="#data-structure-types"><span class="xref myst">supported data structure types</span></a>.</p>
+<section id="argument-passing">
+<h2>Argument Passing<a class="headerlink" href="#argument-passing" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">$</span></code> symbol is used in YAW to specify that a decorator should update its arguments according to the arguments of the decorated method. This can be useful when the decorator needs to modify its behavior during runtime. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+        <span class="nd">@MiddlewareCommunicator</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;NativeObject&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;$0&#39;</span><span class="p">,</span> <span class="s1">&#39;ExampleCls&#39;</span><span class="p">,</span> <span class="s1">&#39;/example/example_arg_pass&#39;</span><span class="p">,</span> 
+           <span class="n">carrier</span><span class="o">=</span><span class="s1">&#39;tcp&#39;</span><span class="p">,</span> <span class="n">should_wait</span><span class="o">=</span><span class="s1">&#39;$blocking&#39;</span><span class="p">)</span>
+          <span class="k">def</span> <span class="nf">example_arg_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mware</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>Setting the decorator’s keyword argument <code class="docutils literal notranslate"><span class="pre">should_wait='$blocking'</span></code> expects the decorated method to receive a boolean <code class="docutils literal notranslate"><span class="pre">blocking</span></code> argument, altering the encapsulating decorator’s behavior when the encapsulated method is called. Setting the decorator’s second argument to <code class="docutils literal notranslate"><span class="pre">$0</span></code> acquires the value of <code class="docutils literal notranslate"><span class="pre">mware</span></code> (the first argument passed to <code class="docutils literal notranslate"><span class="pre">example_arg_pass</span></code>) and sets it as the middleware for that method. These arguments take effect on the first invocation of a method. Changing arguments after the first invocation results in no change in behavior, unless a <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code> inheriting class for a given method is <a class="reference internal" href="#closing-and-deleting-classes"><span class="xref myst">closed</span></a>.</p>
+</section>
+<section id="closing-and-deleting-classes">
+<h2>Closing and Deleting Classes<a class="headerlink" href="#closing-and-deleting-classes" title="Link to this heading"></a></h2>
+<p>Currently, closing a connection requires closing all connections established by every method within that class.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Selectively deactivating method connections is planned for YAW v0.5.0.</p>
+</div>
+<p>To close and delete a <code class="docutils literal notranslate"><span class="pre">MiddlewareCommunicator</span></code> inheriting class means that the middleware connection will be disconnected gracefully. The class references will be removed from all registries, the communication ports will be freed, and the instance will be destroyed. To close a class instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># assuming an existing instance-&gt; example_instance = ExampleCls()</span>
+<span class="n">example_instance</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">example_instance</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../readme_lnk.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="User%20Guide/Communication%20Patterns.html" class="btn btn-neutral float-right" title="Communication Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

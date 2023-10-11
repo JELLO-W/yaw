@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication Patterns &mdash; yaw 0.4.18 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/wide_theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=c0b7214d"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Communication Schemes" href="Communication%20Schemes.html" />
+    <link rel="prev" title="User Guide" href="../User%20Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            yaw
+          </a>
+              <div class="version">
+                0.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme_lnk.html#supported-formats">Supported Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User%20Guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Communication Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#publishers-and-listeners-subscribers-pub-sub">Publishers and Listeners/Subscribers (PUB/SUB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#servers-and-clients-req-rep">Servers and Clients (REQ/REP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publisher-and-listener-specific-arguments">Publisher- and Listener-specific Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Communication%20Schemes.html">Communication Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Environment%20Variables.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Plugins.html">Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">YAW Extensions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ros2_interfaces_lnk.html">Compiling ROS2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ros_interfaces_lnk.html">Compiling ROS interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yarp_install_lnk.html">YARP + iCub Setup and Instructions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.html">examples package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_patterns.html">examples.communication_patterns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.communication_schemes.html">examples.communication_schemes package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.custom_msgs.html">examples.custom_msgs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.html">examples.encoders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.encoders.plugins.html">examples.encoders.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.robots.html">examples.robots package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/examples.sensors.html">examples.sensors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples_docs/modules.html">examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yaw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Communication Patterns</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/User Guide/Communication Patterns.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communication-patterns">
+<h1>Communication Patterns<a class="headerlink" href="#communication-patterns" title="Link to this heading"></a></h1>
+<p>YAW supports the publisher-subscriber <a class="reference internal" href="#publishers-and-listeners-subscribers-pub-sub"><span class="xref myst">(PUB/SUB)</span></a> pattern as well as the request-reply <a class="reference internal" href="#servers-and-clients-req-rep"><span class="xref myst">(REQ/REP)</span></a> pattern.
+The PUB/SUB pattern assumes message arguments are passed from the publisher-calling script to the publishing method.
+The publisher executes the method and the subscriber (listener) merely triggers the method call, awaits the publisher to execute the method, and returns the publisher’s method returns.
+The REQ/REP pattern on the other hand assumes arguments from the client (requester) are sent to the server (responder or replier). Once the server receives the request, it passes the arguments
+to its own method, executes it, and replies to the client back with its method returns.</p>
+<section id="publishers-and-listeners-subscribers-pub-sub">
+<h2>Publishers and Listeners/Subscribers (PUB/SUB)<a class="headerlink" href="#publishers-and-listeners-subscribers-pub-sub" title="Link to this heading"></a></h2>
+<p>The publishers and listeners of the same message type should have identical constructor signatures. The current YAW version supports
+4 universal types of messages for all middleware. The extended types such as <code class="docutils literal notranslate"><span class="pre">ROSMessage</span></code> and <code class="docutils literal notranslate"><span class="pre">ROS2Message</span></code> are exclusive to the provided middleware.</p>
+<p><em>(YARP)</em>:</p>
+<p>All messages are transmitted using the yarp python bindings</p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image using either <code class="docutils literal notranslate"><span class="pre">yarp.BufferedPortImageRgb</span></code> or <code class="docutils literal notranslate"><span class="pre">yarp.BufferedPortImageFloat</span></code>.
+When JPG conversion is specified, it uses a <code class="docutils literal notranslate"><span class="pre">yarp.BufferedPortBottle</span></code> message carrying a JPEG encoded string instead</p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk with the sound properties using <code class="docutils literal notranslate"><span class="pre">yarp.Port</span></code> transporting <code class="docutils literal notranslate"><span class="pre">yarp.Sound</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">yarp.BufferedPortBottle</span></code></p></li>
+<li><p><strong>Properties</strong>: Transmits properties [<em>planned for YAW v0.5</em>]</p></li>
+</ul>
+<p><em>(ROS)</em>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ROS requires a custom message to handle audio. This message must be compiled first before using YAW with ROS Audio.
+Refer to <a class="reference external" href="ros_interfaces_lnk.html">these instructions for compiling YAW ROS services and messages</a>.</p>
+</div>
+<p>All messages are transmitted using the rospy python bindings as topic messages</p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image using <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.Image</span></code>. When JPG conversion is specified, uses the <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.CompressedImage</span></code> message instead</p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk using <code class="docutils literal notranslate"><span class="pre">yaw_ros_interfaces.msg.ROSAudioMessage</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code></p></li>
+<li><p><strong>Properties</strong>: Transmits and receives parameters  to/from the parameter server using the methods <code class="docutils literal notranslate"><span class="pre">rospy.set_param</span></code> and <code class="docutils literal notranslate"><span class="pre">rospy.get_param</span></code> respectively</p></li>
+<li><p><strong>ROSMessage</strong>: Transmits and receives a single <a class="reference external" href="http://wiki.ros.org/msg">ROS message</a> per return decorator. Note that currently, only common ROS interface messages
+are supported and detected automatically. This means that messages defined in common interfaces such as <a class="reference external" href="http://wiki.ros.org/std_msgs">std_msgs</a>,
+<a class="reference external" href="http://wiki.ros.org/geometry_msgs">geometry_msgs</a>, and <a class="reference external" href="http://wiki.ros.org/sensor_msgs">sensor_msgs</a> can be directly
+returned by the method do not need to be converted to native types</p></li>
+</ul>
+<p><em>(ROS2)</em>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ROS2 requires a custom message to handle audio. This message must be compiled first before using YAW with ROS2 Audio.
+Refer to <a class="reference external" href="ros2_interfaces_lnk.html">these instructions for compiling YAW ROS2 services and messages</a>.</p>
+</div>
+<p>All messages are transmitted using the rclpy python bindings as topic messages</p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image using <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.Image</span></code>. When JPG conversion is specified, uses the <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.CompressedImage</span></code> message instead</p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk using <code class="docutils literal notranslate"><span class="pre">yaw_ros2_interfaces.msg.ROS2AudioMessage</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code></p></li>
+<li><p><strong>Properties</strong>: Transmits properties [<em>planned for YAW v0.5</em>]</p></li>
+<li><p><strong>ROS2Message</strong>: Transmits and receives a single <a class="reference external" href="https://docs.ros.org/en/humble/Concepts/About-ROS-Interfaces.html">ROS2 message</a> per return decorator [<em>planned for YAW v0.5</em>]</p></li>
+</ul>
+<p><em>(ZeroMQ)</em>:</p>
+<p>All messages are transmitted using the zmq python bindings. Transmission follows the <a class="reference external" href="https://rfc.zeromq.org/spec/29/">proxied XPUB/XSUB pattern</a></p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image wrapped in the <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> construct. Note that all <code class="docutils literal notranslate"><span class="pre">Image</span></code> types
+are transmitted as multipart messages, where the first element is the topic name and the second element is the header (e.g., timestamp),
+and the third element is the image itself</p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk wrapped in the <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> construct</p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using
+<code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">context.socket(zmq.PUB).send_multipart</span></code> for publishing and <code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">context.socket(zmq.SUB).receive_multipart</span></code> for receiving messages.
+The <code class="docutils literal notranslate"><span class="pre">zmq.PUB</span></code> socket is wrapped in a <code class="docutils literal notranslate"><span class="pre">zmq.proxy</span></code> to allow multiple subscribers to the same publisher. Note that all <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> types
+are transmitted as multipart messages, where the first element is the topic name and the second element is the message itself (Except for <code class="docutils literal notranslate"><span class="pre">Image</span></code>)</p></li>
+<li><p><strong>Properties</strong>: Transmits properties [<em>planned for YAW v0.5</em>]</p></li>
+</ul>
+</section>
+<section id="servers-and-clients-req-rep">
+<h2>Servers and Clients (REQ/REP)<a class="headerlink" href="#servers-and-clients-req-rep" title="Link to this heading"></a></h2>
+<p>The servers and clients of the same message type should have identical constructor signatures. The current YAW version supports
+3 universal types of messages for all middleware. The extended types such as <code class="docutils literal notranslate"><span class="pre">ROSMessage</span></code> and <code class="docutils literal notranslate"><span class="pre">ROS2Message</span></code> are exclusive to the provided middleware.</p>
+<p><em>(YARP)</em>:</p>
+<p>All messages are transmitted using the yarp python bindings <a class="reference external" href="https://www.yarp.it/latest/rpc_ports.html">for RPC communication</a>.
+The requester encodes its arguments as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">yarp.Bottle</span></code>.
+The requester formats its arguments as <em>([args], {kwargs})</em></p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image encoded as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string using <code class="docutils literal notranslate"><span class="pre">yarp.Bottle</span></code>. <em>JPG conversion is currently not supported</em></p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk encoded as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string using <code class="docutils literal notranslate"><span class="pre">yarp.Bottle</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">yarp.Bottle</span></code></p></li>
+</ul>
+<p><em>(ROS)</em>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ROS requires a custom service to handle audio. This service must be compiled first before using YAW with ROS Audio.
+Refer to <a class="reference external" href="ros_interfaces_lnk.html">these instructions for compiling YAW ROS services and messages</a>.</p>
+</div>
+<p>All messages are transmitted using the rospy python bindings as services.
+The requester encodes its arguments as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code>.
+The requester formats its arguments as <em>([args], {kwargs})</em></p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image using <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.Image</span></code> <em>JPG conversion is currently not supported</em></p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk using <code class="docutils literal notranslate"><span class="pre">yaw_ros_interfaces.msg.ROSAudioMessage</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code></p></li>
+</ul>
+<p><em>(ROS2)</em>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ROS2 requires custom services to handle arbitrary messages. These services must be compiled first before using YAW in this mode.
+Refer to <a class="reference external" href="ros2_interfaces_lnk.html">these instructions for compiling YAW ROS2 services</a>.</p>
+</div>
+<p>All messages are transmitted using the rclpy python bindings as services.
+The requester encodes its arguments as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code>.
+The requester formats its arguments as <em>([args], {kwargs})</em></p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image using <code class="docutils literal notranslate"><span class="pre">sensor_messages.msg.Image</span></code></p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk using <code class="docutils literal notranslate"><span class="pre">yaw_ros2_interfaces.msg.ROS2AudioMessage</span></code></p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">std_msgs.msg.String</span></code></p></li>
+</ul>
+<p><em>(ZeroMQ)</em>:</p>
+<p>All messages are transmitted using the zmq python bindings. Transmission follows the <a class="reference external" href="http://wiki.zeromq.org/tutorials:dealer-and-router">proxied XREP/XREQ pattern</a>
+The requester encodes its arguments as a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using <code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">context.socket(zmq.REQ).send_multipart</span></code>.
+The requester formats its arguments as <em>([args], {kwargs})</em></p>
+<ul class="simple">
+<li><p><strong>Image</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">cv2</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> image wrapped in the <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> construct</p></li>
+<li><p><strong>AudioChunk</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> audio chunk wrapped in the <code class="docutils literal notranslate"><span class="pre">NativeObject</span></code> construct</p></li>
+<li><p><strong>NativeObject</strong>: Transmits and receives a <code class="docutils literal notranslate"><span class="pre">json</span></code> string supporting all native python objects, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, and <a class="reference internal" href="Plugins.html#data-structure-types"><span class="std std-ref">other formats</span></a> using
+<code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">context.socket(zmq.REP)</span></code> for replying and <code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">context.socket(zmq.REQ)</span></code> for receiving messages</p></li>
+</ul>
+</section>
+<section id="publisher-and-listener-specific-arguments">
+<h2>Publisher- and Listener-specific Arguments<a class="headerlink" href="#publisher-and-listener-specific-arguments" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Differences are expected between the returns of publishers and listeners, sometimes due to compression methods
+(e.g., setting <code class="docutils literal notranslate"><span class="pre">jpg=True</span></code> when transmitting an <strong>Image</strong> compresses the image but the encoding remains the same),
+intentional setting of different devices for different tensors (refer to <a class="reference internal" href="Plugins.html#device-mapping-for-tensors"><span class="std std-ref">device mapping for tensors</span></a>),
+and differences in library versions between receiving and transmitting plugins (refer to <a class="reference internal" href="Plugins.html#plugins"><span class="std std-ref">plugins</span></a>).</p>
+</div>
+<p>To direct arguments specifically toward the publisher or subscriber without exposing one or the other to the same argument values, the corresponding arguments can be added to the dictionary <code class="docutils literal notranslate"><span class="pre">listener_kwargs</span></code> to control the listener only, or <code class="docutils literal notranslate"><span class="pre">publisher_kwargs</span></code> to control the publisher only. Both dictionaries can be passed directly to the YAW decorator.
+Since the transmitting and receiving arguments should generally be the same regardless of the communication pattern, <code class="docutils literal notranslate"><span class="pre">publisher_kwargs</span></code> and <code class="docutils literal notranslate"><span class="pre">listener_kwargs</span></code> also apply to the servers and clients respectively.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../User%20Guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Communication%20Schemes.html" class="btn btn-neutral float-right" title="Communication Schemes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
